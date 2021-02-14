@@ -60,11 +60,11 @@
 
       <h1 class="logo me-auto"><a href="index.php">Compleo<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a>-->
+      <!-- <a href="index.php" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="index.php">Home</a></li>
           <li><a href="#about">Chi siamo</a></li>
           <li class="drop-down"><a href="#">Servizi</a>
             <ul>
@@ -144,41 +144,28 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>About</h2>
-          <h3>Find Out More <span>About Us</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
-        </div>
+          <h2>Chi siamo</h2>
+          <h3>Qualcosa in più su <span>Compleo</span></h3>
 
-        <div class="row">
+          <p>Compleo nasce con l'obiettivo di assicurare una vasta gamma di servizi a chiunque
+          desideri offrire la propria ... o che cerchi qualcuno per lo svolgimento di piccoli o 
+          grandi lavori.</p>
+
+        <div class="row mt-4">
           <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
             <img src="assets/img/about.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <h3>Offerte e Richieste di lavoro</h3>
             <p class="font-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              Su <span>Compleo</span> puoi trovare la persona giusta in grado di svolgere 
+              il lavoro che ti interessa oppure puoi essere tu stesso ad offrirti come 
+              esperto per lo svolgimento di un lavoro
             </p>
-            <ul>
-              <li>
-                <i class="bx bx-store-alt"></i>
-                <div>
-                  <h5>Ullamco laboris nisi ut aliquip consequat</h5>
-                  <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
-                </div>
-              </li>
-              <li>
-                <i class="bx bx-images"></i>
-                <div>
-                  <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                  <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
-                </div>
-              </li>
-            </ul>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
+            <h3>Il passaparola</h3>
+            <p>Noi crediamo che il parere dei clienti che hanno assunto i nostri
+                  esperti sia il modo migliore per qualificare il livello di professionalità
+                  raggiunto da chi offre una prestazione sul nostro sito
             </p>
           </div>
         </div>
