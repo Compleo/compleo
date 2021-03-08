@@ -8,6 +8,9 @@
         <div class="section-title">
           <h2>Il Team di Compleo</h2>
         </div>
+        <div class="col d-flex justify-content-center">
+              <img src="assets/img/team.jpg" class="img-fluid" alt="">
+        </div>
     </div>
 </section>
 
