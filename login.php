@@ -1,5 +1,6 @@
 <?php
-      include_once('top.php');
+  session_start();
+  include_once('top.php');
 ?>
 
 <!-- ======= About Section ======= -->
@@ -14,14 +15,14 @@
         <div class="container-fluid">
           <div class="row main-content bg-success text-center">
             <div class="col-md-4 text-center company__info">
-              <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
+              <span class="company__logo"></span>
               <h4 class="company_title">Compleo</h4>
               <img width="100%" src="assets/img/login.png" />
             </div>
             <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
               <div class="container-fluid">
               <div class="row">
-              <form control="" class="form-group">
+              <form action="login_verifica.php" class="form-group" method="POST">
                 <div class="row">
                   <input type="text" name="username" id="username" class="form__input" placeholder="Username">
                 </div>
