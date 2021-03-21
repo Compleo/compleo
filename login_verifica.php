@@ -11,7 +11,7 @@
 
     /* Preparazione dell'interrogazione SQL con uso di parametri */
     $dsn = "mysql:host=$server;dbname=$db;";
-    $sql = "SELECT * FROM Utente;";
+    $sql = "SELECT * FROM Utente WHERE Account='$user';";
 
     try {
 
@@ -19,13 +19,13 @@
       $connessione = new PDO($dsn, $userdb, $userps);
 
       $sql_ris = $connessione->query($sql);
-      $user_dati = $sql_ris->fetch(PDO::FETCH_OBJ);
+      $user_dati = $sql_ris->fetch(PDO::FETCH_OBJ);  
 
       if ($user_dati) {
 
-        if ($user_dati->password == $pass) {
+        if ($user_dati->Password == $pass) {
           /* Le password coincidono, l'utente è autenticato */
-          $_SESSION['login'] = $user;
+          $_SESSION['login'] = $user_dati;
           $_SESSION['errore'] = "";
           header('Location:index.php');
         }

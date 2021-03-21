@@ -76,7 +76,12 @@
           </li>
           <li><a href="team.php">Team</a></li>
           <li><a href="contatti.php">Contatti</a></li>
-          <li><a href="login.php">Accedi</a></li>
+          <li class="drop-down"><a href="#"><i class="icofont-user"></i></a>
+            <ul>
+              <li><a href="profilo.php">Profilo</a></li>
+              <li><a href="logout.php">Esci</a></li>
+            </ul>
+          </li>
 
         </ul>
       </nav><!-- .nav-menu -->

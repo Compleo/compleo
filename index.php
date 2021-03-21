@@ -1,5 +1,13 @@
 <?php
-      include_once('top.php');
+session_start();
+
+if (isset($_SESSION['login'])) {
+  include_once('top_login.php');
+}
+else {
+  include_once('top.php');
+}
+
 ?>
 
   <!-- ======= Hero Section ======= -->
@@ -143,8 +151,8 @@
 
         <div class="section-title">
           <h2>Portfolio</h2>
-          <h3>Check our <span>Portfolio</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          <h3>Le attività più richieste di <span>Compleo</span></h3>
+          <p>Ecco le attivit&agrave; che nell'ultimo mese sono state fra le più richieste!</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">

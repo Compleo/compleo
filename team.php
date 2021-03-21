@@ -1,5 +1,13 @@
 <?php
-      include_once('top.php');
+  session_start();
+
+  if (isset($_SESSION['login'])) {
+    include_once('top_login.php');
+  }
+  else {
+    include_once('top.php');
+    header('Location:index.php');
+  }
 ?>
 
 
