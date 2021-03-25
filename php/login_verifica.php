@@ -1,21 +1,15 @@
 <?php
   session_start();
 
-  include_once('./api/compleo-api.php');
+  include_once('./api/abstract/compleo-api-user.php');
 
   if (isset($_POST['username']) && isset($_POST['password'])) {
 
     $user = $_POST['username'];
     $pass = md5($_POST['password']);
 
-    $data_array = array(
-      "username"      => $user,
-      "password"      => $pass,
-    );
-
     try {
-      $api_call = callAPI('POST', '127.0.0.1:5051/user', json_encode($data_array));
-      $response = json_decode($api_call, true);
+      $response = getUserByUsernameAndPassword($user, $pass);
 
       if(isset($response["message"]) && $response["message"] == "userNotFound")
       {

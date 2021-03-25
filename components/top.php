@@ -66,12 +66,6 @@
         <ul>
           <li class="active"><a href="index.php">Home</a></li>
           <li><a href="chisiamo.php">Chi siamo</a></li>
-          <li class="drop-down"><a href="#">Servizi</a>
-            <ul>
-              <li><a href="#">Offerta</a></li>
-              <li><a href="#">Ricerca</a></li>
-            </ul>
-          </li>
           <li><a href="team.php">Team</a></li>
           <li><a href="contatti.php">Contatti</a></li>
           <li><a href="login.php">Accedi</a></li>
