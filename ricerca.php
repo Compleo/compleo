@@ -1,12 +1,11 @@
 <?php
   session_start();
 
-  $login = null;
+  $n = "Cerca un Lavoro";
 
-  if (isset($_SESSION['login'])) 
+  if (isset($_SESSION['login']) && $_SESSION['login'] == true) 
   {
-    include_once('top_login.php');
-    $login = $_SESSION['login'];
+    include_once('./components/top-logged.php');
   }
   else 
   {
@@ -19,12 +18,14 @@
     <div class="container" data-aos="zoom-out" data-aos-delay="100"> 
         <div class="section-title">
           <h2>Ricerca</h2>
+          <h3>BETA</h3> <br>
+          <form action="./php/find-activity.php" method="GET">
+          </form>
         </div>
     </div>
 </section>
 
 
 <?php
-include_once('footer.php');
-
+  include_once('./components/footer.php');
 ?>

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
+
+<!-- CAMBIARE NECESSARIAMENTE QUESTO FRONTEND (PLS) !-->
 
 <head>
   <meta charset="utf-8">
@@ -71,7 +73,7 @@
           <li class="drop-down"><a href="#">Servizi</a>
             <ul>
               <li><a href="offerta.php">Offerta</a></li>
-              <li><a href="#">Ricerca</a></li>
+              <li><a href="ricerca.php">Ricerca</a></li>
             </ul>
           </li>
           <li><a href="team.php">Team</a></li>
