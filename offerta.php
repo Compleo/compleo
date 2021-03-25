@@ -16,19 +16,13 @@
   }
 ?>
 
-<div class="container">
-    <form action="php/offerta_processor.php" class="form-group" method="post">
-        <div class="form-group">
-
+<section id="offerta" class="about d-flex align-items-center">
+    <div class="container" data-aos="zoom-out" data-aos-delay="100"> 
+        <div class="section-title">
+          <h2>Offerta</h2>
         </div>
-        <div class="form-group">
-        
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Invia" class="btn">
-        </div>
-    </form>
-</div>
+    </div>
+</section>
 
 <?php
   include_once('./components/footer.php');

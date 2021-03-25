@@ -3,7 +3,7 @@
   $n = "Home";
 
 
-  if (isset($_SESSION['login'])) {
+  if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
     include_once('./components/top-logged.php');
   }
   else {

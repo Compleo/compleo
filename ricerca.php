@@ -3,12 +3,13 @@
 
   $login = null;
 
-  if (isset($_SESSION['login'])) {
+  if (isset($_SESSION['login'])) 
+  {
     include_once('top_login.php');
     $login = $_SESSION['login'];
   }
-  else {
-    include_once('top.php');
+  else 
+  {
     header('Location:index.php');
   }
 ?>

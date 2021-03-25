@@ -2,7 +2,12 @@
   session_start();
   $n = "Contatti";
 
-  include_once('components/top.php');
+  if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+    include_once('./components/top-logged.php');
+  }
+  else {
+    include_once('./components/top.php');
+  }
 ?>
 
 <section id="contatti" class="about d-flex align-items-center">

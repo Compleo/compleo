@@ -4,7 +4,9 @@
 
   include_once('./components/top.php');
 
-  //TODO: CONTROLLA CHE NON SIA LOGGATO
+  if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+    header("location: profilo.php");
+  }
 ?>
 
 <!-- ======= Login Section ======= -->
@@ -22,7 +24,7 @@
               <div class="row">
               <form action="php/login_verifica.php" class="form-group" method="post">
                 <?php
-                  if(isset($_SESSION['errore'])) {
+                  if(isset($_SESSION['errore']) && $_SESSION['errore'] != "") {
                     echo '
                       <div class="row">
                         <div class="alert alert-danger" role="alert">
