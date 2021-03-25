@@ -7,7 +7,7 @@
   //TODO: CONTROLLA CHE NON SIA LOGGATO
 ?>
 
-<!-- ======= About Section ======= -->
+<!-- ======= Login Section ======= -->
 <section id="login" class="about d-flex align-items-center">
 <div class="container" data-aos="zoom-out" data-aos-delay="100">  
         <div class="container-fluid">
@@ -35,7 +35,6 @@
                   <input type="text" name="username" id="username" class="form__input" placeholder="Username">
                 </div>
                 <div class="row">
-                  <!-- <span class="fa fa-lock"></span> -->
                   <input type="password" name="password" id="password" class="form__input" placeholder="Password">
                 </div>
                 <div class="form-check">

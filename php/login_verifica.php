@@ -22,12 +22,13 @@
         $_SESSION['errore'] = "Account e/o password non corrispondono...";
         header('Location: ..\login.php');
       } else {
-        $_SESSION['login'] = $response;
+        $_SESSION['datiUtente'] = $response;
+
+        $_SESSION['login'] = true;
+
         $_SESSION['errore'] = "";
         header('Location: ..\index.php');
       }
-
-      //exit();
     } catch (Exception $e) {
     
       /* da sostituire con una alert, se necessario */
