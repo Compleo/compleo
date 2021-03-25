@@ -1,19 +1,21 @@
 <?php
-session_start();
+  session_start();
+  $n = "Home";
 
-if (isset($_SESSION['login'])) {
-  include_once('top_login.php');
-}
-else {
-  include_once('top.php');
-}
+
+  if (isset($_SESSION['login'])) {
+    include_once('./components/top-logged.php');
+  }
+  else {
+    include_once('./components/top.php');
+  }
 
 ?>
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
-      <h1>Benvenuti su <span>Compleo</spa>
+      <h1>Benvenuti su <span>Compleo</span>
       </h1>
       <h2>Piccoli servizi al completo</h2>
       <div class="d-flex">
@@ -151,8 +153,8 @@ else {
 
         <div class="section-title">
           <h2>Portfolio</h2>
-          <h3>Le attività più richieste di <span>Compleo</span></h3>
-          <p>Ecco le attivit&agrave; che nell'ultimo mese sono state fra le più richieste!</p>
+          <h3>Check our <span>Portfolio</span></h3>
+          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -263,8 +265,6 @@ else {
       </div>
     </section><!-- End Portfolio Section -->
 
-
-
 <?php
-    include_once('footer.php');
+    include_once('./components/footer.php');
 ?>
