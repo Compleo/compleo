@@ -28,4 +28,21 @@ function getUserByUsernameAndPassword($username, $password) {
       return $response;
 }
 
+function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $provincia, $telefono, $username, $password) {
+  $data_array = array(
+    "nome"      => $nome,
+    "cognome"      => $cognome,
+    "cf"      => $cf,
+    "indirizzo"      => $indirizzo,
+    "citta"      => $citta,
+    "telefono"      => $telefono,
+    "provincia"      => $provincia,
+    "regione"      => $regione,
+    "username"      => $username,
+    "password"      => $password,
+  );
+
+  callAPI('PUT', usrRoor, json_encode($data_array));
+}
+
 ?>
