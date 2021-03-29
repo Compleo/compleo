@@ -1,30 +1,210 @@
 <?php
 
-//CLASSI CHE RAPPRESENTANO IL FILE 'italia.json'
+//ASTRAZIONE CLASSI PER IL FILE 'italia.json'
 
-class Comuni 
+class Comuni
 {
-    public $code; //String
-    public $cap; //String
-    public $nome; //String 
+    /**
+     * @var string
+     */
+    private $code;
+
+    /**
+     * @var string
+     */
+    private $cap;
+
+    /**
+     * @var string
+     */
+    private $nome;
+
+
+    /**
+     * @return string|null
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string|null $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCap()
+    {
+        return $this->cap;
+    }
+
+    /**
+     * @param string|null $cap
+     */
+    public function setCap($cap)
+    {
+        $this->cap = $cap;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @param string|null $nome
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
 }
 
 class Province
 {
-    public $code; //String
-    public $comuni; //array( Comuni )
-    public $nome; //String  
+    /**
+     * @var string
+     */
+    private $code;
+
+    /**
+     * @var array
+     */
+    private $comuni;
+
+    /**
+     * @var string
+     */
+    private $nome;
+
+
+    /**
+     * @return string|null
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string|null $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getComuni()
+    {
+        return $this->comuni;
+    }
+
+    /**
+     * @param array|null $comuni
+     */
+    public function setComuni($comuni)
+    {
+        $this->comuni = $comuni;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @param string|null $nome
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
 }
 
-class Regioni 
+class Regioni
 {
-    public $province; //array( Province )
-    public $nome; //String  
+    /**
+     * @var array
+     */
+    private $province;
+
+    /**
+     * @var string
+     */
+    private $nome;
+
+
+    /**
+     * @return array|null
+     */
+    public function getProvince()
+    {
+        return $this->province;
+    }
+
+    /**
+     * @param array|null $province
+     */
+    public function setProvince($province)
+    {
+        $this->province = $province;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @param string|null $nome
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
 }
 
-class Application 
+class Italia
 {
-    public $regioni; //array( Regioni )
+    /**
+     * @var array
+     */
+    private $regioni;
+
+
+    /**
+     * @return array|null
+     */
+    public function getRegioni()
+    {
+        return $this->regioni;
+    }
+
+    /**
+     * @param array|null $regioni
+     */
+    public function setRegioni($regioni)
+    {
+        $this->regioni = $regioni;
+    }
 }
 
-?>
+            

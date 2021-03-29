@@ -69,6 +69,7 @@
           <li><a href="team.php">Team</a></li>
           <li><a href="contatti.php">Contatti</a></li>
           <li><a href="login.php">Accedi</a></li>
+          <li><a href="registraUtente.php">Registrati</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
