@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $n = "Login";
+  $n = "Registrazione";
 
   include_once('./components/top.php');
   $json = json_decode('')
@@ -8,7 +8,7 @@
 ?>
 
 <!-- ======= Login Section ======= -->
-<section id="login" class="about d-flex align-items-center">
+<section id="registrazione" class="about d-flex align-items-center">
 <div class="container" data-aos="zoom-out" data-aos-delay="100">  
    <form action="php/registraUtente_verifica.php" style="margin-top: 100px;" method="POST">
     <div class="row">
@@ -32,16 +32,20 @@
       <input class="col-6" type="text" name="regione">
     </div>
     <div class="row">
-      <p class="col-6">Province</p>
+      <p class="col-6">Provincia</p>
       <input class="col-6" type="text" name="provincia">
     </div>
     <div class="row">
-      <p class="col-6">Comuni</p>
+      <p class="col-6">ComunE</p>
       <input class="col-6" type="text" name="comune">
     </div>
     <div class="row">
       <p class="col-6">Telefono</p>
       <input class="col-6" type="text" name="telefono">
+    </div>
+    <div class="row">
+      <p class="col-6">Email</p>
+      <input class="col-6" type="text" name="email">
     </div>
     <div class="row">
       <p class="col-6">Username</p>
@@ -60,11 +64,11 @@
 <script>
   function sbloccaProvince()
   {
-
+    //TODO: IMPLEMENTA
   }
   function sbloccaComuni()
   {
-
+    //TODO: IMPLEMENTA
   }
 </script>
 

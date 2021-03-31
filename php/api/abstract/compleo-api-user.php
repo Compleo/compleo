@@ -29,16 +29,17 @@ function getUserByUsernameAndPassword($username, $password) {
       return $response;
 }
 
-function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $provincia, $telefono, $username, $password) {
+function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $provincia, $telefono, $email, $username, $password) {
   $data_array = array(
     "nome"      => $nome,
     "cognome"      => $cognome,
     "cf"      => $cf,
     "indirizzo"      => $indirizzo,
     "citta"      => $citta,
-    "telefono"      => $telefono,
-    "provincia"      => $provincia,
     "regione"      => $regione,
+    "provincia"      => $provincia,
+    "telefono"      => $telefono,
+    "email"      => $email,
     "username"      => $username,
     "password"      => $password,
   );

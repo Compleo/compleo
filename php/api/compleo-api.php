@@ -37,7 +37,7 @@ function callAPI($method, $url, $data){
     }
     echo curl_error($curl);
     curl_close($curl);
-    die();
+    //die();
     return $result;
 }
 

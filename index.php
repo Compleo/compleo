@@ -20,7 +20,6 @@
       <h2>Piccoli servizi al completo</h2>
       <div class="d-flex">
         <a href="#about" class="btn-get-started scrollto">Ricerca</a>
-        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Chi siamo <i class="icofont-play-alt-2"></i></a>
       </div>
     </div>
   </section><!-- End Hero -->
