@@ -36,7 +36,7 @@
       <input class="col-6" type="text" name="provincia">
     </div>
     <div class="row">
-      <p class="col-6">ComunE</p>
+      <p class="col-6">Comune</p>
       <input class="col-6" type="text" name="comune">
     </div>
     <div class="row">
@@ -54,6 +54,10 @@
     <div class="row">
       <p class="col-6">Password</p>
       <input class="col-6" type="text" name="password">
+    </div>
+    <div class="row">
+      <p class="col-6">Riperi la Password</p>
+      <input class="col-6" type="text" name="password2">
     </div>
     <input type="submit" value="Registrati">
 

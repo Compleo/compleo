@@ -12,8 +12,9 @@
    $email = isset($_POST['email']) ? $_POST['email'] : null;
    $username = isset($_POST['username']) ? $_POST['username'] : null;
    $password = isset($_POST['password']) ? md5($_POST['password']) : null;
+   $password2 = isset($_POST['password2']) ? md5($_POST['password2']) : null;
 
-   if($nome != null && $cognome != null && $cf != null && $indirizzo != null && $regione != null && $provincia != null && $comune != null && $telefono != null && $username != null && $password != null)
+   if($nome != null && $cognome != null && $cf != null && $indirizzo != null && $regione != null && $provincia != null && $comune != null && $telefono != null && $username != null && $password != null && $password == $password2)
    {
       //i dati vanno bene
       registraUtente($nome, $cognome, $cf, $indirizzo, $comune, $regione, $provincia, $telefono, $email, $username, $password);
