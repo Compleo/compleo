@@ -12,11 +12,6 @@ function callAPI($method, $url, $data){
           if ($data)
              curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
           break;
-       case "PUT":
-         curl_setopt($curl, CURLOPT_PUT, 1);
-         if ($data)
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-          break;
        default:
           if ($data)
              $url = sprintf("%s?%s", $url, http_build_query($data));
@@ -35,10 +30,23 @@ function callAPI($method, $url, $data){
     {
        die(curl_error($curl));
     }
-    echo curl_error($curl);
     curl_close($curl);
-    //die();
+
     return $result;
+}
+
+//Code from: https://stackoverflow.com/questions/5043525/php-curl-http-put
+function callApiPUT($url, $data)
+{
+   $ch = curl_init($url);
+   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+   curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));
+
+   $response = curl_exec($ch);
+   if(!$response) {
+       return false;
+   }
 }
 
 ?>

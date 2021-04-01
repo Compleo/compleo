@@ -4,7 +4,6 @@
 include_once("./api/compleo-api.php");
 
 const usrRoor = root."user";
-const usrAddRoor = root."addUser";
 
 function getUserByUsername($username) {
     $data_array = array(
@@ -29,7 +28,7 @@ function getUserByUsernameAndPassword($username, $password) {
       return $response;
 }
 
-function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $provincia, $telefono, $email, $username, $password) {
+function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $provincia, $telefono, $email, $password) {
   $data_array = array(
     "nome"      => $nome,
     "cognome"      => $cognome,
@@ -40,11 +39,10 @@ function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $pro
     "provincia"      => $provincia,
     "telefono"      => $telefono,
     "email"      => $email,
-    "username"      => $username,
     "password"      => $password,
   );
 
-  callAPI('POST', usrAddRoor, json_encode($data_array));
+  callApiPUT(usrRoor, $data_array);
 }
 
 ?>

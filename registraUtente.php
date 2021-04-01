@@ -48,10 +48,6 @@
       <input class="col-6" type="text" name="email">
     </div>
     <div class="row">
-      <p class="col-6">Username</p>
-      <input class="col-6" type="text" name="username">
-    </div>
-    <div class="row">
       <p class="col-6">Password</p>
       <input class="col-6" type="text" name="password">
     </div>
