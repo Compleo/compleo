@@ -26,7 +26,7 @@
           Codice Fiscale: <?php echo $usr["cf"]; ?> <br>
           Indirizzo: <?php echo $usr["indirizzo"]; ?> <br>
           Numero di Telefono: <?php echo $usr["telefono"]; ?> <br>
-          Indirizzo: <?php echo $usr["citta"]; echo ", "; echo $usr["indirizzo"]; echo " (". $usr["provincia"]. ")"; ?> <br>
+          Indirizzo: <?php echo $usr["citta"]["nome"]; echo ", "; echo $usr["indirizzo"]; echo " (". $usr["citta"]["provincia"]. ")"; ?> <br>
         </div>
     </div>
 </section>

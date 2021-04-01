@@ -45,4 +45,8 @@ function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $pro
   callApiPUT(usrRoor, $data_array);
 }
 
+function rimuoviUtente($id) {
+  //TODO: IMPLEMENTA
+}
+
 ?>
