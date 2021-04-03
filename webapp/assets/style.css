@@ -41,7 +41,11 @@
 
 
   #login-form{
-    max-width: 50%;
+    max-width: 30%;
     padding-top: 10em;
     
+  }
+
+  #check-remember{
+    padding-top: 2em;
   }
