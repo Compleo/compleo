@@ -34,13 +34,19 @@
                         <form class="ui form" method="POST" action="../php/login_verifica.php">
                             <div class="field">
                                 <label>Username</label>
-                                <input type="text" name="username" id="username" placeholder="Username">
+                                <div class="ui left icon input">
+                                    <i class="user icon"></i>
+                                    <input type="text" name="username" id="username" placeholder="Username">
+                                </div>
                             </div>
                             <div class="field">
                                 <label>Password</label>
-                                <input type="password" name="password" id="password" placeholder="Password">
+                                <div class="ui left icon input">
+                                    <i class="lock icon"></i>
+                                    <input type="password" name="password" id="password" placeholder="Password">
+                                </div>
                             </div>
-                            <div class="field">
+                            <div class="field" id="check-remember">
                                 <div class="ui checkbox">
                                 <input type="checkbox" tabindex="0" class="hidden">
                                 <label>Ricordami</label>

@@ -8,7 +8,7 @@
 
 <html lang="it">
     <head>
-        <title>Compleo - Login</title>
+        <title>Compleo - Registrati</title>
 
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
