@@ -1,0 +1,10 @@
+.parent {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  .child {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
