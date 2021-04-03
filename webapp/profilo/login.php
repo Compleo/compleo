@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./assets/semantic/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/style.css">
 
 
 </head>
@@ -20,7 +20,7 @@
                 Home
             </a>
             <a class="item">
-                        Offerte
+                Offerte
             </a>
         </div>
     </div>
@@ -44,13 +44,13 @@
                         <div class="ui left icon input">
                             <i class="lock icon"></i>
                             <input type="password" name="password" placeholder="Password">
-                    </div>
-                    <div class="field" id="check-remember">
-                                <div class="ui checkbox">
+                        </div>
+                        <div class="field" id="check-remember">
+                            <div class="ui checkbox">
                                 <input type="checkbox" tabindex="0" class="hidden">
                                 <label>Ricordami</label>
-                                </div>
-                    </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="ui fluid large teal submit primary button">Login</div>
                 </div>
