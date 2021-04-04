@@ -172,7 +172,7 @@
                                     </div>
                                 </div>
                                 <button class="ui button" type="submit">Aggiorna</button>
-                                <a href=""> <? //TODO: IMPLEMENTARE PAGINA E API PER ELIMINARE L'ACCOUNT; CHIEDERE CONFERMA PRIMA DI PROCEDERE ?>
+                                <a href="../php/elimina-account.php"> <? //TODO: IMPLEMENTARE PAGINA E API PER ELIMINARE L'ACCOUNT; CHIEDERE CONFERMA PRIMA DI PROCEDERE ?>
                                     <button class="ui negative button">Elimina Account</button>
                                 </a>
                                 <br>
