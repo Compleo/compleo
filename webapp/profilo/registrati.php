@@ -22,7 +22,7 @@
                     <a class="item" href="../">
                         Home
                     </a>
-                    <a class="item">
+                    <a class="item" href="../offerte/">
                         Offerte
                     </a>
                 </div>
