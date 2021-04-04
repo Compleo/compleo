@@ -48,7 +48,11 @@ function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $pro
 }
 
 function rimuoviUtente($id) {
-  //TODO: IMPLEMENTA
+  $data_array = array(
+    "id"      => $id,
+  );
+
+  callAPI("DELETE", usrRoor, $data_array);
 }
 
 ?>

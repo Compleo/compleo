@@ -11,10 +11,12 @@
         THE FOLLOWING SOURCE CODE IS CLOSED SOURCE, COPYRIGHT (C) 2021 - COMPLEO
     */
 
+    session_start();
+
     include_once("./api/abstract/compleo-api-user.php");
 
-    if (isset($_SESSION["datiUtente"])) {
-        $usr = $_SESSION["datiUtente"];
+    if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+        $usr = $_SESSION['datiUtente'];
         
         $id = $usr["id"];
 
@@ -22,7 +24,7 @@
 
         rimuoviUtente($id);
 
-        header("location: ../profilo/login.php");   //REDIRECT ALLA PAGINA DI LOGIN
+        header("location: ./logout.php");   //REDIRECT ALLA PAGINA DI LOGIN
     } else {
         header("location: ../");
     }

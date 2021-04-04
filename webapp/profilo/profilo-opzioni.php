@@ -172,15 +172,24 @@
                                     </div>
                                 </div>
                                 <button class="ui button" type="submit">Aggiorna</button>
-                                <a href="../php/elimina-account.php"> <? //TODO: IMPLEMENTARE PAGINA E API PER ELIMINARE L'ACCOUNT; CHIEDERE CONFERMA PRIMA DI PROCEDERE ?>
-                                    <button class="ui negative button">Elimina Account</button>
-                                </a>
                                 <br>
                                 <p class="lead">
                                     (Se hai sbagliato ad inserire dati non modificabili in fase di registrazione contatta l'assistenza)
                                 </p>
                                 
-                            </form>       
+                            </form> 
+                            <hr>  
+                            <div class="ui negative message">
+                                <div class="header">
+                                    Sezione Pericolosa
+                                </div>
+                                <p>
+                                    LE SEGUENTI FUNZIONI SONO IRREVERSIBILI, PENSARE PRIMA DI ESEGUIRE <br> <br>
+                                    <a href="../php/elimina-account.php"> <? //TODO: IMPLEMENTARE PAGINA E API PER ELIMINARE L'ACCOUNT; CHIEDERE CONFERMA PRIMA DI PROCEDERE ?>
+                                        <button class="ui negative button">Elimina Account</button>
+                                    </a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
