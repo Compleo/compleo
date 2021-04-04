@@ -59,7 +59,7 @@
                                         '.$usr["nome"].' '.$usr["cognome"].'
                                         <i class="dropdown icon"></i>
                                         <div class="menu">
-                                            <a class="active item" href="../">Profilo</a>
+                                            <a class="item" href="../">Profilo</a>
                                             <a class="item" href="../../chat">Chat</a>
                                             <a class="item" href="../../php/logout.php">Esci</a>
                                         </div>
