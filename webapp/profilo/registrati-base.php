@@ -117,7 +117,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="ui button" type="submit">Registrati</button> Sei registrato? Clicca <a href="./login.php">qui</a>
+                            <button class="ui button" type="submit">Registrati</button> Sei già registrato? Clicca <a href="./login.php">qui</a>
                         </div>
                         
                         </form>
@@ -155,7 +155,7 @@
             $(document).ready(function(){
                 $('.select-provincia').change(function(){
                     //Selected value
-                    var selectedRegione = $(this).dropdown('get value');
+                    var selectedProvincia = $(this).dropdown('get value');
 
                     if(regioneSelezionata)
                     {
