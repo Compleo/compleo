@@ -28,7 +28,7 @@ function getUserByUsernameAndPassword($username, $password) {
       return $response;
 }
 
-function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $provincia, $telefono, $email, $password) {
+function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $provincia, $telefono, $email, $livello, $piva, $password) {
   $data_array = array(
     "nome"      => $nome,
     "cognome"      => $cognome,
@@ -38,6 +38,8 @@ function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $pro
     "regione"      => $regione,
     "provincia"      => $provincia,
     "telefono"      => $telefono,
+    "livello"      => $livello,
+    "piva"      => $piva,
     "email"      => $email,
     "password"      => $password,
   );

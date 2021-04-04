@@ -65,7 +65,7 @@
                             ?>
                         </p>
                         <p class="lead">
-                            Account di livello [LIVELLO]
+                            Account di livello <b><?php echo $usr["livello"]; ?></b>
                         </p>
                     </div>
                     <hr>

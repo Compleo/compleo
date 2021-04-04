@@ -65,7 +65,7 @@
                             ?>
                         </p>
                         <p class="lead">
-                            Account di livello [LIVELLO]
+                            Account di livello <b><?php echo $usr["livello"]; ?></b>
                         </p>
                     </div>
                     <hr>
@@ -101,6 +101,33 @@
                     </tbody>
                 </table> <br>
                 (Le seguenti informazioni possono essere modifate, ove possibile, nella sezione Opzioni)
+                <table class="ui celled table">
+                    <thead>
+                        <tr><th>Livello</th>
+                        <?php 
+                            if ($usr["livello"] == "Completo") {
+                                echo "<th>Partita IVA</th>";
+                            }
+                        ?>
+                    </tr></thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Livello"><?php echo $usr["livello"]?></td>
+                            <?php 
+                                if ($usr["livello"] == "Completo") {
+                                    echo '<td data-label="Partita IVA">'.$usr["piva"].'</td>
+                                    ';
+                                }
+                            ?>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <?php 
+                        if ($usr["livello"] != "Completo") {
+                            echo '(Puoi passare in qualsiasi momento ad un account di livello Completo passando dalla sezioni Opzioni)
+                        ';
+                    }
+                ?>
             </div>
         </div>
 
