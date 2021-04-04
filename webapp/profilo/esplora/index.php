@@ -2,13 +2,10 @@
     session_start();
 
     include_once("../../php/api/abstract/compleo-api-user.php");
+    include_once("../../php/api/abstract/compleo-api-recensioni.php");
 
     if(isset($_GET["usr"]) && $_GET["usr"] != "") {
         $userToSearch = $_GET["usr"];
-
-        if(isset($_SESSION["datiUtente"]) && $_SESSION["datiUtente"] == $userToSearch) {
-            header("lcoation ../");
-        }
 
         $response = getUserByUsername($userToSearch);
 
@@ -107,7 +104,7 @@
                     <a class="active item" href="./?usr=<?php echo $userToSearch; ?>">Lavori</a>
                     <a class="item" href="./profilo-informazioni.php?usr=<?php echo $userToSearch; ?>">Informazioni</a>
                 </div>
-                <h1>DA IMPLEMENTARE</h1>
+                <h1>DA IMPLEMENTARE</h1> <?php //INSERIRE IL CODICE PER MOSTRARE LE RECENSIONI ?>
             </div>
         </div>
 

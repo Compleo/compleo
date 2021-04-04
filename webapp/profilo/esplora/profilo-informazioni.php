@@ -6,10 +6,6 @@
     if(isset($_GET["usr"]) && $_GET["usr"] != "") {
         $userToSearch = $_GET["usr"];
 
-        if(isset($_SESSION["datiUtente"]) && $_SESSION["datiUtente"] == $userToSearch) {
-            header("lcoation ../");
-        }
-
         $response = getUserByUsername($userToSearch);
 
         if(isset($response["message"]) && $response["message"] == "error") {

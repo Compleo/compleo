@@ -1,5 +1,7 @@
 <?php
     session_start();
+
+    include_once("../php/api/abstract/compleo-api-recensioni.php");
 ?>
 
 <html lang="it">
@@ -81,6 +83,7 @@
                     <a class="item" href="./profilo-informazioni.php">Informazioni</a>
                     <a class="item" href="./profilo-opzioni.php">Opzioni</a>
                 </div>
+                <h1>DA IMPLEMENTARE</h1> <?php //INSERIRE IL CODICE PER MOSTRARE LE RECENSIONI ?>
             </div>
         </div>
 
