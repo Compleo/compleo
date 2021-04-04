@@ -1,13 +1,13 @@
 <?php
 
 //ASTRAZIONE PER GESTIRE GLI UTENTI
-include_once("./api/compleo-api.php");
+include_once(__DIR__  . "/../compleo-api.php");
 
 const usrRoor = root."user";
 
 function getUserByUsername($username) {
     $data_array = array(
-        "usr"      => $username,
+        "sr"      => $username,
       );
 
     $api_call = callAPI('GET', usrRoor, $data_array);
