@@ -38,7 +38,7 @@ function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $pro
     "regione"      => $regione,
     "provincia"      => $provincia,
     "telefono"      => $telefono,
-    "livello"      => $livello,
+    "lvl"      => $livello,
     "piva"      => $piva,
     "email"      => $email,
     "password"      => $password,

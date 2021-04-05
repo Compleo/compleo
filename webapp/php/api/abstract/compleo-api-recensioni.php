@@ -4,6 +4,20 @@
 
     const recensioneRoor = root."recensione";
 
-    //TOOD: IMPLEMENTA
+    function eliminaRecensione($id) {
+        //TODO: IMPLEMENTA
+    }
+
+    function listAllRecensioniByIDRecensito($id) {
+        //TODO: IMPLEMENTA
+    }
+
+    function listAllRecensioniByIDRecensore($id) {
+        //TODO: IMPLEMENTA
+    }
+
+    function addRecensione() {
+        //TODO: IMPLEMENTA
+    }
 
 ?>
