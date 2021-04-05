@@ -1,13 +1,13 @@
 <?php
 
 //ASTRAZIONE PER GESTIRE GLI UTENTI
-include_once("./api/compleo-api.php");
+include_once(__DIR__  . "/../compleo-api.php");
 
 const usrRoor = root."user";
 
 function getUserByUsername($username) {
     $data_array = array(
-        "usr"      => $username,
+        "sr"      => $username,
       );
 
     $api_call = callAPI('GET', usrRoor, $data_array);
@@ -28,7 +28,7 @@ function getUserByUsernameAndPassword($username, $password) {
       return $response;
 }
 
-function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $provincia, $telefono, $email, $password) {
+function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $provincia, $telefono, $email, $livello, $piva, $password) {
   $data_array = array(
     "nome"      => $nome,
     "cognome"      => $cognome,
@@ -38,6 +38,8 @@ function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $pro
     "regione"      => $regione,
     "provincia"      => $provincia,
     "telefono"      => $telefono,
+    "lvl"      => $livello,
+    "piva"      => $piva,
     "email"      => $email,
     "password"      => $password,
   );
@@ -46,7 +48,11 @@ function registraUtente($nome, $cognome, $cf, $indirizzo, $citta, $regione, $pro
 }
 
 function rimuoviUtente($id) {
-  //TODO: IMPLEMENTA
+  $data_array = array(
+    "id"      => $id,
+  );
+
+  callAPI("DELETE", usrRoor, $data_array);
 }
 
 ?>

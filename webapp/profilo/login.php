@@ -1,5 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    session_start();
+
+    if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+        header("location: ./");
+    }
+?>
+
+<html lang="it">
+    <head>
+        <title>Compleo - Login</title>
+
+        <!-- CSS !-->
+        <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/loginStyle.css">
+    </head>
+    <body>
+        <!-- MENU !-->
+            <div class="ui large top fixed stackable menu">
+                <div class="ui container">
+                    <a class="item" href="../../"><img src="../assets/logo.png"></a>
+                    <a class="item" href="../">
+                        Home
+                    </a>
+                    <a class="item" href="../offerte/">
+                        Offerte
+                    </a>
+                </div>
+            </div>
 
 <head>
     <meta charset="UTF-8">
@@ -50,7 +77,21 @@
                                 <input type="checkbox" tabindex="0" class="hidden">
                                 <label>Ricordami</label>
                             </div>
-                        </div>
+                            <?php 
+                                if(isset($_SESSION['errore']) && $_SESSION['errore'] != "") {
+                                    echo '
+                                        <div class="ui negative message">
+                                        <i class="close icon"></i>
+                                        <div class="header">
+                                            Errore
+                                        </div>
+                                        <p>'.$_SESSION['errore'].'
+                                        </p></div>
+                                    ';
+                                }
+                            ?>
+                            <button class="ui button" type="submit">Accedi</button> Non sei registrato? Clicca <a href="./registrati.php">qui</a>
+                        </form>
                     </div>
                     <div class="ui fluid large teal submit primary button">Login</div>
                 </div>

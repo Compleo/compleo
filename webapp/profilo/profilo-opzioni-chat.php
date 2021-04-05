@@ -1,7 +1,5 @@
 <?php
     session_start();
-
-    include_once("../php/api/abstract/compleo-api-recensioni.php");
 ?>
 
 <html lang="it">
@@ -79,11 +77,31 @@
                     </div>
                 </div>
                 <div class="ui three item menu">
-                    <a class="active item" href="./">Lavori</a>
+                    <a class="item" href="./">Lavori</a>
                     <a class="item" href="./profilo-informazioni.php">Informazioni</a>
-                    <a class="item" href="./profilo-opzioni.php">Opzioni</a>
+                    <a class="active item" href="./profilo-opzioni.php">Opzioni</a>
                 </div>
-                <h1>DA IMPLEMENTARE</h1> <?php //INSERIRE IL CODICE PER MOSTRARE LE RECENSIONI ?>
+
+                <div class="ui grid">
+                    <div class="four wide column">
+                        <div class="ui vertical fluid tabular menu">
+                            <a class="item" href="./profilo-opzioni.php">
+                                Account
+                            </a>
+                            <a class="item" href="./profilo-opzioni-fatturazione.php">
+                                Fatturazione
+                            </a>
+                            <a class="item active" href="./profilo-opzioni-chat.php">
+                                Chat
+                            </a>
+                        </div>
+                    </div>
+                    <div class="twelve wide stretched column">
+                        <div class="ui segment">
+                            <h1>DA IMPLEMENTARE</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -93,5 +111,11 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
         <script src="../assets/semantic/semantic.min.js"></script>
+        <script>
+            $('.ui .item').on('click', function() {
+                $('.ui .item').removeClass('active');
+                $(this).addClass('active');
+            }); 
+        </script>
     </body>
 </html>

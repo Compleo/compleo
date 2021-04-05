@@ -18,7 +18,7 @@
                     <a class="active item" href="./">
                         Home
                     </a>
-                    <a class="item">
+                    <a class="item" href="./offerte/">
                         Offerte
                     </a>
                     <div class="right menu">
@@ -37,6 +37,7 @@
                                         <i class="dropdown icon"></i>
                                         <div class="menu">
                                             <a class="item" href="./profilo/">Profilo</a>
+                                            <a class="item" href="./chat">Chat</a>
                                             <a class="item" href="./php/logout.php">Esci</a>
                                         </div>
                                     </div>   
@@ -66,6 +67,10 @@
                 </div>
                 <h2>
                     Ultime Aggiunte
+
+                    <?php
+                        //TODO: IMPLEMENTA
+                    ?>
                 </h2>
             </div>
 

@@ -1,5 +1,24 @@
 <?php
     session_start();
+
+    include_once("../../php/api/abstract/compleo-api-user.php");
+
+    if(isset($_GET["usr"]) && $_GET["usr"] != "") {
+        $userToSearch = $_GET["usr"];
+
+        $response = getUserByUsername($userToSearch);
+
+        if(isset($response["message"]) && $response["message"] == "error") {
+            echo '
+                <script>
+                    console.log("Username non trovato");
+                </script>
+            ';
+            header("location ../../");
+        }
+    } else {
+        header("location ../../");
+    }
 ?>
 
 <html lang="it">
@@ -7,18 +26,18 @@
         <title>Compleo - Profilo</title>
 
         <!-- CSS !-->
-        <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
-        <link rel="stylesheet" type="text/css" href="../assets/style.css?version=-1">
+        <link rel="stylesheet" type="text/css" href="../../assets/semantic/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="../../assets/style.css?version=-1">
     </head>
     <body>
                <!-- MENU !-->
                <div class="ui large top fixed stackable menu">
                 <div class="ui container">
-                    <a class="item" href="../.."><img src="../assets/logo.png"></a>
-                    <a class="item" href="../">
+                    <a class="item" href="../../.."><img src="../../assets/logo.png"></a>
+                    <a class="item" href="../../">
                         Home
                     </a>
-                    <a class="item" href="../offerte/">
+                    <a class="item" href="../../offerte/">
                         Offerte
                     </a>
                     <div class="right menu">
@@ -36,14 +55,18 @@
                                         '.$usr["nome"].' '.$usr["cognome"].'
                                         <i class="dropdown icon"></i>
                                         <div class="menu">
-                                            <a class="active item" href="./">Profilo</a>
-                                            <a class="item" href="../chat">Chat</a>
-                                            <a class="item" href="../php/logout.php">Esci</a>
+                                            <a class="item" href="../">Profilo</a>
+                                            <a class="item" href="../../chat">Chat</a>
+                                            <a class="item" href="../../php/logout.php">Esci</a>
                                         </div>
                                     </div>   
                                 ';
                             } else {
-                                header("location: ../");
+                                echo '
+                                    <a class="item" href="../login.php">
+                                        Login | Registrati
+                                    </a>   
+                                ';
                             }
                         ?>
                     </div>
@@ -53,33 +76,32 @@
         <div class="ui stackable container">
             <div class="ui message">
                 <div class="six wide right floated column">
-                    <img class="usrImage" src="../assets/user.png">
+                    <img class="usrImage" src="../../assets/user.png">
                     <div class="userInfo">
                         <h1 class="ui huge header">
                             <?php
-                                echo $usr["nome"].' '.$usr["cognome"];
+                                echo $response["nome"].' '.$response["cognome"];
                             ?>
                         </h1>
                         <p class="lead">
                             <?php
-                                echo $usr["email"];
+                                echo $response["email"];
                             ?>
                         </p>
                         <p class="lead">
-                            Account di livello <b><?php echo $usr["livello"]; ?></b>
+                            Account di livello <b><?php echo $response["livello"]; ?></b>
                         </p>
                     </div>
                     <hr>
                     <div class="usrBio">
                         <?php
-                            echo $usr["bio"];
+                            echo $response["bio"];
                         ?>
                     </div>
                 </div>
-                <div class="ui three item menu">
-                    <a class="item" href="./">Lavori</a>
-                    <a class="active item" href="./profilo-informazioni.php">Informazioni</a>
-                    <a class="item" href="./profilo-opzioni.php">Opzioni</a>
+                <div class="ui two item menu">
+                    <a class="item" href="./?usr=<?php echo $userToSearch; ?>">Lavori</a>
+                    <a class="active item" href="./profilo-informazioni.php?usr=<?php echo $userToSearch; ?>">Informazioni</a>
                 </div>
                 <table class="ui celled table">
                     <thead>
@@ -92,43 +114,39 @@
                     </tr></thead>
                     <tbody>
                         <tr>
-                            <td data-label="Nome"><?php echo $usr["nome"]?></td>
-                            <td data-label="Cognome"><?php echo $usr["cognome"]?></td>
-                            <td data-label="Nome Utente"><?php echo $usr["username"]?></td>
-                            <td data-label="Codice Fiscale"><?php echo $usr["cf"]?></td>
-                            <td data-label="Numero di Telefono"><?php echo $usr["telefono"]?></td>
-                            <td data-label="Indirizzo"><?php echo $usr["citta"]["nome"].', '.$usr["indirizzo"].' ('.$usr["citta"]["regione"].', '.$usr["citta"]["provincia"].')'; ?></td>
+                            <td data-label="Nome"><?php echo $response["nome"]?></td>
+                            <td data-label="Cognome"><?php echo $response["cognome"]?></td>
+                            <td data-label="Nome Utente"><?php echo $userToSearch?></td>
+                            <td data-label="Codice Fiscale"><?php echo $response["cf"]?></td>
+                            <td data-label="Numero di Telefono"><?php echo $response["telefono"]?></td>
+                            <td data-label="Indirizzo"><?php echo $response["citta"]["nome"].', '.$response["indirizzo"].' ('.$response["citta"]["regione"].', '.$response["citta"]["provincia"].')'; ?></td>
                         </tr>
                     </tbody>
-                </table> <br>
-                (Le seguenti informazioni possono essere modifate, ove possibile, nella sezione Opzioni)
+                </table>
                 <table class="ui celled table">
                     <thead>
                         <tr><th>Livello</th>
                         <?php 
-                            if ($usr["livello"] == "Completo") {
+                            if ($response["livello"] == "Completo") {
                                 echo "<th>Partita IVA</th>";
                             }
                         ?>
                     </tr></thead>
                     <tbody>
                         <tr>
-                            <td data-label="Livello"><?php echo $usr["livello"]?></td>
+                            <td data-label="Livello"><?php echo $response["livello"]?></td>
                             <?php 
-                                if ($usr["livello"] == "Completo") {
-                                    echo '<td data-label="Partita IVA">'.$usr["piva"].'</td>
+                                if ($response["livello"] == "Completo") {
+                                    echo '<td data-label="Partita IVA">'.$response["piva"].'</td>
                                     ';
                                 }
                             ?>
                         </tr>
                     </tbody>
                 </table> <br>
-                <?php 
-                        if ($usr["livello"] != "Completo") {
-                            echo '(Puoi passare in qualsiasi momento ad un account di livello Completo passando dalla sezioni Opzioni)
-                        ';
-                    }
-                ?>
+                <p class="lead">
+                    (Per avere altre informazioni sull'utente contattalo nella chat di Completo o usando la mail/numero di telefono)
+                </p>
             </div>
         </div>
 
@@ -137,6 +155,6 @@
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
-        <script src="../assets/semantic/semantic.min.js"></script>
+        <script src="../../assets/semantic/semantic.min.js"></script>
     </body>
 </html>
