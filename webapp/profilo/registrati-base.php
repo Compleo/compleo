@@ -6,6 +6,9 @@
     if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
         header("location: ./");
     }
+
+    $script = "<script>json = " . file_get_contents("../php/json/italia.json") . "</script>";
+    echo $script
 ?>
 
 <html lang="it">
@@ -82,9 +85,8 @@
                                         <input type="hidden" name="provincia">
                                         <i class="dropdown icon"></i>
                                         <div class="default text">Provincia</div>
-                                            <div class="menu">
-                                                <?php
-                                                ?>
+                                            <div class="menu" id="menu-province">
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -93,9 +95,8 @@
                                         <input type="hidden" name="comune">
                                         <i class="dropdown icon"></i>
                                         <div class="default text">Comune</div>
-                                            <div class="menu">
-                                                <?php
-                                                ?>
+                                            <div class="menu" id="menu-comuni">
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -133,9 +134,13 @@
             crossorigin="anonymous"></script>
         <script src="../assets/semantic/semantic.min.js"></script>
         <script>
-
+            var province = [];
             var regioneSelezionata = false;
             var provinciaSelezionata = false;
+            var comuneSelezionato = false;
+
+            let provincia;
+            let comune;
 
             window.onload = function(){
                 $('.ui.dropdown').dropdown();
@@ -149,6 +154,37 @@
                     regioneSelezionata = true;
 
                     //TODO: POPOLARE IL DROPDOWN DELLE PROVINCIE
+                    //spopolo tutti gli altri dropdown
+                    
+                    $('.selected-provincia').dropdown('remove selected', provincia);
+                    $('.selected-comune').dropdown('remove selected', comune);
+                    document.getElementById('menu-province').innerHTML = "";
+                    document.getElementById('menu-comuni').innerHTML = "";
+                    provinciaSelezionata = false;
+                    comuneSelezionato = false;
+                    
+                    
+                    //console.log(json);
+                    for(let i = 0; i < json.regioni.length; i++)
+                    {
+                        //console.log(json.regioni[i].nome + " -> " + selectedRegione);
+                        if(json.regioni[i].nome == selectedRegione)
+                        {
+                            province = json.regioni[i].province;
+                        }
+                    }
+                    //console.log(prov);
+                    let toPut = document.getElementById('menu-province');
+                    for(let i = 0; i < province.length; i++)
+                    {
+                        let div = document.createElement('div');
+                        div.setAttribute('class', 'item');
+                        div.setAttribute('data-value', province[i].nome);
+                        div.innerHTML = province[i].nome;
+                        toPut.appendChild(div);
+                    }
+
+
                 });
             });
 
@@ -162,7 +198,35 @@
                         provinciaSelezionata = true;
 
                         //TODO: POPOLARE IL DROPDOWN DEI COMUNI
+                        //lo spopolo
+                        document.getElementById('menu-comuni').innerHTML = "";
+                        comuneSelezionato = false;
+
+                        let comuni = [];
+                        for(let i = 0; i< province.length; i++)
+                        {
+                            if(province[i].nome == selectedProvincia)
+                            {
+                                comuni = province[i].comuni;
+                            }
+                        }
+                        //console.log(comuni)
+                        provincia = selectedProvincia;
+                        let toPut = document.getElementById('menu-comuni');
+                        for(let i = 0; i < comuni.length; i++)
+                        {
+                            let div = document.createElement('div');
+                            div.setAttribute('class', 'item');
+                            div.setAttribute('data-value', comuni[i].nome);
+                            div.innerHTML = comuni[i].nome;
+                            toPut.appendChild(div);
+                        }
                     }
+                });
+
+                $('.select-comune').change(function(){
+                    comuneSelezionato = true;
+                    comune = $(this).dropdown('get value');
                 });
             });
         </script>
