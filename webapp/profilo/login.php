@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                             <?php 
-                                if(isset($_SESSION['errore'])) {
+                                if(isset($_SESSION['errore']) && $_SESSION['errore'] != "") {
                                     echo '
                                         <div class="ui negative message">
                                         <i class="close icon"></i>

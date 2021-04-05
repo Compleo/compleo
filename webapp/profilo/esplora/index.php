@@ -20,6 +20,8 @@
     } else {
         header("location ../../");
     }
+
+    $recensioni = listAllRecensioniByIDRecensito($response["id"]);
 ?>
 
 <html lang="it">
