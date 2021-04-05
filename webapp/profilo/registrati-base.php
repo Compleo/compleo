@@ -36,7 +36,7 @@
             <div class="ui middle aligned grid child">
                 <div class="column">
                     <div class="ui center aligned page grid">
-                        <form class="ui form" method="POST" action="../php/login_verifica.php">
+                        <form class="ui form" method="POST" action="../php/registraUtente-base-verifica.php">
                             <h4 class="ui dividing header">Registrazione di livello base</h4>
                             <div class="field">
                                 <label>Nome e Cognome</label>
