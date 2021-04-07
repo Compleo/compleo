@@ -34,28 +34,31 @@
                         <form class="ui form" method="POST" action="../php/login_verifica.php">
                             <div class="field">
                                 <label>Username</label>
+                                <i class="user icon"></i>
                                 <input type="text" name="username" id="username" placeholder="Username">
                             </div>
                             <div class="field">
                                 <label>Password</label>
+                                <i class="lock icon"></i>
                                 <input type="password" name="password" id="password" placeholder="Password">
                             </div>
                             <div class="field">
                                 <div class="ui checkbox">
-                                <input type="checkbox" tabindex="0" class="hidden">
-                                <label>Ricordami</label>
+                                    <input type="checkbox" tabindex="0" class="hidden">
+                                    <label>Ricordami</label>
                                 </div>
                             </div>
                             <?php 
                                 if(isset($_SESSION['errore']) && $_SESSION['errore'] != "") {
                                     echo '
                                         <div class="ui negative message">
-                                        <i class="close icon"></i>
-                                        <div class="header">
-                                            Errore
+                                            <i class="close icon"></i>
+                                            <div class="header">
+                                                Errore
+                                            </div>
+                                            <p>'.$_SESSION['errore'].'
+                                            </p>
                                         </div>
-                                        <p>'.$_SESSION['errore'].'
-                                        </p></div>
                                     ';
                                 }
                             ?>
