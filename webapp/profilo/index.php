@@ -34,15 +34,16 @@
                             if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
                                 $usr = $_SESSION['datiUtente'];
                                 echo '
-                                    <div class="ui simple dropdown item">
-                                        '.$usr["nome"].' '.$usr["cognome"].'
-                                        <i class="dropdown icon"></i>
-                                        <div class="menu">
-                                            <a class="active item" href="./">Profilo</a>
-                                            <a class="item" href="../chat">Chat</a>
-                                            <a class="item" href="../php/logout.php">Esci</a>
-                                        </div>
-                                    </div>   
+                                <div class="ui simple dropdown item">
+                                    <i class="user icon"></i>
+                                    <i class="dropdown icon"></i>
+                                    <div class="menu">
+                                        <div class="header">'.$usr["nome"].' '.$usr["cognome"].'</div>
+                                        <a class="item" href="."><i class="address card icon"></i>Profilo</a>
+                                        <a class="item" href="../chat"><i class="comment icon"></i>Chat</a>
+                                        <a class="item" href="../php/logout.php"><i class="sign out alternate icon"></i>Esci</a>
+                                    </div>
+                                </div>   
                                 ';
                             } else {
                                 header("location: ../");
