@@ -99,7 +99,7 @@
                     </div>
                     <div class="twelve wide stretched column">
                         <div class="ui segment">
-                            <form class="ui form" method="POST" action="">
+                            <form class="ui form" method="POST" action="../php//update-user.php">
                                 <h4 class="ui dividing header">Informazioni anagrafiche</h4> <br>
                                 <div class="field">
                                     <label>Nome e Cognome</label>

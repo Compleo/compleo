@@ -4,6 +4,7 @@
 include_once(__DIR__  . "/../compleo-api.php");
 
 const usrRoor = root."user";
+const updateRoor = usrRoor."/update";
 
 function getUserByUsername($username) {
     $data_array = array(
@@ -53,6 +54,19 @@ function rimuoviUtente($id) {
   );
 
   callAPI("DELETE", usrRoor, $data_array);
+}
+
+function aggiornaUtente($id, $telefono, $email, $bio, $piva, $password) {
+  $data_array = array(
+    "id"      => $id,
+    "telefono" => $telefono,
+    "email" => $email,
+    "bio" => $bio,
+    "password" => $password,
+    "piva" => $piva
+  );
+
+  callApiPUT(updateRoor, $data_array);
 }
 
 ?>
