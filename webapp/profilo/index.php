@@ -2,6 +2,7 @@
     session_start();
 
     include_once("../php/api/abstract/compleo-api-recensioni.php");
+    include_once("../php/api/abstract/compleo-api-user.php");
 ?>
 
 <html lang="it">
@@ -91,13 +92,18 @@
                 <div class="ui items">
                     <?php
                         for($i = 0; $i < count($rispRecRecensioni); $i++) {
+                            $u = getUserByID($rispRecRecensioni[$i]->idRecensore);
+                            $usrNome = $u["nome"];
+                            $usrCognome = $u["cognome"];
+                            $usrName = strtolower($usrNome.'.'.$usrCognome);
+
                             echo '
                             <div class="item">
                                 <div class="ui tiny image">
                                     <img src="../assets/img/voti/'.$rispRecRecensioni[$i]->valore.'.png">
                                 </div>
                                 <div class="content">
-                                    <a class="header">NOME UTENTE</a>
+                                    <a class="header" href="./esplora/?usr='.$usrName.'">'.$usrNome.' '.$usrCognome.'</a>
                                     <div class="meta">
                                         <span>'.$rispRecRecensioni[$i]->titolo.'</span>
                                     </div>

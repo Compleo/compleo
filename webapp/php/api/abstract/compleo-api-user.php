@@ -5,6 +5,7 @@ include_once(__DIR__  . "/../compleo-api.php");
 
 const usrRoor = root."user";
 const updateRoor = usrRoor."/update";
+const getByIDRoor = usrRoor."/getByID";
 
 function getUserByUsername($username) {
     $data_array = array(
@@ -15,6 +16,17 @@ function getUserByUsername($username) {
     $response = json_decode($api_call, true);
 
     return $response;
+}
+
+function getUserByID($id) {
+  $data_array = array(
+    "id"      => $id,
+  );
+
+  $api_call = callAPI('GET', getByIDRoor, $data_array);
+  $response = json_decode($api_call, true);
+
+  return $response;
 }
 
 function getUserByUsernameAndPassword($username, $password) {
