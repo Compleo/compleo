@@ -38,7 +38,7 @@
             "red"      => $id,
           );
 
-        $api_call = callAPI('GET', recensioneRecRoot, $data_array);
+        $api_call = callAPI('GET', recensioneRedRoot, $data_array);
         $response = json_decode($api_call, false);
     
         return $response;

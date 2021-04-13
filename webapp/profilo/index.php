@@ -48,6 +48,9 @@
                             } else {
                                 header("location: ../");
                             }
+
+                            $rispRecRecensioni = listAllRecensioniByIDRecensito($usr["id"]);
+                            $rispRedRecensioni = listAllRecensioniByIDRecensore($usr["id"]);
                         ?>
                     </div>
                 </div>
@@ -80,11 +83,68 @@
                     </div>
                 </div>
                 <div class="ui three item menu">
-                    <a class="active item" href="./">Lavori</a>
+                    <a class="active item" href="./">Lavori e Recensioni</a>
                     <a class="item" href="./profilo-informazioni.php">Informazioni</a>
                     <a class="item" href="./profilo-opzioni.php">Opzioni</a>
                 </div>
-                <h1>DA IMPLEMENTARE</h1> <?php //INSERIRE IL CODICE PER MOSTRARE LE RECENSIONI ?>
+                <h1 class="ui header">Parlano di me:</h1>
+                <div class="ui items">
+                    <?php
+                        for($i = 0; $i < count($rispRecRecensioni); $i++) {
+                            echo '
+                            <div class="item">
+                                <div class="ui tiny image">
+                                    <img src="../assets/img/voti/'.$rispRecRecensioni[$i]->valore.'.png">
+                                </div>
+                                <div class="content">
+                                    <a class="header">NOME UTENTE</a>
+                                    <div class="meta">
+                                        <span>'.$rispRecRecensioni[$i]->titolo.'</span>
+                                    </div>
+                                    <div class="extra">
+                                        '.$rispRecRecensioni[$i]->testo.'
+                                    </div>
+                                </div>
+                            </div>
+                            ';
+                        }
+                    ?>
+                </div>
+                <div class="ui clearing divider"></div>
+                <h1 class="ui header">Le mie recensioni: </h1>
+                <?php
+                    if (!isset($rispRedRecensioni[0]->titolo)) {
+                        echo '
+                        <p class="lead">
+                            Non ho fatto ancora nessuna recensione
+                        </p>
+                        ';
+                    } else { ?>
+                        <div class="ui items">
+                        <?php
+                            for($i = 0; $i < count($rispRedRecensioni); $i++) {
+                                echo '
+                                <div class="item">
+                                    <div class="ui tiny image">
+                                        <img src="../assets/img/voti/'.$rispRedRecensioni[$i]->valore.'.png">
+                                    </div>
+                                    <div class="content">
+                                        <a class="header">NOME UTENTE</a>
+                                        <div class="meta">
+                                            <span>'.$rispRedRecensioni[$i]->titolo.'</span>
+                                        </div>
+                                        <div class="extra">
+                                            '.$rispRedRecensioni[$i]->testo.'
+                                        </div>
+                                    </div>
+                                </div>
+                                ';
+                            }
+                        ?>
+                        </div> <?php
+                    }
+                ?>
+
             </div>
         </div>
 
