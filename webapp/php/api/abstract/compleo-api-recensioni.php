@@ -15,17 +15,33 @@
     include_once(__DIR__  . "/../compleo-api.php");
 
     const recensioneRoor = root."recensione";
+    const recensioneRecRoot = recensioneRoor."/rec";
+    const recensioneRedRoot = recensioneRoor."/red";
 
     function eliminaRecensione($id) {
         //TODO: IMPLEMENTA
     }
 
     function listAllRecensioniByIDRecensito($id) {
-        //TODO: IMPLEMENTA
+        $data_array = array(
+            "rec"      => $id,
+          );
+
+        $api_call = callAPI('GET', recensioneRecRoot, $data_array);
+        $response = json_decode($api_call, false);
+    
+        return $response;
     }
 
     function listAllRecensioniByIDRecensore($id) {
-        //TODO: IMPLEMENTA
+        $data_array = array(
+            "red"      => $id,
+          );
+
+        $api_call = callAPI('GET', recensioneRecRoot, $data_array);
+        $response = json_decode($api_call, false);
+    
+        return $response;
     }
 
     function addRecensione($recID, $redID, $voto, $titolo, $testo) {
