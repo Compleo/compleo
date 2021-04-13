@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="ui three item menu">
-                    <a class="item" href="./">Lavori</a>
+                    <a class="item" href="./">Lavori e Recensioni</a>
                     <a class="item" href="./profilo-informazioni.php">Informazioni</a>
                     <a class="active item" href="./profilo-opzioni.php">Opzioni</a>
                 </div>
