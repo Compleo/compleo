@@ -15,13 +15,20 @@
                     console.log("Username non trovato");
                 </script>
             ';
-            header("location ../../");
+            header("location: ../../");
         }
-    } else {
-        header("location ../../");
     }
 
-    $recensioni = listAllRecensioniByIDRecensito($response["id"]);
+    if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+        $usr = $_SESSION['datiUtente'];
+
+        if ($usr["username"] == $userToSearch) {
+            header("location: ../");
+        }
+    }
+
+    $recensioniMie = listAllRecensioniByIDRecensito($response["id"]);
+    $recensioniLoro = listAllRecensioniByIDRecensore($response["id"]);
 ?>
 
 <html lang="it">
@@ -107,7 +114,35 @@
                     <a class="active item" href="./?usr=<?php echo $userToSearch; ?>">Lavori</a>
                     <a class="item" href="./profilo-informazioni.php?usr=<?php echo $userToSearch; ?>">Informazioni</a>
                 </div>
-                <h1>DA IMPLEMENTARE</h1> <?php //INSERIRE IL CODICE PER MOSTRARE LE RECENSIONI ?>
+                <h1 class="ui header">Parlano di me:</h1>
+                <div class="ui items">
+                    <?php
+                        for($i = 0; $i < count($recensioniLoro); $i++) {
+                            $u = getUserByID($recensioniLoro[$i]->idRecensito);
+                            $usrNome = $u["nome"];
+                            $usrCognome = $u["cognome"];
+                            $usrName = strtolower($usrNome.'.'.$usrCognome);
+
+                            echo '
+                            <div class="item">
+                                <div class="ui tiny image">
+                                    <img src="../../assets/img/voti/'.$recensioniLoro[$i]->valore.'.png">
+                                </div>
+                                <div class="content">
+                                    <a class="header" href="./?usr='.$usrName.'">'.$usrNome.' '.$usrCognome.'</a>
+                                    <div class="meta">
+                                        <span>'.$recensioniLoro[$i]->titolo.'</span>
+                                    </div>
+                                    <div class="extra">
+                                        '.$recensioniLoro[$i]->testo.'
+                                    </div>
+                                </div>
+                            </div>
+                            ';
+                        }
+                    ?>
+                </div>
+                <div class="ui clearing divider"></div>
             </div>
         </div>
 
