@@ -88,7 +88,10 @@
                     <a class="item" href="./profilo-informazioni.php">Informazioni</a>
                     <a class="item" href="./profilo-opzioni.php">Opzioni</a>
                 </div>
-                <h1 class="ui header">Parlano di me:</h1>
+                <center>
+                    <h2 class="ui header">Recensioni</h1>
+                </center>
+                <h4 class="ui dividing header">Parlano di me:</h2> <br>
                 <div class="ui items">
                     <?php
                         for($i = 0; $i < count($rispRecRecensioni); $i++) {
@@ -116,8 +119,7 @@
                         }
                     ?>
                 </div>
-                <div class="ui clearing divider"></div>
-                <h1 class="ui header">Le mie recensioni: </h1>
+                <h4 class="ui dividing header">Le mie recensioni: </h2> <br>
                 <?php
                     if (!isset($rispRedRecensioni[0]->titolo)) {
                         echo '
@@ -155,7 +157,11 @@
                         </div> <?php
                     }
                 ?>
-
+                <?php
+                    if($usr["livello"] == "Completo") {
+                        include("./components/components-lavori.php");
+                    }
+                ?>
             </div>
         </div>
 

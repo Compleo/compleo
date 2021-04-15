@@ -13,4 +13,12 @@ function listQualifiche() {
     return $response;
 }
 
+function listQualifichePerIDLavoratore($id) {
+    //RODO: IMPLEMENTA
+}
+
+function aggiungiLavoro($titolo, $testo, $professione) {
+    //TODO: IMPLEMENTA
+}
+
 ?>
