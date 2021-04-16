@@ -1,6 +1,7 @@
 <?php
     include_once("../php/api/abstract/compleo-api-activity.php");
     $qualifiche = listQualifiche();
+    $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
 ?>
 
 <div class="ui clearing divider"></div>
@@ -41,6 +42,26 @@
     <button class="ui button" type="submit">Proponiti</button>
 </form>
 <h4 class="ui dividing header">I miei lavori</h1> <br>
+<div class="ui items">
+    <?php
+        for($i = 0; $i < count($mieiLavori); $i++) {
+
+        echo '
+            <div class="item">
+                <div class="content">
+                    <b>'.$mieiLavori[$i]["tipo"].'</b>
+                    <div class="meta">
+                        <span>'.$mieiLavori[$i]["titolo"].'</span>
+                    </div>
+                    <div class="extra">
+                        '.$mieiLavori[$i]["testo"].'
+                    </div>
+                </div>
+            </div>
+            ';
+        }
+    ?>
+</div>
 
 <script type="text/javascript">
     window.onload = function(){
