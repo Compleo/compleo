@@ -114,7 +114,10 @@
                     <a class="active item" href="./?usr=<?php echo $userToSearch; ?>">Lavori</a>
                     <a class="item" href="./profilo-informazioni.php?usr=<?php echo $userToSearch; ?>">Informazioni</a>
                 </div>
-                <h1 class="ui header">Parlano di me:</h1>
+                <center>
+                    <h2 class="ui header">Recensioni</h1>
+                </center>
+                <h4 class="ui dividing header">Parlano di me:</h2> <br>
                 <div class="ui items">
                     <?php
                         for($i = 0; $i < count($recensioniLoro); $i++) {

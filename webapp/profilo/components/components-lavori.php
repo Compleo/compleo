@@ -9,7 +9,7 @@
     <h2 class="ui header">Lavori</h1>
 </center>
 <h4 class="ui dividing header">Proponiti per un lavoro</h1> <br>
-<form class="ui form" method="POST" action="">
+<form class="ui form" method="POST" action="../php/aggiungiLavoro-verifica.php">
     <div class="field">
         <label>Titolo e Tipo del Lavoro</label>
         <div class="two fields">
@@ -40,6 +40,21 @@
         </div>
     </div>
     <button class="ui button" type="submit">Proponiti</button>
+    <?php
+        if(isset($_SESSION['erroreAggiungiLavoro']) && $_SESSION['erroreAggiungiLavoro'] != "") {
+            echo '
+                <div class="ui negative message">
+                    <i class="close icon"></i>
+                    <div class="header">
+                        Errore
+                    </div>
+                    <p>'.$_SESSION['erroreAggiungiLavoro'].'
+                    </p>
+                </div>
+            ';
+            $_SESSION['erroreAggiungiLavoro'] = '';
+        }
+    ?>
 </form>
 <h4 class="ui dividing header">I miei lavori</h1> <br>
 <div class="ui items">

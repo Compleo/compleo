@@ -26,7 +26,14 @@ function listLavoriPerIDLavoratore($id) {
 }
 
 function aggiungiLavoro($idUtente, $titolo, $testo, $professione) {
-    //TODO: IMPLEMENTA
+    $data_array = array(
+        "usrID"      => $idUtente,
+        "testo"      => $testo,
+        "titolo"      => $titolo,
+        "tipo"      => $professione
+      );
+
+      callApiPUT(activityRoot, $data_array);
 }
 
 ?>
