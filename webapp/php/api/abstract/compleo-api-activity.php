@@ -6,6 +6,7 @@ include_once(__DIR__  . "/../compleo-api.php");
 const activityRoot = root."activity";
 const activityListRoot = activityRoot."/lid";
 const activityListQualificaRoot = activityRoot."/listqual";
+const activityListTuttiLavoriRoot = activityRoot."/listall";
 
 //Ritorna la lista delle qualiche di cui dispongo
 function listQualifiche() {
@@ -13,6 +14,13 @@ function listQualifiche() {
     $response = json_decode($api_call, false);
 
     return $response;
+}
+
+function listTuttiILavori() {
+  $api_call = callAPI('GET', activityListRoot, false);
+  $response = json_decode($api_call, true);
+  
+  return $response;
 }
 
 function listLavoriPerIDLavoratore($id) {
