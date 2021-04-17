@@ -1,5 +1,66 @@
 <?php
     session_start();
+    include_once '../php/api/abstract/compleo-api-activity.php';
+    include_once '../php/api/abstract/compleo-api-user.php';
+    $attivita = listQualifiche();
+    $attivitaSelezionata = isset($_GET['attivita']) ? $_GET['attivita'] : ""; //l'indice
+    $attivitaSettata = $attivitaSelezionata == "" ? false : true;
+    //echo var_dump($attivitaSettata);//false
+    $allWork = null;
+    if($attivitaSettata && attivitaValida($attivitaSelezionata, $attivita));
+    {
+        //perchè entra lo stesso
+        //echo '<script>alert(\'Sono entrato ziopporco\')</script>';
+        if($attivitaSettata)
+        {
+            $allWork = listLavoriPerQualifica($attivita[$attivitaSelezionata]);
+        }
+    }
+    if(!$attivitaSettata)
+    {
+        //echo 'attivita settata col culo';
+        $allWork = listTuttiILavori();
+        //echo var_dump($allWork);
+    }
+    $allWorkValido = isset($allWork["message"]) || $allWork == NULL ? false : true;
+    
+    function attivitaValida($selezione, $att) //att is attivita
+    {
+        if($selezione < 0 || $selezione >= count($att))
+            return false;
+        return true;
+    }
+
+    function cartaLavoro($titolo, $testo, $tipo, $idUtente)
+    {
+        $user = getUserByID($idUtente);
+        $nomeUtente = $tipo. ", " .$user["nome"] . " " . $user["cognome"];
+        //per il botton contatta useremo l'idUtente
+        return '
+        <div class="ui cards">
+  <div class="card">
+    <div class="content">
+      <div class="header">
+        '.$titolo.'
+      </div>
+      <div class="meta">
+        '.$nomeUtente.'
+      </div>
+      <div class="description">
+        '.$testo.'
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="ui two buttons" style="item-align:left">
+        <!--<div class="ui basic green button">Contatta</div>-->
+        <!--<div class="ui basic red button">Decline</div>-->
+        <button class="ui primary button">Contatta</button>
+      </div>
+    </div>
+  </div>
+  
+</div>';
+    }
 ?>
 
 <html lang="it">
@@ -57,7 +118,70 @@
         <div class="ui stackable container">
             <div class="ui message">
                 <div class="six wide right floated column">
-                    <h2>DA IMPLEMENTARE</h2>
+                    <h2>
+                    <?php
+                        if($attivitaSettata)
+                        {
+                            if(attivitaValida($attivitaSelezionata, $attivita))
+                            {
+                                echo $attivita[$attivitaSelezionata];       
+                            }
+                        }
+                        else
+                            echo 'Tutti i lavori';
+                    ?>
+                    </h2>
+                    
+                    <select class="ui search dropdown" id="selezionaAttivita" onchange="selezionaAttivitaChange(value)">
+                        <?php 
+                            if($attivitaSelezionata == "")
+                            {
+                                //nessuna attività selezionata
+                                echo '<option value="">seleziona attività</option>';
+                                for($i = 0; $i < count($attivita); $i += 1)
+                                {
+                                    echo '<option value="'.$i.'">'.$attivita[$i].'</option>';
+                                }
+                            }
+                            else
+                            {
+                                if($attivitaSelezionata < 0 || $attivitaSelezionata >= count($attivita))
+                                {
+                                    header("Location:./index.php");//elimino i get
+                                }
+                                else
+                                {
+                                    echo '<option value="'.$attivitaSelezionata.'">'.$attivita[$attivitaSelezionata].'</option>';
+                                    echo '<option value="">tutte le attività</option>';
+                                    for($i = 0; $i < count($attivita); $i += 1)
+                                    {
+                                        if($i != $attivitaSelezionata)
+                                            echo '<option value="'.$i.'">'.$attivita[$i].'</option>';
+                                    }
+                                }
+                            }
+                            
+                        ?>
+                    </select>
+                    <div style="margin-top: 20px;">
+                        <?php 
+                            if($allWorkValido)
+                            {
+                                
+                                for($i = 0; $i < count($allWork); $i += 1)
+                                {
+                                    //echo var_dump($allWork[$i]);
+                                    //echo var_dump($allWork[$i]["titolo"]);
+                                    echo cartaLavoro($allWork[$i]["titolo"], $allWork[$i]["testo"], $allWork[$i]["tipo"] ,$allWork[$i]["idUtente"]);
+                                }
+                            }
+                            else
+                            {
+                                echo 'Nessun lavoro ricopre le caratteristiche richieste';
+                            }
+                        ?>
+                    </div>
+                    
                 </div>
             </div>
 
@@ -69,5 +193,11 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
         <script src="../assets/semantic/semantic.min.js"></script>
+        <script>
+            function selezionaAttivitaChange(value)
+            {
+                location.replace("index.php?attivita=" + value,)
+            }
+        </script>
     </body>
 </html>

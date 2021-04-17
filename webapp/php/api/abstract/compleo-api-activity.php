@@ -17,7 +17,7 @@ function listQualifiche() {
 }
 
 function listTuttiILavori() {
-  $api_call = callAPI('GET', activityListRoot, false);
+  $api_call = callAPI('GET', activityListTuttiLavoriRoot, false);
   $response = json_decode($api_call, true);
   
   return $response;

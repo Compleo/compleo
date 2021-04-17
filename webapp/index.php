@@ -1,5 +1,38 @@
 <?php
     session_start();
+    include_once 'php/api/abstract/compleo-api-activity.php';
+    include_once 'php/api/abstract/compleo-api-user.php';
+    $allWork = listTuttiILavori();
+    function cartaLavoro($titolo, $testo, $tipo, $idUtente)
+    {
+        $user = getUserByID($idUtente);
+        $nomeUtente = $tipo. ", " .$user["nome"] . " " . $user["cognome"];
+        //per il botton contatta useremo l'idUtente
+        return '
+        <div class="ui cards">
+  <div class="card">
+    <div class="content">
+      <div class="header">
+        '.$titolo.'
+      </div>
+      <div class="meta">
+        '.$nomeUtente.'
+      </div>
+      <div class="description">
+        '.$testo.'
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="ui two buttons" style="item-align:left">
+        <!--<div class="ui basic green button">Contatta</div>-->
+        <!--<div class="ui basic red button">Decline</div>-->
+        <button class="ui primary button">Contatta</button>
+      </div>
+    </div>
+  </div>
+  
+</div>';
+    }
 ?>
 
 <html lang="it">
@@ -66,14 +99,24 @@
                         Piccoli servizi, al Completo.
                     </p>
                 </div>
+                
+                
+                
+            </div>
+            <div>
                 <h2>
                     Ultime Aggiunte
-
-                    <?php
-                        //TODO: IMPLEMENTA
-                    ?>
-                </h2>
-            </div>
+                    </h2>
+                        <?php
+                            if(!isset($allWork['message']))
+                            {
+                                for($i = 0; $i < count($allWork); $i++)
+                                {
+                                    echo cartaLavoro($allWork[$i]['titolo'], $allWork[$i]['testo'], $allWork[$i]['tipo'], $allWork[$i]['idUtente']);
+                                }
+                            }
+                        ?>
+                </div>
 
         </div>
 
