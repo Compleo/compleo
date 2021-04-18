@@ -6,6 +6,22 @@
     <head>
         <title>Compleo - Profilo</title>
 
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            #map {
+                position:relative;
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="../assets/style.css?version=-1">
@@ -130,10 +146,50 @@
                         ';
                     }
                 ?>
+                <br>
+                <center>
+                    <h1 class="ui header">Mappa</h1>
+                </center> <br>
+                <div class="ui clearing divider"></div>
+
+                <div id="map">
+                </div>
             </div>
         </div>
 
         <!-- JS !-->
+        <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+        <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiY29tcGxlbyIsImEiOiJja25td3VwZ2IwaXhzMnZvNTZ5dmkwM2RqIn0.7UPvSEtBOp5vZtgeamb3RQ';
+            var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+            mapboxClient.geocoding.forwardGeocode({
+                query: '<?php echo $usr["citta"]["nome"].', '.$usr["indirizzo"].' ('.$usr["citta"]["regione"].', '.$usr["citta"]["provincia"].')';  ?>',
+                autocomplete: false,
+                limit: 1
+            })
+            .send()
+            .then(function (response) {
+                if (
+                    response &&
+                    response.body &&
+                    response.body.features &&
+                    response.body.features.length
+                ) {
+                    var feature = response.body.features[0];
+                    
+                    var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: feature.center,
+                    zoom: 10
+            });
+            
+            // Create a marker and add it to the map.
+            new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+            }
+            });
+        </script>
         <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
