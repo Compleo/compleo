@@ -147,10 +147,11 @@
                     
                     <select class="ui search dropdown" id="selezionaAttivita" onchange="selezionaAttivitaChange(value)">
                         <?php 
+                            //TODO: GRAFICA MIGLIORE
                             if($attivitaSelezionata == "")
                             {
                                 //nessuna attività selezionata
-                                echo '<option value="">seleziona attività</option>';
+                                echo '<option value="">Seleziona Attività</option>';
                                 for($i = 0; $i < count($attivita); $i += 1)
                                 {
                                     echo '<option value="'.$i.'">'.$attivita[$i].'</option>';
@@ -165,7 +166,7 @@
                                 else
                                 {
                                     echo '<option value="'.$attivitaSelezionata.'">'.$attivita[$attivitaSelezionata].'</option>';
-                                    echo '<option value="">tutte le attività</option>';
+                                    echo '<option value="">Tutte le Attività</option>';
                                     for($i = 0; $i < count($attivita); $i += 1)
                                     {
                                         if($i != $attivitaSelezionata)
