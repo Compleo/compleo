@@ -10,13 +10,14 @@
 
         Programmer: Mattia Senni        (git -> @mtttia)
 
-        Il seguente codice gestisce l'eleminazione di un utente
+        Il seguente codice gestisce la reicerca delle offerte
 
         THE FOLLOWING SOURCE CODE IS CLOSED SOURCE, COPYRIGHT (C) 2021 - COMPLEO
     */
 
     include_once '../php/api/abstract/compleo-api-activity.php';
     include_once '../php/api/abstract/compleo-api-user.php';
+    
     $attivita = listQualifiche();
     $attivitaSelezionata = isset($_GET['attivita']) ? $_GET['attivita'] : ""; //l'indice
     $attivitaSettata = $attivitaSelezionata == "" ? false : true;
