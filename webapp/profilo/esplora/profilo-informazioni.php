@@ -116,7 +116,7 @@
                     </div>
                 </div>
                 <div class="ui two item menu">
-                    <a class="item" href="./?usr=<?php echo $userToSearch; ?>">Lavori</a>
+                    <a class="item" href="./?usr=<?php echo $userToSearch; ?>">Lavori e Recensioni</a>
                     <a class="active item" href="./profilo-informazioni.php?usr=<?php echo $userToSearch; ?>">Informazioni</a>
                 </div>
                 <table class="ui celled table">
