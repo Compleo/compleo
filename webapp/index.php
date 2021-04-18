@@ -3,35 +3,36 @@
     include_once 'php/api/abstract/compleo-api-activity.php';
     include_once 'php/api/abstract/compleo-api-user.php';
     $allWork = listTuttiILavori();
-    function cartaLavoro($titolo, $testo, $tipo, $idUtente)
+    function cartaLavoro($idLav, $titolo, $testo, $tipo, $idUtente)
     {
         $user = getUserByID($idUtente);
-        $nomeUtente = $tipo. ", " .$user["nome"] . " " . $user["cognome"];
+        $nomeUtente = $user["nome"] . " " . $user["cognome"];
+        $usrName = strtolower($user["nome"].'.'.$user["cognome"]);
+
         //per il botton contatta useremo l'idUtente
         return '
-        <div class="ui cards">
-  <div class="card">
-    <div class="content">
-      <div class="header">
-        '.$titolo.'
-      </div>
-      <div class="meta">
-        '.$nomeUtente.'
-      </div>
-      <div class="description">
-        '.$testo.'
-      </div>
-    </div>
-    <div class="extra content">
-      <div class="ui two buttons" style="item-align:left">
-        <!--<div class="ui basic green button">Contatta</div>-->
-        <!--<div class="ui basic red button">Decline</div>-->
-        <button class="ui primary button">Contatta</button>
-      </div>
-    </div>
-  </div>
-  
-</div>';
+        <div class="column">
+            <div class="ui fluid card">
+                <div class="content">
+                <div class="header">
+                    '.$titolo.'
+                </div>
+                <div class="meta">
+                    '.$tipo. ', <a class="header" href="./profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
+                </div>
+                <div class="description">
+                    '.$testo.'
+                </div>
+                </div>
+                <div class="extra content">
+                    <div class="ui two buttons" >
+                        <button class="ui button">Contatta</button>
+                        <a class="header" href="./offerte/esplora/?id='.$idLav.'"><button class="ui button"  tabindex="1">Visualizza</button></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>';
     }
 ?>
 
@@ -98,24 +99,24 @@
                     <p class="lead">
                         Piccoli servizi, al Completo.
                     </p>
-                </div>
-                
-                
-                
+                </div>            
             </div>
             <div>
                 <h2>
                     Ultime Aggiunte
                     </h2>
+                    <div class="ui three column grid">
+                        
                         <?php
                             if(!isset($allWork['message']))
                             {
                                 for($i = 0; $i < count($allWork); $i++)
                                 {
-                                    echo cartaLavoro($allWork[$i]['titolo'], $allWork[$i]['testo'], $allWork[$i]['tipo'], $allWork[$i]['idUtente']);
+                                    echo cartaLavoro($allWork[$i]["id"], $allWork[$i]["titolo"], $allWork[$i]["testo"], $allWork[$i]["tipo"] ,$allWork[$i]["idUtente"]);
                                 }
                             }
                         ?>
+                    </div>
                 </div>
 
         </div>

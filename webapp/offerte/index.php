@@ -1,16 +1,29 @@
 <?php
     session_start();
+
+    /*
+        ***************************************
+                Compleo Source Code             
+        ***************************************
+        Programmer: Leonardo Baldazzi   (git -> @squirlyfoxy)
+                                        (instagram -> @leonardobaldazzi_)
+
+        Programmer: Mattia Senni        (git -> @mtttia)
+
+        Il seguente codice gestisce l'eleminazione di un utente
+
+        THE FOLLOWING SOURCE CODE IS CLOSED SOURCE, COPYRIGHT (C) 2021 - COMPLEO
+    */
+
     include_once '../php/api/abstract/compleo-api-activity.php';
     include_once '../php/api/abstract/compleo-api-user.php';
     $attivita = listQualifiche();
     $attivitaSelezionata = isset($_GET['attivita']) ? $_GET['attivita'] : ""; //l'indice
     $attivitaSettata = $attivitaSelezionata == "" ? false : true;
-    //echo var_dump($attivitaSettata);//false
+
     $allWork = null;
     if($attivitaSettata && attivitaValida($attivitaSelezionata, $attivita));
     {
-        //perchè entra lo stesso
-        //echo '<script>alert(\'Sono entrato ziopporco\')</script>';
         if($attivitaSettata)
         {
             $allWork = listLavoriPerQualifica($attivita[$attivitaSelezionata]);
@@ -18,9 +31,7 @@
     }
     if(!$attivitaSettata)
     {
-        //echo 'attivita settata col culo';
         $allWork = listTuttiILavori();
-        //echo var_dump($allWork);
     }
     $allWorkValido = isset($allWork["message"]) || $allWork == NULL ? false : true;
     
@@ -31,41 +42,42 @@
         return true;
     }
 
-    function cartaLavoro($titolo, $testo, $tipo, $idUtente)
+    function cartaLavoro($idLav, $titolo, $testo, $tipo, $idUtente)
     {
         $user = getUserByID($idUtente);
-        $nomeUtente = $tipo. ", " .$user["nome"] . " " . $user["cognome"];
+        $nomeUtente = $user["nome"] . " " . $user["cognome"];
+        $usrName = strtolower($user["nome"].'.'.$user["cognome"]);
+
         //per il botton contatta useremo l'idUtente
         return '
-        <div class="ui cards">
-  <div class="card">
-    <div class="content">
-      <div class="header">
-        '.$titolo.'
-      </div>
-      <div class="meta">
-        '.$nomeUtente.'
-      </div>
-      <div class="description">
-        '.$testo.'
-      </div>
-    </div>
-    <div class="extra content">
-      <div class="ui two buttons" style="item-align:left">
-        <!--<div class="ui basic green button">Contatta</div>-->
-        <!--<div class="ui basic red button">Decline</div>-->
-        <button class="ui primary button">Contatta</button>
-      </div>
-    </div>
-  </div>
-  
-</div>';
+        <div class="column">
+            <div class="ui fluid card">
+                <div class="content">
+                <div class="header">
+                    '.$titolo.'
+                </div>
+                <div class="meta">
+                    '.$tipo. ', <a class="header" href="../profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
+                </div>
+                <div class="description">
+                    '.$testo.'
+                </div>
+                </div>
+                <div class="extra content">
+                    <div class="ui two buttons" >
+                        <button class="ui button">Contatta</button>
+                        <a class="header" href="./esplora/?id='.$idLav.'"><button class="ui button"  tabindex="1">Visualizza</button></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>';
     }
 ?>
 
 <html lang="it">
     <head>
-        <title>Compleo - WebApp</title>
+        <title>Compleo - Offerte</title>
 
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
@@ -164,6 +176,7 @@
                         ?>
                     </select>
                     <div style="margin-top: 20px;">
+                        <div class="ui three column grid">
                         <?php 
                             if($allWorkValido)
                             {
@@ -172,14 +185,15 @@
                                 {
                                     //echo var_dump($allWork[$i]);
                                     //echo var_dump($allWork[$i]["titolo"]);
-                                    echo cartaLavoro($allWork[$i]["titolo"], $allWork[$i]["testo"], $allWork[$i]["tipo"] ,$allWork[$i]["idUtente"]);
+                                    echo cartaLavoro($allWork[$i]["id"], $allWork[$i]["titolo"], $allWork[$i]["testo"], $allWork[$i]["tipo"] ,$allWork[$i]["idUtente"]);
                                 }
                             }
                             else
                             {
-                                echo 'Nessun lavoro ricopre le caratteristiche richieste';
+                                echo '<p class="lead">Nessun lavoro ricopre le caratteristiche richieste</p>';
                             }
                         ?>
+                        </div>
                     </div>
                     
                 </div>

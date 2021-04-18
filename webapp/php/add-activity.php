@@ -3,7 +3,7 @@ session_start();
 
 if (!(isset($_SESSION['login']) && $_SESSION['login'] == true))
 {
-    header("location: login.php");
+    header("location: ../");
 }
 
 //TODO: PRIMA DI INIZIARE CON LA SUA IMPLEMENTAZIONE, IMPLEMENTARE IL FILE SEGUENTE

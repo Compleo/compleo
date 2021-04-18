@@ -120,8 +120,8 @@
                 <h4 class="ui dividing header">Parlano di me:</h2> <br>
                 <div class="ui items">
                     <?php
-                        for($i = 0; $i < count($recensioniLoro); $i++) {
-                            $u = getUserByID($recensioniLoro[$i]->idRecensito);
+                        for($i = 0; $i < count($recensioniMie); $i++) {
+                            $u = getUserByID($recensioniMie[$i]->idRecensore);
                             $usrNome = $u["nome"];
                             $usrCognome = $u["cognome"];
                             $usrName = strtolower($usrNome.'.'.$usrCognome);
@@ -129,15 +129,15 @@
                             echo '
                             <div class="item">
                                 <div class="ui tiny image">
-                                    <img src="../../assets/img/voti/'.$recensioniLoro[$i]->valore.'.png">
+                                    <img src="../../assets/img/voti/'.$recensioniMie[$i]->valore.'.png">
                                 </div>
                                 <div class="content">
                                     <a class="header" href="./?usr='.$usrName.'">'.$usrNome.' '.$usrCognome.'</a>
                                     <div class="meta">
-                                        <span>'.$recensioniLoro[$i]->titolo.'</span>
+                                        <span>'.$recensioniMie[$i]->titolo.'</span>
                                     </div>
                                     <div class="extra">
-                                        '.$recensioniLoro[$i]->testo.'
+                                        '.$recensioniMie[$i]->testo.'
                                     </div>
                                 </div>
                             </div>
