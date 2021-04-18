@@ -56,4 +56,8 @@ function aggiungiLavoro($idUtente, $titolo, $testo, $professione) {
       callApiPUT(activityRoot, $data_array);
 }
 
+function getLavoroPerID($id) {
+  //TODO: IMPLEMENTA
+}
+
 ?>
