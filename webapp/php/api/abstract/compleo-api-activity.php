@@ -57,12 +57,15 @@ function aggiungiLavoro($idUtente, $titolo, $testo, $professione) {
 }
 
 function getLavoroPerID($id) {
-  //TODO: IMPLEMENTA
+
 }
 
-function EliminaLavoroDaIdUser($id)
-{
-  //TODO: IMPLEMENTA
+function eliminaLavoroDaIdUser($id) {
+  $data_array = array(
+    "id"      => $id,
+  );
+
+  callAPI("DELETE", activityRoot, $data_array);
 }
 
 ?>

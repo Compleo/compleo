@@ -1,11 +1,15 @@
 <?php 
     session_start();
-    include_once("../../php/api/abstract/compleo-api-activity.php");
+    include_once("./api/abstract/compleo-api-activity.php");
 
     if(isset($_SESSION['login']) && $_SESSION['login'] == true)
     {
         $lavoro = $_GET['id'];
-        EliminaLavoroDaIdUser($lavoro);
+        eliminaLavoroDaIdUser($lavoro);
+
+        header("location: ../profilo");
+    } else {
+        header("location: ../");
     }
 
 
