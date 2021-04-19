@@ -7,6 +7,7 @@ const activityRoot = root."activity";
 const activityListRoot = activityRoot."/lid";
 const activityListQualificaRoot = activityRoot."/listqual";
 const activityListTuttiLavoriRoot = activityRoot."/listall";
+const activityGetLavoroPerID = activityRoot."/getbyid";
 
 //Ritorna la lista delle qualiche di cui dispongo
 function listQualifiche() {
@@ -57,7 +58,14 @@ function aggiungiLavoro($idUtente, $titolo, $testo, $professione) {
 }
 
 function getLavoroPerID($id) {
+  $data_array = array(
+    "id"      => $id,
+  );
 
+  $api_call = callAPI('GET', activityGetLavoroPerID, $data_array);
+  $response = json_decode($api_call, true);
+    
+  return $response;
 }
 
 function eliminaLavoroDaIdUser($id) {

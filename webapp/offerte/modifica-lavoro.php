@@ -86,15 +86,17 @@ include_once '../php/api/abstract/compleo-api-user.php';
                 <?php
                 
 
+                //TODO: Cambiare tipo lavoro in un combobox
+
                 echo '
                     <form class="ui form">
                         <div class="field">
                             <label>Titolo Lavoro</label>
-                            <input type="text" name="first-name" placeholder="'.$infoLavoro['titolo'].'">
+                            <input type="text" name="first-name" value="'.$infoLavoro['titolo'].'">
                         </div>
                         <div class="field">
                             <label>Tipo Lavoro</label>
-                            <input type="text" name="last-name" placeholder="'.$infoLavoro['tipo'].'">
+                            <input type="text" name="last-name" value="'.$infoLavoro['tipo'].'">
                         </div>
                         <div class="field">
                             <label>Testo Lavoro</label>
@@ -113,11 +115,6 @@ include_once '../php/api/abstract/compleo-api-user.php';
     <!-- JS !-->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="../assets/semantic/semantic.min.js"></script>
-    <script>
-        function selezionaAttivitaChange(value) {
-            location.replace("index.php?attivita=" + value, )
-        }
-    </script>
 </body>
 
 </html>
