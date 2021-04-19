@@ -70,6 +70,9 @@
                     </div>
                     <div class="extra">
                         '.$mieiLavori[$i]["testo"].'
+                        <a href = "../php/elimina-lavoro.php?id='.$mieiLavori[$i]["id"].'" >
+                            <button class = "ui red button"> Elimina Lavoro</button>
+                        </a>
                     </div>
                 </div>
             </div>
