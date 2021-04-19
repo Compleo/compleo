@@ -175,6 +175,10 @@
                                 <button class="ui button" type="submit">Aggiorna</button>
                                 <br>
                                 <p class="lead">
+                                    <b>OGNI CAMBIAMENTO DELLE INFORMAZIONI PORTER&Agrave AL LOGOUT DELL'UTENTE</b>
+                                </p>
+                                
+                                <p class="lead">
                                     (Se hai sbagliato ad inserire dati non modificabili in fase di registrazione contatta l'assistenza)
                                 </p>
                                 

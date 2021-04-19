@@ -60,4 +60,9 @@ function getLavoroPerID($id) {
   //TODO: IMPLEMENTA
 }
 
+function EliminaLavoroDaIdUser($id)
+{
+  //TODO: IMPLEMENTA
+}
+
 ?>
