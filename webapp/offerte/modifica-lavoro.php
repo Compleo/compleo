@@ -117,15 +117,12 @@ if (isset($_GET['id'])) {
 
 
             </div>
-
-            <?php
-            print_r($qualifiche);
-            ?>
         </div>
 
     </div>
 
     <!-- JS !-->
+    <script type="text/javascript">window.onload = function() { $('.ui.dropdown').dropdown(); };</script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="../assets/semantic/semantic.min.js"></script>
 </body>
