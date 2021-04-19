@@ -96,14 +96,17 @@ include_once '../php/api/abstract/compleo-api-user.php';
                         </div>
                         <div class="field">
                             <label>Tipo Lavoro</label>
-                            <input type="text" name="last-name" value="'.$infoLavoro['tipo'].'">
+                                <select class="ui dropdown">';
+                    
+                echo '
+                                </select>
                         </div>
                         <div class="field">
                             <label>Testo Lavoro</label>
                             <textarea id="bio" name="bio" rows="4" cols="50">'.$infoLavoro['testo'].'</textarea>
                         </div>                        
                         <button class="ui button" type="submit">Modifica</button>
-                    </form>'
+                    </form>';
                 
                 ?>
 
