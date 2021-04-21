@@ -42,7 +42,7 @@
 
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="./assets/semantic/semantic.min.css">
-        <link rel="stylesheet" type="text/css" href="./assets/style.css">
+        <link rel="stylesheet" type="text/css" href="./assets/style.css?version=-1">
     </head>
     <body>
         <!-- MENU !-->
