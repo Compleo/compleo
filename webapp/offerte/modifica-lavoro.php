@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
 <html lang="it">
 
 <head>
-    <title>Compleo - Offerte</title>
+    <title>Compleo - Modifica Lavoro</title>
 
     <!-- CSS !-->
     <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
@@ -87,7 +87,10 @@ if (isset($_GET['id'])) {
     <div class="ui stackable container">
         <div class="ui message">
             <div class="six wide right floated column">
-                <form class="ui form">
+                <h2>
+                    Modifica Lavoro
+                </h2>
+                <form class="ui form" method="POST" action="../php/processa-modifica-lavoro.php">
                     <div class="field">
                         <label>Titolo Lavoro</label>
                         <?php echo '<input type="text" name="first-name" value="' . $infoLavoro['titolo'] . '">'; ?>
@@ -113,8 +116,6 @@ if (isset($_GET['id'])) {
                     </div>
                     <button class="ui button" type="submit">Modifica</button>
                 </form>
-
-
 
             </div>
         </div>

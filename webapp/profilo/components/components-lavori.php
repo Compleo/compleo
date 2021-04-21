@@ -70,13 +70,15 @@ $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
                     </div>
                     <div class="extra">
                         ' . $mieiLavori[$i]["testo"] . '
-                        <a href = "../offerte/modifica-lavoro.php?id=' . $mieiLavori[$i]["id"] . '" >
-                            <button method="get" class = "ui blue button"> Modifica Lavoro </button>
-                        </a>
-                        <a href = "../php/elimina-lavoro.php?id=' . $mieiLavori[$i]["id"] . '" >
-                            <button method="get" class = "ui red button"> Elimina Lavoro </button>
-                        </a>
-                        
+
+                        <div class="ui two buttons" >
+                            <a href = "../offerte/modifica-lavoro.php?id=' . $mieiLavori[$i]["id"] . '" >
+                                <button method="get" class = "ui button">Modifica Lavoro</button>
+                            </a>
+                            <a href = "../php/elimina-lavoro.php?id=' . $mieiLavori[$i]["id"] . '" >
+                                <button method="get" class = "ui red button">Elimina Lavoro</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

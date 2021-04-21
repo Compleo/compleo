@@ -14,15 +14,15 @@
         <div class="column">
             <div class="ui fluid card">
                 <div class="content">
-                <div class="header">
-                    '.$titolo.'
-                </div>
-                <div class="meta">
-                    '.$tipo. ', <a class="header" href="./profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
-                </div>
-                <div class="description">
-                    '.$testo.'
-                </div>
+                    <div class="header">
+                        '.$titolo.'
+                    </div>
+                    <div class="meta">
+                        '.$tipo. ', <a class="header" href="./profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
+                    </div>
+                    <div class="description">
+                        '.$testo.'
+                    </div>
                 </div>
                 <div class="extra content">
                     <div class="ui two buttons" >
@@ -99,12 +99,10 @@
                     <p class="lead">
                         Piccoli servizi, al Completo.
                     </p>
-                </div>            
-            </div>
-            <div>
+                </div>
                 <h2>
                     Ultime Aggiunte
-                    </h2>
+                </h2>
                     <div class="ui three column grid">
                         
                         <?php
@@ -116,8 +114,8 @@
                                 }
                             }
                         ?>
-                    </div>
-                </div>
+                    </div>            
+            </div>
 
         </div>
 
