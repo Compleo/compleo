@@ -9,6 +9,8 @@
                                         (instagram -> @leonardobaldazzi_)
 
         Programmer: Mattia Senni        (git -> @mtttia)
+        
+        programmer: tommaso brandinelli (git -> @MayonaiseMan)
 
         Il seguente codice gestisce la reicerca delle offerte
 

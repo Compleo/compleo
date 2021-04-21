@@ -10,20 +10,24 @@ session_start();
 
         Programmer: Mattia Senni        (git -> @mtttia)
 
+        programmer: tommaso brandinelli (git -> @MayonaiseMan)
+
         Il seguente codice gestisce la reicerca delle offerte
 
         THE FOLLOWING SOURCE CODE IS CLOSED SOURCE, COPYRIGHT (C) 2021 - COMPLEO
     */
 
-include_once '../php/api/abstract/compleo-api-activity.php';
-include_once '../php/api/abstract/compleo-api-user.php';
 
-    if(isset($_GET['id']))
-    {
-        $id = $_GET['id'];
+include_once("../php/api/abstract/compleo-api-activity.php");
+include_once('../php/api/abstract/compleo-api-user.php');
 
-        $infoLavoro = getLavoroPerID($id);
-    }
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $infoLavoro = getLavoroPerID($id);
+    $qualifiche = listQualifiche();
+}
 ?>
 
 <html lang="it">
@@ -83,32 +87,34 @@ include_once '../php/api/abstract/compleo-api-user.php';
     <div class="ui stackable container">
         <div class="ui message">
             <div class="six wide right floated column">
-                <?php
-                
-
-                //TODO: Cambiare tipo lavoro in un combobox
-
-                echo '
-                    <form class="ui form">
-                        <div class="field">
-                            <label>Titolo Lavoro</label>
-                            <input type="text" name="first-name" value="'.$infoLavoro['titolo'].'">
+                <form class="ui form">
+                    <div class="field">
+                        <label>Titolo Lavoro</label>
+                        <?php echo '<input type="text" name="first-name" value="' . $infoLavoro['titolo'] . '">'; ?>
+                    </div>
+                    <div class="field">
+                        <div class="ui selection dropdown select-tipo">
+                            <input type="hidden" name="tipo">
+                            <i class="dropdown icon"></i>
+                            <?php echo '<div class="default text" data-value="'.$qualifiche[$id].'">'.$qualifiche[$id].'</div>';?>                       
+                            <div class="menu">                           
+                            <?php
+                                foreach($qualifiche as $lavoro)
+                                {
+                                    echo '<div class="item" data-value="'.$lavoro.'">'.$lavoro.'</div>';
+                                }                              
+                            ?>   
+                            </div>
                         </div>
-                        <div class="field">
-                            <label>Tipo Lavoro</label>
-                                <select class="ui dropdown">';
-                    
-                echo '
-                                </select>
-                        </div>
-                        <div class="field">
-                            <label>Testo Lavoro</label>
-                            <textarea id="bio" name="bio" rows="4" cols="50">'.$infoLavoro['testo'].'</textarea>
-                        </div>                        
-                        <button class="ui button" type="submit">Modifica</button>
-                    </form>';
-                
-                ?>
+                    </div>
+                    <div class="field">
+                        <label>Testo Lavoro</label>
+                        <?php echo '<textarea id="bio" name="bio" rows="4" cols="50">' . $infoLavoro['testo'] . '</textarea>'; ?>
+                    </div>
+                    <button class="ui button" type="submit">Modifica</button>
+                </form>
+
+
 
             </div>
         </div>
@@ -116,6 +122,7 @@ include_once '../php/api/abstract/compleo-api-user.php';
     </div>
 
     <!-- JS !-->
+    <script type="text/javascript">window.onload = function() { $('.ui.dropdown').dropdown(); };</script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="../assets/semantic/semantic.min.js"></script>
 </body>
