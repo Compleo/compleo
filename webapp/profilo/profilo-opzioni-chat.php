@@ -47,6 +47,7 @@
                                 header("location: ../");
                             }
                         ?>
+
                     </div>
                 </div>
             </div>
@@ -94,6 +95,9 @@
                             </a>
                             <a class="item active" href="./profilo-opzioni-chat.php">
                                 Chat
+                            </a>
+                            <a class="item" href="./profilo-opzioni-contatta.php">
+                                Contatta staff
                             </a>
                         </div>
                     </div>

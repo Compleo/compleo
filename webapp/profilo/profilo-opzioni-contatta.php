@@ -41,7 +41,7 @@
                                         <a class="item" href="../chat"><i class="comment icon"></i>Chat</a>
                                         <a class="item" href="../php/logout.php"><i class="sign out alternate icon"></i>Esci</a>
                                     </div>
-                                </div>       
+                                </div>        
                                 ';
                             } else {
                                 header("location: ../");
@@ -89,20 +89,20 @@
                             <a class="item" href="./profilo-opzioni.php">
                                 Account
                             </a>
-                            <a class="item active" href="./profilo-opzioni-fatturazione.php">
+                            <a class="item" href="./profilo-opzioni-fatturazione.php">
                                 Fatturazione
                             </a>
                             <a class="item" href="./profilo-opzioni-chat.php">
                                 Chat
                             </a>
-                            <a class="item" href="./profilo-opzioni-contatta.php">
+                            <a class="item active" href="./profilo-opzioni-contatta.php">
                                 Contatta staff
                             </a>
                         </div>
                     </div>
                     <div class="twelve wide stretched column">
                         <div class="ui segment">
-                            <h1>DA IMPLEMENTARE</h1>     
+                            <h1>DA IMPLEMENTARE</h1>
                         </div>
                     </div>
                 </div>
