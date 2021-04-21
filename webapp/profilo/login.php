@@ -74,6 +74,7 @@
 
 
         <!-- JS !-->
+        <script type="text/javascript">window.onload = function() {$('.ui.checkbox').checkbox();};</script>
         <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
