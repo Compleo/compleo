@@ -9,25 +9,34 @@
         $nomeUtente = $user["nome"] . " " . $user["cognome"];
         $usrName = strtolower($user["nome"].'.'.$user["cognome"]);
 
+        if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+            $usr = $_SESSION['datiUtente'];
+            if($usr["username"] == $usrName) {
+                $bC = '<button class="ui disabled button">Contatta</button>';
+            }
+        } else {
+            $bC = '<button class="ui button">Contatta</button>';
+        }
+
         //per il botton contatta useremo l'idUtente
         return '
         <div class="column">
             <div class="ui fluid card">
                 <div class="content">
-                    <div class="header">
-                        '.$titolo.'
-                    </div>
-                    <div class="meta">
-                        '.$tipo. ', <a class="header" href="./profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
-                    </div>
-                    <div class="description">
-                        '.$testo.'
-                    </div>
+                <div class="header">
+                    '.$titolo.'
+                </div>
+                <div class="meta">
+                    '.$tipo. ', <a class="header" href="../profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
+                </div>
+                <div class="description">
+                    '.$testo.'
+                </div>
                 </div>
                 <div class="extra content">
                     <div class="ui two buttons" >
-                        <button class="ui button">Contatta</button>
-                        <a class="header" href="./offerte/esplora/?id='.$idLav.'"><button class="ui button"  tabindex="1">Visualizza</button></a>
+                        '.$bC.'
+                        <a class="header" href="./esplora/?id='.$idLav.'"><button class="ui button"  tabindex="1">Visualizza</button></a>
                     </div>
                 </div>
             </div>
