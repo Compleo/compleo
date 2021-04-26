@@ -25,6 +25,7 @@
     $attivitaSettata = $attivitaSelezionata == "" ? false : true;
 
     $allWork = null;
+
     if($attivitaSettata && attivitaValida($attivitaSelezionata, $attivita));
     {
         if($attivitaSettata)
@@ -51,6 +52,15 @@
         $nomeUtente = $user["nome"] . " " . $user["cognome"];
         $usrName = strtolower($user["nome"].'.'.$user["cognome"]);
 
+        if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+            $usr = $_SESSION['datiUtente'];
+            if($usr["username"] == $usrName) {
+                $bC = '<button class="ui disabled button">Contatta</button>';
+            }
+        } else {
+            $bC = '<button class="ui button">Contatta</button>';
+        }
+
         //per il botton contatta useremo l'idUtente
         return '
         <div class="column">
@@ -68,7 +78,7 @@
                 </div>
                 <div class="extra content">
                     <div class="ui two buttons" >
-                        <button class="ui button">Contatta</button>
+                        '.$bC.'
                         <a class="header" href="./esplora/?id='.$idLav.'"><button class="ui button"  tabindex="1">Visualizza</button></a>
                     </div>
                 </div>

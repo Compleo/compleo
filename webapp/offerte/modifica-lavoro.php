@@ -21,12 +21,13 @@ session_start();
 include_once("../php/api/abstract/compleo-api-activity.php");
 include_once('../php/api/abstract/compleo-api-user.php');
 
-
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     $infoLavoro = getLavoroPerID($id);
     $qualifiche = listQualifiche();
+} else {
+    header("location: ../");
 }
 ?>
 
@@ -90,16 +91,16 @@ if (isset($_GET['id'])) {
                 <h2>
                     Modifica Lavoro
                 </h2>
-                <form class="ui form" method="POST" action="../php/processa-modifica-lavoro.php">
+                <form class="ui form" method="POST" action="../php/processa-modifica-lavoro.php?id=<?php echo $_GET["id"]; ?>">
                     <div class="field">
                         <label>Titolo Lavoro</label>
-                        <?php echo '<input type="text" name="first-name" value="' . $infoLavoro['titolo'] . '">'; ?>
+                        <?php echo '<input type="text" name="titolo" value="' . $infoLavoro['titolo'] . '">'; ?>
                     </div>
                     <div class="field">
                         <div class="ui selection dropdown select-tipo">
                             <input type="hidden" name="tipo">
                             <i class="dropdown icon"></i>
-                            <?php echo '<div class="default text" data-value="'.$qualifiche[$id].'">'.$qualifiche[$id].'</div>';?>                       
+                            <?php echo '<div class="default text" data-value="'.$infoLavoro["tipo"].'">'.$infoLavoro["tipo"].'</div>';?>                       
                             <div class="menu">                           
                             <?php
                                 foreach($qualifiche as $lavoro)
@@ -112,7 +113,7 @@ if (isset($_GET['id'])) {
                     </div>
                     <div class="field">
                         <label>Testo Lavoro</label>
-                        <?php echo '<textarea id="bio" name="bio" rows="4" cols="50">' . $infoLavoro['testo'] . '</textarea>'; ?>
+                        <?php echo '<textarea id="testo" name="testo" rows="4" cols="50">' . $infoLavoro['testo'] . '</textarea>'; ?>
                     </div>
                     <button class="ui button" type="submit">Modifica</button>
                 </form>
