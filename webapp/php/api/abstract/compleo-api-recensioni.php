@@ -17,6 +17,7 @@
     const recensioneRoor = root."recensione";
     const recensioneRecRoot = recensioneRoor."/rec";
     const recensioneRedRoot = recensioneRoor."/red";
+    const recensioneGetRoot = recensioneRoor."/get";
 
     function eliminaRecensione($id) {
         //TODO: IMPLEMENTA
@@ -46,6 +47,17 @@
 
     function addRecensione($recID, $redID, $voto, $titolo, $testo) {
         //TODO: IMPLEMENTA
+    }
+
+    function getRecensioneByID($id) {
+        $data_array = array(
+            "id"      => $id,
+          );
+
+          $api_call = callAPI('GET', recensioneGetRoot, $data_array);
+          $response = json_decode($api_call, false);
+      
+          return $response;
     }
 
 ?>
