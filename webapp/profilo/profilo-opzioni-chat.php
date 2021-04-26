@@ -96,13 +96,14 @@
                             <a class="item active" href="./profilo-opzioni-chat.php">
                                 Chat
                             </a>
-                            <a class="item" href="./profilo-opzioni-contatta.php">
-                                Contatta staff
-                            </a>
                         </div>
                     </div>
                     <div class="twelve wide stretched column">
                         <div class="ui segment">
+                            <div class="ui two item menu">
+                                <a class="active item" href="./profilo-opzioni-chat.php">Chat</a>
+                                <a class="item" href="./profilo-opzioni-contatta.php">Contatta l'assistenza</a>
+                            </div>
                             <h1>DA IMPLEMENTARE</h1>
                         </div>
                     </div>

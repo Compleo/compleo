@@ -59,30 +59,36 @@ $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
     <h4 class="ui dividing header">I miei lavori</h1> <br>
         <div class="ui items">
             <?php
-            for ($i = 0; $i < count($mieiLavori); $i++) {
+            if(isset($mieiLavori)) {
+                for ($i = 0; $i < count($mieiLavori); $i++) {
 
-                echo '
-            <div class="item">
-                <div class="content">
-                    <b>' . $mieiLavori[$i]["tipo"] . '</b>
-                    <div class="meta">
-                        <span>' . $mieiLavori[$i]["titolo"] . '</span>
-                    </div>
-                    <div class="extra">
-                        ' . $mieiLavori[$i]["testo"] . '
+                    echo '
+                <div class="item">
+                    <div class="content">
+                        <b>' . $mieiLavori[$i]["tipo"] . '</b>
+                        <div class="meta">
+                            <span>' . $mieiLavori[$i]["titolo"] . '</span>
+                        </div>
+                        <div class="extra">
+                            ' . $mieiLavori[$i]["testo"] . '
 
-                        <div class="ui two buttons" >
-                            <a href = "../offerte/modifica-lavoro.php?id=' . $mieiLavori[$i]["id"] . '" >
-                                <button method="get" class = "ui button">Modifica Lavoro</button>
-                            </a>
-                            <a href = "../php/elimina-lavoro.php?id=' . $mieiLavori[$i]["id"] . '" >
-                                <button method="get" class = "ui red button">Elimina Lavoro</button>
-                            </a>
+                            <div class="ui two buttons" >
+                                <a href = "../offerte/modifica-lavoro.php?id=' . $mieiLavori[$i]["id"] . '" >
+                                    <button method="get" class = "ui button">Modifica Lavoro</button>
+                                </a>
+                                <a href = "../php/elimina-lavoro.php?id=' . $mieiLavori[$i]["id"] . '" >
+                                    <button method="get" class = "ui red button">Elimina Lavoro</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            ';
+                ';
+                }
+            } else {
+                echo '<p class="lead">
+                    Non mi sono ancora proposto per un lavoro
+                </p>';
             }
             ?>
         </div>

@@ -3,6 +3,10 @@
 
     include_once("../php/api/abstract/compleo-api-recensioni.php");
     include_once("../php/api/abstract/compleo-api-user.php");
+
+    ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <html lang="it">
@@ -94,6 +98,7 @@
                 <h4 class="ui dividing header">Parlano di me:</h2> <br>
                 <div class="ui items">
                     <?php
+                    if(isset($rispRecRecensioni)) {
                         for($i = 0; $i < count($rispRecRecensioni); $i++) {
                             $u = getUserByID($rispRecRecensioni[$i]->idRecensore);
                             $usrNome = $u["nome"];
@@ -119,6 +124,11 @@
                             </div>
                             ';
                         }
+                    } else {
+                        echo '<p class="lead">
+                            Nessuno mi ha recensito
+                        </p>';
+                    }
                     ?>
                 </div>
                 <h4 class="ui dividing header">Le mie recensioni: </h2> <br>

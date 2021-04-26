@@ -73,7 +73,7 @@
                     '.$titolo.'
                 </div>
                 <div class="meta">
-                    '.$tipo. ', <a class="header" href="../profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
+                    '.$tipo. ', <a href="../profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
                 </div>
                 <div class="description">
                     '.$testo.'
