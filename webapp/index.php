@@ -1,9 +1,9 @@
 <?php
     session_start();
-    
-    include_once './php/api/abstract/compleo-api-activity.php';
-    include_once './php/api/abstract/compleo-api-user.php';
+    include_once 'php/api/abstract/compleo-api-activity.php';
+    include_once 'php/api/abstract/compleo-api-user.php';
     $allWork = listTuttiILavori();
+    $bC = "";
     function cartaLavoro($idLav, $titolo, $testo, $tipo, $idUtente)
     {
         $user = getUserByID($idUtente);
@@ -31,7 +31,7 @@
                     '.$titolo.'
                 </div>
                 <div class="meta">
-                    '.$tipo. ', <a href="../profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
+                    '.$tipo. ', <a class="header" href="/profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
                 </div>
                 <div class="description">
                     '.$testo.'
@@ -40,36 +40,13 @@
                 <div class="extra content">
                     <div class="ui two buttons" >
                         '.$bC.'
-                        <a class="header" href="./offerte/esplora/?id='.$idLav.'"><button class="ui button"  tabindex="1">Visualizza</button></a>
+                        <button class="ui button"  tabindex="1" onclick="showPopUp(\''.$titolo.'\', \''.$tipo.'\', \''.$testo.'\', \''.$nomeUtente.'\', \'/profilo/esplora/?usr='.$usrName.'\')">Visualizza</button>
                     </div>
                 </div>
             </div>
             
         </div>';
     }
-
-    if(isset($_COOKIE['cuser']) && isset($_COOKIE['cpass']))
-        {
-            try
-            {
-                $response = getUserByUsernameAndPassword($_COOKIE['cuser'], $_COOKIE['cpass']);
-                if(isset($response["message"]) && $response["message"] == "userNotFound")
-                {
-                $_SESSION['errore'] = "Account e/o password non corrispondono...";      
-                header('Location: ..\index.php');
-                } else {
-                $_SESSION['datiUtente'] = $response;
-
-                $_SESSION['login'] = true;
-
-                $_SESSION['errore'] = "";
-                header('Location: ..\index.php');
-                }
-            }catch(Exception $ex)
-            {
-                throw new Exception($ex->getMessage(), (int)$ex->getCode());
-            }
-        }
 ?>
 
 <html lang="it">
@@ -81,7 +58,6 @@
         <link rel="stylesheet" type="text/css" href="./assets/style.css?version=1000">
     </head>
     <body>
-    
         <!-- MENU !-->
             <div class="ui large top fixed stackable menu">
                 <div class="ui container">
@@ -157,11 +133,54 @@
 
         </div>
 
+
+        <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header" id="nome">
+            ...
+        </div>
+        <div class="image content">
+            <div class="ui medium image">
+                <div>
+                    <h2 id="nomeLavoratore">...</h2>
+                    <a class="ui button" id="link-profilo" href="#">visita il profilo</a>
+                </div>
+            </div>
+            <div class="description">
+            <!--<div class="ui header" id="nome"></div>-->
+            <p id="tipo">...</p>
+            <p id="testo">...</p>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+            Chiudi
+            </div>
+            <div class="ui positive right labeled icon button">
+            Contatta
+            <i class="checkmark icon"></i>
+            </div>
+        </div>
+        </div>
+
         <!-- JS !-->
         <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
         <script src="./assets/semantic/semantic.min.js"></script>
+        <script>
+            function showPopUp(nome, tipo, testo, nomeLavoratore, linkLavoratore)
+            {
+                document.getElementById('nome').innerHTML = nome;
+                document.getElementById('tipo').innerHTML = tipo;
+                document.getElementById('testo').innerHTML = testo;
+                document.getElementById('nomeLavoratore').innerHTML = nomeLavoratore;
+                document.getElementById('link-profilo').setAttribute('href', linkLavoratore);
+                //devo settare il link
+                $('.ui.modal').modal('show');
+                
+            }
+        </script>
     </body>
 </html>

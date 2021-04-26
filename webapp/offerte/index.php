@@ -51,18 +51,24 @@
         $user = getUserByID($idUtente);
         $nomeUtente = $user["nome"] . " " . $user["cognome"];
         $usrName = strtolower($user["nome"].'.'.$user["cognome"]);
+        $disable = '';
 
         if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
             $usr = $_SESSION['datiUtente'];
             if($usr["username"] == $usrName) {
-                $bC = '<button class="ui disabled button" style="margin-right: 10px;">Contatta</button>';
+                //$bC = '<button class="ui disabled button" style="margin-right: 10px;">Contatta</button>';
+                $disable = 'disabled';
             }
             else{
-                $bC = '<button class="ui button" style="margin-right: 10px;">Contatta</button>';    
+                //$bC = '<button class="ui button" style="margin-right: 10px;">Contatta</button>';    
+                $disable = '';
             }
         } else {
-            $bC = '<button class="ui button" style="margin-right: 10px;">Contatta</button>';
+            //$bC = '<button class="ui button" style="margin-right: 10px;">Contatta</button>';
+            $disable = '';
         }
+
+        $bC = '<button class="ui button '.$disable.'" style="margin-right: 10px;">Contatta</button>';
 
         //per il botton contatta useremo l'idUtente
         return '
@@ -73,7 +79,7 @@
                     '.$titolo.'
                 </div>
                 <div class="meta">
-                    '.$tipo. ', <a href="../profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
+                    '.$tipo. ', <a class="header" href="../profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
                 </div>
                 <div class="description">
                     '.$testo.'
@@ -82,7 +88,7 @@
                 <div class="extra content">
                     <div class="ui two buttons" >
                         '.$bC.'
-                        <a class="header" href="./esplora/?id='.$idLav.'"><button class="ui button"  tabindex="1">Visualizza</button></a>
+                        <button class="ui button"  tabindex="1" onclick="showPopUp(\''.$titolo.'\', \''.$tipo.'\', \''.$testo.'\', \''.$nomeUtente.'\', \'../profilo/esplora/?usr='.$usrName.'\')">Visualizza</button>
                     </div>
                 </div>
             </div>
@@ -218,6 +224,37 @@
 
         </div>
 
+
+        <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header" id="nome">
+            ...
+        </div>
+        <div class="image content">
+            <div class="ui medium image">
+                <div>
+                    <h2 id="nomeLavoratore">...</h2>
+                    <a class="ui button" id="link-profilo" href="#">visita il profilo</a>
+                </div>
+            </div>
+            <div class="description">
+            <!--<div class="ui header" id="nome"></div>-->
+            <p id="tipo">...</p>
+            <p id="testo">...</p>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+            Chiudi
+            </div>
+            <div class="ui positive right labeled icon button">
+            Contatta
+            <i class="checkmark icon"></i>
+            </div>
+        </div>
+        </div>
+        
+
         <!-- JS !-->
         <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -228,6 +265,19 @@
             function selezionaAttivitaChange(value)
             {
                 location.replace("index.php?attivita=" + value,)
+            }
+        </script>
+        <script>
+            function showPopUp(nome, tipo, testo, nomeLavoratore, linkLavoratore)
+            {
+                document.getElementById('nome').innerHTML = nome;
+                document.getElementById('tipo').innerHTML = tipo;
+                document.getElementById('testo').innerHTML = testo;
+                document.getElementById('nomeLavoratore').innerHTML = nomeLavoratore;
+                document.getElementById('link-profilo').setAttribute('href', linkLavoratore);
+                //devo settare il link
+                $('.ui.modal').modal('show');
+                
             }
         </script>
     </body>
