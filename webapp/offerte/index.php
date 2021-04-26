@@ -55,10 +55,13 @@
         if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
             $usr = $_SESSION['datiUtente'];
             if($usr["username"] == $usrName) {
-                $bC = '<button class="ui disabled button">Contatta</button>';
+                $bC = '<button class="ui disabled button" style="margin-right: 10px;">Contatta</button>';
+            }
+            else{
+                $bC = '<button class="ui button" style="margin-right: 10px;">Contatta</button>';    
             }
         } else {
-            $bC = '<button class="ui button">Contatta</button>';
+            $bC = '<button class="ui button" style="margin-right: 10px;">Contatta</button>';
         }
 
         //per il botton contatta useremo l'idUtente
