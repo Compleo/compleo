@@ -48,8 +48,9 @@
                             </div>
                             <div class="field" id="check-remember">
                                 <div class="ui checkbox">
-                                    <input type="checkbox" tabindex="0" class="hidden">
-                                    <label>Ricordami</label>
+                                    <input type="checkbox" tabindex="0" class="hidden" id="remember">
+                                    <?php if(isset($_COOKIE["member_login"])) { ?> checked
+                                    <?php } ?> <label for="remember-me">Ricordami</label>
                                 </div>
                             </div>
                             <?php 

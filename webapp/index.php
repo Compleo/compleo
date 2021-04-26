@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include_once('.\\php\\control_login_cookie.php');
     include_once 'php/api/abstract/compleo-api-activity.php';
     include_once 'php/api/abstract/compleo-api-user.php';
     $allWork = listTuttiILavori();
@@ -43,6 +44,8 @@
             
         </div>';
     }
+
+    ValidateCookie();
 ?>
 
 <html lang="it">
@@ -54,6 +57,7 @@
         <link rel="stylesheet" type="text/css" href="./assets/style.css?version=1000">
     </head>
     <body>
+    
         <!-- MENU !-->
             <div class="ui large top fixed stackable menu">
                 <div class="ui container">

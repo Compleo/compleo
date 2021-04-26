@@ -2,6 +2,7 @@
   session_start();
 
   include_once('./api/abstract/compleo-api-user.php');
+  include_once('generate_cookie_login.php');
   $_SESSION['errore'] = "";
 
   if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -14,7 +15,7 @@
 
       if(isset($response["message"]) && $response["message"] == "userNotFound")
       {
-        $_SESSION['errore'] = "Account e/o password non corrispondono...";
+        $_SESSION['errore'] = "Account e/o password non corrispondono...";      
         header('Location: ..\profilo\login.php');
       } else {
         $_SESSION['datiUtente'] = $response;
@@ -22,6 +23,9 @@
         $_SESSION['login'] = true;
 
         $_SESSION['errore'] = "";
+        if(isset($_POST['remember'])){
+          generateCookie($_POST['username'],$_POST['password'],$_POST['id']);
+        }
         header('Location: ..\index.php');
       }
     } catch (Exception $e) {
