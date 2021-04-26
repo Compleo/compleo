@@ -103,7 +103,9 @@
                             echo '
                             <div class="item">
                                 <div class="ui tiny image">
-                                    <img src="../assets/img/voti/'.$rispRecRecensioni[$i]->valore.'.png">
+                                    <a class="header" href="../offerte/recensione/esplora.php?id='.$rispRecRecensioni[$i]->id.'">
+                                        <img src="../assets/img/voti/'.$rispRecRecensioni[$i]->valore.'.png">
+                                    </a>
                                 </div>
                                 <div class="content">
                                     <a class="header" href="./esplora/?usr='.$usrName.'">'.$usrNome.' '.$usrCognome.'</a>
@@ -139,7 +141,9 @@
                                 echo '
                                 <div class="item">
                                     <div class="ui tiny image">
-                                        <img src="../assets/img/voti/'.$rispRedRecensioni[$i]->valore.'.png">
+                                        <a class="header" href="../offerte/recensione/esplora.php?id='.$rispRedRecensioni[$i]->id.'">
+                                            <img src="../assets/img/voti/'.$rispRedRecensioni[$i]->valore.'.png">
+                                        </a>
                                     </div>
                                     <div class="content">
                                     <a class="header" href="./esplora/?usr='.$usrName.'">'.$usrNome.' '.$usrCognome.'</a>
