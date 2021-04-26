@@ -17,13 +17,13 @@
   background-image: url('professioni.jpg');
   filter: blur(3px);
   -webkit-filter: blur(3px);
-  background-size: cover;
+  background-size:cover;
   background-attachment:fixed;
 }
 
 .imgText {
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 30%;
   transform: translate(-50%, -50%);
 }

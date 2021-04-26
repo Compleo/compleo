@@ -36,7 +36,7 @@
                 <div class="extra content">
                     <div class="ui two buttons" >
                         '.$bC.'
-                        <a class="header" href="./esplora/?id='.$idLav.'"><button class="ui button"  tabindex="1">Visualizza</button></a>
+                        <a class="header" href="./offerte/esplora/?id='.$idLav.'"><button class="ui button"  tabindex="1">Visualizza</button></a>
                     </div>
                 </div>
             </div>
@@ -99,6 +99,7 @@
             </div>
         <div class="ui stackable container">
             <div class="ui message">
+                <!--
                 <div class="six wide right floated column homeImg">
                 </div>
                 <div class="imgText">
@@ -108,7 +109,7 @@
                     <p class="lead">
                         Piccoli servizi, al Completo.
                     </p>
-                </div>
+                </div> !-->
                 <h2>
                     Ultime Aggiunte
                 </h2>
