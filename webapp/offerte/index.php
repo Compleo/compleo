@@ -104,6 +104,7 @@
         <!-- MetaTags (Google e simili) -->
         <meta name="title" content="Compleo - Offerte">
         <meta name="description" content="Visualizza tutte le offerte attive su Compelo">  
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
 
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">

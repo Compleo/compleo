@@ -40,6 +40,7 @@
         <!-- MetaTags (Google e simili) -->
         <meta name="title" content="Compleo - Profilo">
         <meta name="description" content="Visualizza un profilo su Compleo">  
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
 
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../../assets/semantic/semantic.min.css">

@@ -57,6 +57,7 @@
         <!-- MetaTags (Google e simili) -->
         <meta name="title" content="Compleo - WebApp">
         <meta name="description" content="Home della webapp di Compleo">  
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
 
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="./assets/semantic/semantic.min.css">
@@ -119,7 +120,7 @@
                         <h1 class="ui header">Alcuni consigli per incominciare</h1>
                     </center>
                     <br>
-                    <div class="ui link cards"> 
+                    <div class="ui centered link cards"> 
                         <a class="card" href="./profilo/registrati.php">
                             <div class="content">
                                 <div class="header">Crea il tuo primo account</div>
@@ -174,9 +175,12 @@
                         </a>     
                     </div>
                     <br>
-                    <h2 class="ui header">
-                        Ultime Aggiunte
-                    </h2>
+                    <center>
+                        <h1 class="ui header">
+                            Ultime Aggiunte
+                        </h1>
+                    </center>
+                    <br>
                     <div class="ui cards">    
                             <?php
                                 if(!isset($allWork['message']))

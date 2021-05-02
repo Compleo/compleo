@@ -4,7 +4,12 @@
 
 <html lang="it">
     <head>
-        <title>Compleo - WebApp</title>
+        <title>Compleo - Chat</title>
+
+        <!-- MetaTags (Google e simili) -->
+        <meta name="title" content="Compleo - Chat">
+        <meta name="description" content="Chat di Compelo">  
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
 
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">

@@ -15,6 +15,8 @@
     <head>
         <title>Compleo - Registrazione</title>
 
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="../assets/loginStyle.css">
