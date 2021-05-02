@@ -109,31 +109,84 @@
         <div class="ui stackable container">
             <div class="ui message">
                 <div class="six wide right floated column">
-                <!--
-                <div class="six wide right floated column homeImg">
-                </div>
-                <div class="imgText">
                     <h1 class="ui huge header">
                         Benvenuto in Compleo
                     </h1>
                     <p class="lead">
-                        Piccoli servizi, al Completo.
+                        Ogni piccolo lavoro è importante, inizia da qui!
                     </p>
-                </div> !-->
-                <h2>
-                    Ultime Aggiunte
-                </h2>
-                    <div class="ui three column grid">
-                        
-                        <?php
-                            if(!isset($allWork['message']))
-                            {
-                                for($i = 0; $i < count($allWork); $i++)
+                    <center>
+                        <h1 class="ui header">Alcuni consigli per incominciare</h1>
+                    </center>
+                    <br>
+                    <div class="ui link cards"> 
+                        <a class="card" href="./profilo/registrati.php">
+                            <div class="content">
+                                <div class="header">Crea il tuo primo account</div>
+                                <div class="description">
+                                    Lavorare con Compelo è una grandissima opportunità, coglila al balzo registrandoti ora!
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <span>
+                                    Diventa parte della nostra famiglia ora.
+                                </span>
+                            </div>
+                        </a>
+                        <a class="card" href="./profilo/profilo-opzioni.php">
+                            <div class="content">
+                                <div class="header">Personalizza il tuo profilo</div>
+                                <div class="description">
+                                    Personalizzare il tuo profilo renderà il tuo account più accattivante all'occhio per gli altri utenti.
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <span>
+                                    Personalizzati.
+                                </span>
+                            </div>
+                        </a>
+                        <a class="card" href="./profilo/">
+                            <div class="content">
+                                <div class="header">Proponiti per un lavoro</div>
+                                <div class="description">
+                                    Crea un lavoro ed inizia a lavorare grazie a Compelo.
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <span>
+                                    Un piccolo click adesso, grandi lavori domani.
+                                </span>
+                            </div>
+                        </a>
+                        <a class="card" href="./offerte/">
+                            <div class="content">
+                                <div class="header">Cerca un lavoro</div>
+                                <div class="description">
+                                    Cerchi un Idraulico? Un Muratore? Nessun problema, Compelo è qui per aiutarti.
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <span>
+                                    Cerca il lavoratore che fa per te adesso.
+                                </span>
+                            </div>
+                        </a>     
+                    </div>
+                    <br>
+                    <h2 class="ui header">
+                        Ultime Aggiunte
+                    </h2>
+                    <div class="ui cards">    
+                            <?php
+                                if(!isset($allWork['message']))
                                 {
-                                    echo cartaLavoro($allWork[$i]["id"], $allWork[$i]["titolo"], $allWork[$i]["testo"], $allWork[$i]["tipo"] ,$allWork[$i]["idUtente"]);
+                                    for($i = 0; $i < count($allWork); $i++)
+                                    {
+                                        echo cartaLavoro($allWork[$i]["id"], $allWork[$i]["titolo"], $allWork[$i]["testo"], $allWork[$i]["tipo"] ,$allWork[$i]["idUtente"]);
+                                    }
                                 }
-                            }
-                        ?>
+                            ?>
                     </div>   
                 </div>         
             </div>

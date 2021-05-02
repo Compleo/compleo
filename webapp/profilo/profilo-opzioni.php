@@ -48,7 +48,7 @@
                                 </div>        
                                 ';
                             } else {
-                                header("location: ../");
+                                header("location: ./login.php");
                             }
                         ?>
                     </div>
