@@ -101,6 +101,10 @@
     <head>
         <title>Compleo - Offerte</title>
 
+        <!-- MetaTags (Google e simili) -->
+        <meta name="title" content="Compleo - Offerte">
+        <meta name="description" content="Visualizza tutte le offerte attive su Compelo">  
+
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="../assets/style.css">

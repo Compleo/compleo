@@ -6,6 +6,10 @@
     <head>
         <title>Compleo - Profilo</title>
 
+                <!-- MetaTags (Google e simili) -->
+                <meta name="title" content="Compleo - Profilo">
+        <meta name="description" content="Il tuo profilo su Compleo">  
+
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="../assets/style.css?version=-1">

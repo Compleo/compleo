@@ -6,6 +6,10 @@
     <head>
         <title>Compleo - Profilo</title>
 
+        <!-- MetaTags (Google e simili) -->
+        <meta name="title" content="Compleo - Profilo">
+        <meta name="description" content="Il tuo profilo su Compleo">  
+
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />

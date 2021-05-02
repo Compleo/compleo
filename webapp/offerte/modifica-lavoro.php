@@ -36,6 +36,10 @@ if (isset($_GET['id'])) {
 <head>
     <title>Compleo - Modifica Lavoro</title>
 
+    <!-- MetaTags (Google e simili) -->
+    <meta name="title" content="Compleo - Offerte">
+    <meta name="description" content="Modifica un'offerta">  
+
     <!-- CSS !-->
     <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/style.css">

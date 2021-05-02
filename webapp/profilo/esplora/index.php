@@ -17,6 +17,8 @@
             ';
             header("location: ../../");
         }
+    } else {
+        header("location: ../");
     }
 
     if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
@@ -34,6 +36,10 @@
 <html lang="it">
     <head>
         <title>Compleo - Profilo</title>
+
+        <!-- MetaTags (Google e simili) -->
+        <meta name="title" content="Compleo - Profilo">
+        <meta name="description" content="Visualizza un profilo su Compleo">  
 
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../../assets/semantic/semantic.min.css">

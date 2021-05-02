@@ -53,6 +53,10 @@
     <head>
         <title>Compleo - WebApp</title>
 
+        <!-- MetaTags (Google e simili) -->
+        <meta name="title" content="Compleo - WebApp">
+        <meta name="description" content="Home della webapp di Compleo">  
+
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="./assets/semantic/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="./assets/style.css?version=1000">
