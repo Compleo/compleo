@@ -55,7 +55,7 @@ error_reporting(E_ALL);
                                 </div>   
                                 ';
                             } else {
-                                header("location: ../");
+                                header("location: ./login.php");
                             }
 
                             $rispRecRecensioni = listAllRecensioniByIDRecensito($usr["id"]);

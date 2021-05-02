@@ -6,8 +6,8 @@
     <head>
         <title>Compleo - Profilo</title>
 
-                <!-- MetaTags (Google e simili) -->
-                <meta name="title" content="Compleo - Profilo">
+        <!-- MetaTags (Google e simili) -->
+        <meta name="title" content="Compleo - Profilo">
         <meta name="description" content="Il tuo profilo su Compleo">  
 
         <!-- CSS !-->

@@ -56,19 +56,19 @@
         if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
             $usr = $_SESSION['datiUtente'];
             if($usr["username"] == $usrName) {
-                //$bC = '<button class="ui disabled button" style="margin-right: 10px;">Contatta</button>';
-                $disable = 'disabled';
+                $bC = '<button class="ui disabled button" style="margin-right: 10px;">Contatta</button>';
+                //$disable = 'disabled';
             }
             else{
-                //$bC = '<button class="ui button" style="margin-right: 10px;">Contatta</button>';    
-                $disable = '';
+                $bC = '<button class="ui button" style="margin-right: 10px;">Contatta</button>';    
+                //$disable = '';
             }
         } else {
-            //$bC = '<button class="ui button" style="margin-right: 10px;">Contatta</button>';
-            $disable = '';
+            $bC = '<a href="../profilo/login.php"><button class="ui button" style="margin-right: 10px;">Contatta</button></a>';
+            //$disable = '';
         }
 
-        $bC = '<button class="ui button '.$disable.'" style="margin-right: 10px;">Contatta</button>';
+        //$bC = '<button class="ui button '.$disable.'" style="margin-right: 10px;">Contatta</button>';
 
         //per il botton contatta useremo l'idUtente
         return '
@@ -230,32 +230,38 @@
 
 
         <div class="ui modal">
-        <i class="close icon"></i>
-        <div class="header" id="nome">
-            ...
-        </div>
-        <div class="image content">
-            <div class="ui medium image">
-                <div>
-                    <h2 id="nomeLavoratore">...</h2>
-                    <a class="ui button" id="link-profilo" href="#">visita il profilo</a>
+            <i class="close icon"></i>
+            <div class="header" id="nome">
+                ...
+            </div>
+            <div class="image content">
+                <div class="ui medium image">
+                    <div>
+                        <h2 id="nomeLavoratore">...</h2>
+                        <p id="tipo">...</p>
+                        
+                    </div>
+                </div>
+                <div class="description">
+                    <!--<div class="ui header" id="nome"></div>-->
+                    <p id="testo">...</p>
                 </div>
             </div>
-            <div class="description">
-            <!--<div class="ui header" id="nome"></div>-->
-            <p id="tipo">...</p>
-            <p id="testo">...</p>
+            <div class="actions">
+                <a id="link-profilo" href="#">
+                    <div class="ui right labeled icon button">
+                        Visita il profilo
+                        <i class="user icon"></i>
+                    </div>
+                </a>
+                <div class="ui positive right labeled icon button">
+                    Contatta
+                    <i class="checkmark icon"></i>
+                </div>
+                <div class="ui black deny button">
+                    Chiudi
+                </div>
             </div>
-        </div>
-        <div class="actions">
-            <div class="ui black deny button">
-            Chiudi
-            </div>
-            <div class="ui positive right labeled icon button">
-            Contatta
-            <i class="checkmark icon"></i>
-            </div>
-        </div>
         </div>
         
 

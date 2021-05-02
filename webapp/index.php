@@ -11,6 +11,7 @@
         $usrName = strtolower($user["nome"].'.'.$user["cognome"]);
 
         if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+
             $usr = $_SESSION['datiUtente'];
             if($usr["username"] == $usrName) {
                 $bC = '<button class="ui disabled button" style="margin-right: 10px;">Contatta</button>';
@@ -19,7 +20,7 @@
                 $bC = '<button class="ui button" style="margin-right: 10px;">Contatta</button>';    
             }
         } else {
-            $bC = '<button class="ui button" style="margin-right: 10px;">Contatta</button>';
+            $bC = '<a href="./profilo"><button class="ui button" style="margin-right: 10px;">Contatta</button></a>';
         }
 
         //per il botton contatta useremo l'idUtente
@@ -31,7 +32,7 @@
                     '.$titolo.'
                 </div>
                 <div class="meta">
-                    '.$tipo. ', <a class="header" href="/profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
+                    '.$tipo. ', <a class="header" href="./profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
                 </div>
                 <div class="description">
                     '.$testo.'
@@ -40,7 +41,7 @@
                 <div class="extra content">
                     <div class="ui two buttons" >
                         '.$bC.'
-                        <button class="ui button"  tabindex="1" onclick="showPopUp(\''.$titolo.'\', \''.$tipo.'\', \''.$testo.'\', \''.$nomeUtente.'\', \'/profilo/esplora/?usr='.$usrName.'\')">Visualizza</button>
+                        <button class="ui button"  tabindex="1" onclick="showPopUp(\''.$titolo.'\', \''.$tipo.'\', \''.$testo.'\', \''.$nomeUtente.'\', \'./profilo/esplora/?usr='.$usrName.'\')">Visualizza</button>
                     </div>
                 </div>
             </div>
@@ -107,6 +108,7 @@
             </div>
         <div class="ui stackable container">
             <div class="ui message">
+                <div class="six wide right floated column">
                 <!--
                 <div class="six wide right floated column homeImg">
                 </div>
@@ -132,40 +134,48 @@
                                 }
                             }
                         ?>
-                    </div>            
+                    </div>   
+                </div>         
             </div>
 
         </div>
 
 
         <div class="ui modal">
-        <i class="close icon"></i>
-        <div class="header" id="nome">
-            ...
-        </div>
-        <div class="image content">
-            <div class="ui medium image">
-                <div>
-                    <h2 id="nomeLavoratore">...</h2>
-                    <a class="ui button" id="link-profilo" href="#">visita il profilo</a>
+            <i class="close icon"></i>
+            <div class="header" id="nome">
+                ...
+            </div>
+            <div class="image content">
+                <div class="ui medium image">
+                    <div>
+                        <h2 id="nomeLavoratore">...</h2>
+                        <p id="tipo">...</p>
+                        
+                    </div>
+                </div>
+                <div class="description">
+                    <!--<div class="ui header" id="nome"></div>-->
+                    <p id="testo">...</p>
                 </div>
             </div>
-            <div class="description">
-            <!--<div class="ui header" id="nome"></div>-->
-            <p id="tipo">...</p>
-            <p id="testo">...</p>
+            <div class="actions">
+                <a id="link-profilo" href="#">
+                    <div class="ui right labeled icon button">
+                        Visita il profilo
+                        <i class="user icon"></i>
+                    </div>
+                </a>
+                <div class="ui positive right labeled icon button">
+                    Contatta
+                    <i class="checkmark icon"></i>
+                </div>
+                <div class="ui black deny button">
+                    Chiudi
+                </div>
             </div>
         </div>
-        <div class="actions">
-            <div class="ui black deny button">
-            Chiudi
-            </div>
-            <div class="ui positive right labeled icon button">
-            Contatta
-            <i class="checkmark icon"></i>
-            </div>
-        </div>
-        </div>
+        
 
         <!-- JS !-->
         <script
@@ -182,8 +192,7 @@
                 document.getElementById('nomeLavoratore').innerHTML = nomeLavoratore;
                 document.getElementById('link-profilo').setAttribute('href', linkLavoratore);
                 //devo settare il link
-                $('.ui.modal').modal('show');
-                
+                $('.ui.modal').modal('show'); 
             }
         </script>
     </body>
