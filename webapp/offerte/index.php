@@ -203,7 +203,7 @@
                         ?>
                     </select>
                     <div style="margin-top: 20px;">
-                        <div class="ui three column grid">
+                        <div class="ui cards">
                         <?php 
                             if($allWorkValido)
                             {
