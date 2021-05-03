@@ -31,6 +31,25 @@ $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
                     </div>
                 </div>
             </div>
+            <label>Prezzo e Unita di Misura</label>
+            <div class="field">
+                <input type="number" name="prezzo" placeholder="Prezzo">
+            </div>
+            <div class="field">
+                <div class="ui selection dropdown select-unita-misura">
+                    <input type="hidden" name="unitaMisura">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Unita di Misura</div>
+                    <div class="menu">
+                        <div class="item" data-value="Per Ora">Per Ora</div>
+                        <div class="item" data-value="Per Metro Quadro">Per Metro Quadro</div>
+                        <div class="item" data-value="Totale">Totale</div>
+                    </div>
+                </div>
+            </div>
+            <label>Giorni e Ore</label>
+            <button class="ui button aggiungiFascia" type="button"><i class="calendar plus icon"></i></button>
+            <!-- DA IMPLEMENTARE L'AGGIUNTA DELLA FASCIA ORARIA !-->
             <div class="field">
                 <label>Testo</label>
                 <textarea id="testo" name="testo" rows="4" cols="50"></textarea>
@@ -59,7 +78,7 @@ $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
     <h4 class="ui dividing header">I miei lavori</h1> <br>
         <div class="ui items">
             <?php
-            if(isset($mieiLavori)) {
+            if (isset($mieiLavori)) {
                 for ($i = 0; $i < count($mieiLavori); $i++) {
 
                     echo '

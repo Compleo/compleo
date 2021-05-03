@@ -19,10 +19,19 @@
             //Controlla dati
             if(isset($_POST["testo"]) && $_POST["testo"] != " " &&
                 isset($_POST["tipo"]) && $_POST["tipo"] != " " &&
-                isset($_POST["titolo"]) && $_POST["titolo"] != " ") {
+                isset($_POST["titolo"]) && $_POST["titolo"] != " " &&
+                isset($_POST["prezzo"]) && $_POST["prezzo"] != " " &&
+                isset($_POST["unitaMisura"]) && $_POST["unitaMisura"] != " " &&                
+                isset($_POST["arrayOrario"]) && $_POST["arrayOrario"] != " " &&
+                isset($_POST["arrayGiorni"]) && $_POST["arrayGiorni"] != " "                 
+                ) {
                     $testo = $infoLavoro["testo"];
                     $tipo = $infoLavoro["tipo"];
                     $titolo = $infoLavoro["titolo"];
+                    
+                    $prezzo = $infoLavoro["prezzo"];
+                    $unitaMisura = $infoLavoro["unitaMisura"];
+                    $disponibilita = $infoLavoro["disponibilita"];
 
                     //Controllo se è cambiato il testo
                     if($testo != $_POST["testo"]) {
@@ -34,13 +43,27 @@
                         $titolo = $_POST["titolo"];
                     }
 
-
                     //Controllo se è cambiato il tipo
                     if($tipo != $_POST["tipo"]) {
                         $tipo = $_POST["tipo"];
                     }
 
-                    aggiornaLavoro($_GET['id'], $titolo, $tipo, $testo);
+                    //controllo se è cambiata l'unità di misura
+                    if($unitaMisura != $_POST["unitaMisura"]) {
+                        $unitaMisura = $_POST["unitaMisura"];
+                    }
+
+                    //controllo se è cambiato il prezzo
+                    if ($prezzo != $_POST["prezzo"]) {
+                        $prezzo = $_POST["prezzo"];
+                    }
+
+                    //controllo se è cambiato l'disponibilita
+                    if ($disponibilita != $_POST["disponibilita"]) {
+                        $disponibilita = $_POST["disponibilita"];
+                    }                    
+
+                    aggiornaLavoro($_GET['id'], $titolo, $tipo, $testo, $unitaMisura, $prezzo, $disponibilita);
                 
                     header('Location: ../offerte/modifica-lavoro.php?id='.$_GET['id']);
                 } else {

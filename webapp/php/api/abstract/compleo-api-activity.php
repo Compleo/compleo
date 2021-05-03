@@ -47,13 +47,16 @@ function listLavoriPerQualifica ($qualifica) {
     return $response;
 }
 
-function aggiungiLavoro($idUtente, $titolo, $testo, $professione) {
-    $data_array = array(
-        "usrID"      => $idUtente,
-        "testo"      => $testo,
-        "titolo"      => $titolo,
-        "tipo"      => $professione
-      );
+function aggiungiLavoro($idUtente, $titolo, $testo, $professione, $unitaMisura, $prezzo, $disponibilita) {
+  $data_array = array(
+    "usrID"      => $idUtente,
+    "testo"      => $testo,
+    "titolo"      => $titolo,
+    "tipo"      => $professione,
+    "unitaMisura"      => $unitaMisura,
+    "prezzo"      => $prezzo,
+    "disponibilita" => $disponibilita,
+  );
 
       callApiPUT(activityRoot, $data_array);
 }
@@ -77,12 +80,15 @@ function eliminaLavoroDaIdUser($id) {
   callAPI("DELETE", activityRoot, $data_array);
 }
 
-function aggiornaLavoro($id, $titolo, $tipo, $testo) {
+function aggiornaLavoro($idUtente, $titolo, $testo, $professione, $unitaMisura, $prezzo, $disponibilita) {
   $data_array = array(
-    "id"      => $id,
-    "titolo" => $titolo,
-    "tipo" => $tipo,
-    "testo" => $testo
+    "usrID"      => $idUtente,
+    "testo"      => $testo,
+    "titolo"      => $titolo,
+    "tipo"      => $professione,
+    "unitaMisura"      => $unitaMisura,
+    "prezzo"      => $prezzo,
+    "disponibilita" => $disponibilita,
   );
 
   callApiPUT(activityUpdate, $data_array);

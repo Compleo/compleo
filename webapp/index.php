@@ -9,12 +9,14 @@
         $user = getUserByID($idUtente);
         $nomeUtente = $user["nome"] . " " . $user["cognome"];
         $usrName = strtolower($user["nome"].'.'.$user["cognome"]);
+        $disabled = false;
 
         if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
 
             $usr = $_SESSION['datiUtente'];
             if($usr["username"] == $usrName) {
                 $bC = '<button class="ui disabled button" style="margin-right: 10px;">Contatta</button>';
+                $disabled = true;
             }
             else{
                 $bC = '<button class="ui button" style="margin-right: 10px;">Contatta</button>';    
@@ -41,7 +43,7 @@
                 <div class="extra content">
                     <div class="ui two buttons" >
                         '.$bC.'
-                        <button class="ui button"  tabindex="1" onclick="showPopUp(\''.$titolo.'\', \''.$tipo.'\', \''.$testo.'\', \''.$nomeUtente.'\', \'./profilo/esplora/?usr='.$usrName.'\')">Visualizza</button>
+                        <button class="ui button"  tabindex="1" onclick="showPopUp(\''.$titolo.'\', \''.$tipo.'\', \''.$testo.'\', \''.$nomeUtente.'\', \'./profilo/esplora/?usr='.$usrName.'\', '. $disabled .')">Visualizza</button>
                     </div>
                 </div>
             </div>
@@ -204,39 +206,36 @@ text-decoration: none;
         </div>
 
 
-        <div class="ui modal">
-            <i class="close icon"></i>
-            <div class="header" id="nome">
-                ...
+        
+        <div class="modal" tabindex="-1" id="myModal">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="nome">...</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="image content">
-                <div class="ui medium image">
-                    <div>
+            <div class="modal-body">
+            <div>
                         <h2 id="nomeLavoratore">...</h2>
                         <p id="tipo">...</p>
                         
                     </div>
-                </div>
-                <div class="description">
-                    <!--<div class="ui header" id="nome"></div>-->
                     <p id="testo">...</p>
-                </div>
             </div>
-            <div class="actions">
-                <a id="link-profilo" href="#">
+            <div class="modal-footer">
+            <a id="link-profilo" href="#">
                     <div class="ui right labeled icon button">
                         Visita il profilo
                         <i class="user icon"></i>
                     </div>
                 </a>
-                <div class="ui positive right labeled icon button">
+                <div class="ui positive right labeled icon button" id="btncontatta">
                     Contatta
                     <i class="checkmark icon"></i>
                 </div>
-                <div class="ui black deny button">
-                    Chiudi
-                </div>
             </div>
+            </div>
+        </div>
         </div>
         
 
@@ -247,17 +246,26 @@ text-decoration: none;
             crossorigin="anonymous"></script>
         <script src="./assets/semantic/semantic.min.js"></script>
         <script>
-            function showPopUp(nome, tipo, testo, nomeLavoratore, linkLavoratore)
+            function showPopUp(nome, tipo, testo, nomeLavoratore, linkLavoratore, disable)
             {
+                //showPopUp('lavoro', 'cameriere','dammi lavoro' ,'mattia', 'www.google.com', true)
                 document.getElementById('nome').innerHTML = nome;
                 document.getElementById('tipo').innerHTML = tipo;
                 document.getElementById('testo').innerHTML = testo;
                 document.getElementById('nomeLavoratore').innerHTML = nomeLavoratore;
                 document.getElementById('link-profilo').setAttribute('href', linkLavoratore);
+                
+                if(disable)
+                {
+                    document.getElementById("btncontatta").classList.add('disabled')
+                }
                 //devo settare il link
-                $('.ui.modal').modal('show'); 
-            }
+                var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+  keyboard: false
+})
+myModal.show();
+}
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        <script sr="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     </body>
 </html>

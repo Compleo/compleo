@@ -11,13 +11,18 @@
             $tipo = $_POST['tipo'];
             $testo = $_POST['testo'];
 
+            $unitaMisura = $_POST['unitaMisura'];
+            $prezzo = $_POST['prezzo'];
+
+            $disponibilita = $_POST['disponibilita'];
+
             if ($titolo != " " && $titolo != "" &&
                 $tipo != " " && $tipo != "" &&
                 $testo != " " && $testo != "") {
                     //I dati sono giusti
                     $id = $usr['id'];
 
-                    aggiungiLavoro($id, $titolo, $testo, $tipo);
+                    aggiungiLavoro($id, $titolo, $testo, $tipo, $unitaMisura, $prezzo, $arrayGiorni, $disponibilita);
                     header('location: ../profilo');
 
                 } else {
