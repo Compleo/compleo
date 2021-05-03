@@ -25,7 +25,7 @@
 
         //per il botton contatta useremo l'idUtente
         return '
-        <div class="column">
+        <div class="column col-md-4" style="padding-bottom:15px">
             <div class="ui fluid card">
                 <div class="content">
                 <div class="header">
@@ -62,6 +62,12 @@
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="./assets/semantic/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="./assets/style.css?version=1000">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <style>
+        .card{
+text-decoration: none;
+        }
+    </style>
     </head>
     <body>
         <!-- MENU !-->
@@ -120,7 +126,7 @@
                         <h1 class="ui header">Alcuni consigli per incominciare</h1>
                     </center>
                     <br>
-                    <div class="ui centered link cards"> 
+                    <div class="ui centered cards"> 
                         <a class="card" href="./profilo/registrati.php">
                             <div class="content">
                                 <div class="header">Crea il tuo primo account</div>
@@ -181,7 +187,7 @@
                         </h1>
                     </center>
                     <br>
-                    <div class="ui cards">    
+                    <div class="ui cards row">
                             <?php
                                 if(!isset($allWork['message']))
                                 {
@@ -252,5 +258,6 @@
                 $('.ui.modal').modal('show'); 
             }
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     </body>
 </html>
