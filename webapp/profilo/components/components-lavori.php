@@ -39,7 +39,7 @@ $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
                 </p>
             </div>
         </div>
-        <button class="ui button" type="submit">Proponiti</button>
+        <button class="ui blue button" type="submit">Proponiti</button>
         <?php
         if (isset($_SESSION['erroreAggiungiLavoro']) && $_SESSION['erroreAggiungiLavoro'] != "") {
             echo '
@@ -74,7 +74,7 @@ $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
 
                             <div class="ui two buttons" >
                                 <a href = "../offerte/modifica-lavoro.php?id=' . $mieiLavori[$i]["id"] . '" >
-                                    <button method="get" class = "ui button">Modifica Lavoro</button>
+                                    <button method="get" class = "ui blue button">Modifica Lavoro</button>
                                 </a>
                                 <a href = "../php/elimina-lavoro.php?id=' . $mieiLavori[$i]["id"] . '" >
                                     <button method="get" class = "ui red button">Elimina Lavoro</button>
