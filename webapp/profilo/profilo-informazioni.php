@@ -106,6 +106,8 @@
                     <thead>
                         <tr><th>Nome</th>
                         <th>Cognome</th>
+                        <th>Sesso</th>
+                        <th>Data di Nascita</th>    
                         <th>Nome Utente</th>
                         <th>Codice Fiscale</th>
                         <th>Numero di Telefono</th>
@@ -115,6 +117,8 @@
                         <tr>
                             <td data-label="Nome"><?php echo $usr["nome"]?></td>
                             <td data-label="Cognome"><?php echo $usr["cognome"]?></td>
+                            <td data-label="Sesso"><?php echo $usr["sesso"]?></td>
+                            <td data-label="Data di Nascita"><?php echo $usr["dataNascita"]?></td>
                             <td data-label="Nome Utente"><?php echo $usr["username"]?></td>
                             <td data-label="Codice Fiscale"><?php echo $usr["cf"]?></td>
                             <td data-label="Numero di Telefono"><?php echo $usr["telefono"]?></td>

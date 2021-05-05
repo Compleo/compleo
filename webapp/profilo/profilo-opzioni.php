@@ -126,7 +126,18 @@
                                             <div class="ui selection dropdown select-sesso">
                                                 <input type="hidden" name="sesso">
                                                 <i class="dropdown icon"></i>
-                                                <div class="default text">Sesso</div>
+
+                                                <?php
+                                                    if(isset($usr["sesso"]) && $usr["sesso"] != "") {
+                                                        echo '
+                                                        <div class="default text" data-value="'.$usr["sesso"].'">'.$usr["sesso"].'</div>';
+                                                    } else {
+                                                        echo '
+                                                        <div class="default text">Sesso</div>';
+                                                    }
+
+                                                ?>
+
                                                 <div class="menu" id="menu-province">
                                                     <div class="item" data-value="Donna">Donna</div>
                                                     <div class="item" data-value="Uomo">Uomo</div>
@@ -135,12 +146,15 @@
                                             </div>
                                         </div>
                                         <div class="field">
-                                            <div class="ui calendar" id="calendario">
+                                        <?php
+                                        echo '
+                                            <div class="ui calendar" id="calendario" data-date="'.$usr['dataNascita'].'">
                                                 <div class="ui input left icon">
                                                     <i class="calendar icon"></i>
                                                     <input type="text" placeholder="Data" name="data">
                                                 </div>
-                                            </div>
+                                            </div> ';
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -246,7 +260,20 @@
             }); 
 
             $('#calendario')
-                .calendar();
+                .calendar( {
+                    type: 'date',
+                    formatter: {
+                        date: function (date, settings) {
+                            if (!date) return '';
+                            var day = date.getDate();
+                            var month = date.getMonth() + 1;
+                            var year = date.getFullYear();
+                            return day + '/' + month + '/' + year;
+                        }
+                    }
+                });
+
+            
         </script>
     </body>
 </html>

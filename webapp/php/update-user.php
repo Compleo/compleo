@@ -26,6 +26,9 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
     $email = $usr["email"];
     $piva = $usr["piva"];
 
+    $sesso = $usr["sesso"];
+    $dataNascita = $usr["dataNascita"];
+
     //Controllo la password
     if(isset($_POST["password"]) && isset($_POST["password2"]) &&
         ($_POST["password"] != "" && $_POST["password2"] != "") && 
@@ -60,7 +63,17 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
         $piva = $_POST["piva"];
     }
 
-    aggiornaUtente($id, $telefono, $email, $bio, $piva, $password);
+    //Controllo il sesso
+    if(isset($_POST["sesso"]) && $_POST["sesso"] != "") {
+        $sesso = $_POST["sesso"];
+    }
+
+    //Controllo la data di nascita
+    if(isset($_POST["data"])) {
+        $dataNascita = $_POST["data"];
+    }
+
+    aggiornaUtente($id, $telefono, $email, $bio, $piva, $password, $sesso, $dataNascita);
     
     session_start();
   

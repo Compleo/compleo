@@ -68,14 +68,16 @@ function rimuoviUtente($id) {
   callAPI("DELETE", usrRoor, $data_array);
 }
 
-function aggiornaUtente($id, $telefono, $email, $bio, $piva, $password) {
+function aggiornaUtente($id, $telefono, $email, $bio, $piva, $password, $sesso, $dataNascita) {
   $data_array = array(
     "id"      => $id,
     "telefono" => $telefono,
     "email" => $email,
     "bio" => $bio,
     "password" => $password,
-    "piva" => $piva
+    "piva" => $piva,
+    "sesso" => $sesso,
+    "dataNascita" => $dataNascita
   );
 
   callApiPUT(updateRoor, $data_array);

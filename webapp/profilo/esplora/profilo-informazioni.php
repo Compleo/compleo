@@ -128,6 +128,8 @@
                     <thead>
                         <tr><th>Nome</th>
                         <th>Cognome</th>
+                        <th>Sesso</th>
+                        <th>Data di Nascita</th>    
                         <th>Nome Utente</th>
                         <th>Codice Fiscale</th>
                         <th>Numero di Telefono</th>
@@ -137,6 +139,8 @@
                         <tr>
                             <td data-label="Nome"><?php echo $response["nome"]?></td>
                             <td data-label="Cognome"><?php echo $response["cognome"]?></td>
+                            <td data-label="Sesso"><?php echo $response["sesso"]?></td>
+                            <td data-label="Data di Nascita"><?php echo $response["dataNascita"]?></td>
                             <td data-label="Nome Utente"><?php echo $userToSearch?></td>
                             <td data-label="Codice Fiscale"><?php echo $response["cf"]?></td>
                             <td data-label="Numero di Telefono"><?php echo $response["telefono"]?></td>
@@ -204,7 +208,9 @@
                     container: 'map',
                     style: 'mapbox://styles/mapbox/streets-v11',
                     center: feature.center,
-                    zoom: 10
+                    zoom: 10,
+
+                    interactive: false
             });
             
             // Create a marker and add it to the map.
