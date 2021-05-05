@@ -150,7 +150,6 @@
                         ';
                     }
                 ?>
-                <br>
                 <center>
                     <h1 class="ui header">Mappa</h1>
                 </center> <br>
@@ -186,7 +185,9 @@
                     container: 'map',
                     style: 'mapbox://styles/mapbox/streets-v11',
                     center: feature.center,
-                    zoom: 10
+                    zoom: 10,
+
+                    interactive: false
             });
             
             // Create a marker and add it to the map.

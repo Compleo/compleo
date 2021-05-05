@@ -31,6 +31,13 @@ $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
                     </div>
                 </div>
             </div>
+            <div class="field">
+                <label>Testo</label>
+                <textarea id="testo" name="testo" rows="4" cols="50"></textarea>
+                <p class="lead">
+                    (Il testo deve rappresentare in modo fedele il tuo lavoro)
+                </p>
+            </div>
             <label>Prezzo e Unita di Misura</label>
             <div class="field">
                 <input type="number" name="prezzo" placeholder="Prezzo">
@@ -41,22 +48,15 @@ $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
                     <i class="dropdown icon"></i>
                     <div class="default text">Unita di Misura</div>
                     <div class="menu">
-                        <div class="item" data-value="Per Ora">Per Ora</div>
-                        <div class="item" data-value="Per Metro Quadro">Per Metro Quadro</div>
-                        <div class="item" data-value="Totale">Totale</div>
+                        <div class="item" data-value="€/hr">Per Ora</div>
+                        <div class="item" data-value="€/m2">Per Metro Quadro</div>
+                        <div class="item" data-value="€">Totale</div>
                     </div>
                 </div>
             </div>
             <label>Giorni e Ore</label>
             <button class="ui button aggiungiFascia" type="button"><i class="calendar plus icon"></i></button>
             <!-- DA IMPLEMENTARE L'AGGIUNTA DELLA FASCIA ORARIA !-->
-            <div class="field">
-                <label>Testo</label>
-                <textarea id="testo" name="testo" rows="4" cols="50"></textarea>
-                <p class="lead">
-                    (Il testo deve rappresentare in modo fedele il tuo lavoro)
-                </p>
-            </div>
         </div>
         <button class="ui blue button" type="submit">Proponiti</button>
         <?php

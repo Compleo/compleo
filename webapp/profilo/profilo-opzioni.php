@@ -12,7 +12,7 @@
         <meta name='viewport' content='width=device-width, initial-scale=1' />
 
         <!-- CSS !-->
-        <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="../assets/style.css?version=-1">
     </head>
     <body>
@@ -120,6 +120,29 @@
                                     <div class="field disabled">
                                         <input type="text" name="cf" placeholder="Codice Fiscale" value="<?php echo $usr["cf"]; ?>">
                                     </div>
+                                    <label>Sesso e Data di Nascita</label>
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <div class="ui selection dropdown select-sesso">
+                                                <input type="hidden" name="sesso">
+                                                <i class="dropdown icon"></i>
+                                                <div class="default text">Sesso</div>
+                                                <div class="menu" id="menu-province">
+                                                    <div class="item" data-value="Donna">Donna</div>
+                                                    <div class="item" data-value="Uomo">Uomo</div>
+                                                    <div class="item" data-value="Altro">Altro</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="ui calendar" id="calendario">
+                                                <div class="ui input left icon">
+                                                    <i class="calendar icon"></i>
+                                                    <input type="text" placeholder="Data" name="data">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <h4 class="ui dividing header">Informazioni di contatto</h4> <br>
                                 <div class="field">
@@ -211,12 +234,19 @@
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
-        <script src="../assets/semantic/semantic.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>        
         <script>
+            window.onload = function(){
+                $('.ui.dropdown').dropdown();
+            };
+
             $('.ui .item').on('click', function() {
                 $('.ui .item').removeClass('active');
                 $(this).addClass('active');
             }); 
+
+            $('#calendario')
+                .calendar();
         </script>
     </body>
 </html>
