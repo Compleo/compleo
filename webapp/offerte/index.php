@@ -226,37 +226,35 @@
             </div>
 
         </div>
-
-
-        <div class="modal" tabindex="-1" id="myModal">
-        <div class="modal-dialog" >
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="nome">...</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            <div>
-                        <h2 id="nomeLavoratore">...</h2>
-                        <p id="tipo">...</p>
-                        
+        <div class="modal" tabindex="-1" id="modal-lavori">
+            <div class="modal-dialog modal-dialog-centered" >
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="nome">...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="modal-close"></button>
                     </div>
-                    <p id="testo">...</p>
-            </div>
-            <div class="modal-footer">
-            <a id="link-profilo" href="#">
-                    <div class="ui right labeled icon button">
-                        Visita il profilo
-                        <i class="user icon"></i>
+                    <div class="modal-body">
+                        <div>
+                            <h2 id="nomeLavoratore">...</h2>
+                            <p id="tipo">...</p>
+                                    
+                        </div>
+                        <p id="testo">...</p>
                     </div>
-                </a>
-                <div class="ui positive right labeled icon button" id="btncontatta">
-                    Contatta
-                    <i class="checkmark icon"></i>
+                    <div class="modal-footer">
+                        <a id="link-profilo" href="#">
+                            <div class="ui right labeled icon button">
+                                Visita il profilo
+                                <i class="user icon"></i>
+                            </div>
+                        </a>
+                        <div class="ui positive right labeled icon button" id="btncontatta">
+                            Contatta
+                            <i class="checkmark icon"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
-        </div>
         </div>
         
 
@@ -266,14 +264,12 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
         <script src="../assets/semantic/semantic.min.js"></script>
-        <script>
-            function selezionaAttivitaChange(value)
-            {
-                location.replace("index.php?attivita=" + value,)
-            }
-        </script>
         <script sr="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
         <script>
+            $( "#modal-close" ).click(function() {
+                $('#modal-lavori').modal('hide');
+            });
+
             function showPopUp(nome, tipo, testo, nomeLavoratore, linkLavoratore, disable)
             {
                 //showPopUp('lavoro', 'cameriere','dammi lavoro' ,'mattia', 'www.google.com', true)
@@ -285,14 +281,11 @@
                 
                 if(disable)
                 {
-                    document.getElementById("btncontatta").classList.add('disabled')
+                    document.getElementById("btncontatta").classList.add('disabled');
                 }
-                //devo settare il link
-                var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
-  keyboard: false
-})
-myModal.show();
-}
+
+                $('#modal-lavori').modal('show');
+            }
         </script>
         
     </body>
