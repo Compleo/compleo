@@ -1,6 +1,10 @@
 <?php
     session_start();
 
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
     include_once('./api/abstract/compleo-api-activity.php');
 
     if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
@@ -14,7 +18,7 @@
             $unitaMisura = $_POST['unitaMisura'];
             $prezzo = $_POST['prezzo'];
 
-            $disponibilita = $_POST['disponibilita'];
+            $disponibilita = addslashes(json_encode($_POST['fascie']));
 
             if ($titolo != " " && $titolo != "" &&
                 $tipo != " " && $tipo != "" &&
@@ -22,7 +26,8 @@
                     //I dati sono giusti
                     $id = $usr['id'];
 
-                    aggiungiLavoro($id, $titolo, $testo, $tipo, $unitaMisura, $prezzo, $arrayGiorni, $disponibilita);
+                    aggiungiLavoro($id, $titolo, $testo, $tipo, $unitaMisura, $prezzo, $disponibilita);
+                    
                     header('location: ../profilo');
 
                 } else {
