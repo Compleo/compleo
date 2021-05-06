@@ -11,6 +11,10 @@
     <?php
         for($i = 0; $i < count($mieiLavori); $i++) {
 
+            $disabled = false;
+
+            $nomeUtente = $response["nome"]." ".$response["cognome"];
+
             echo '
                 <div class="item">
                     <div class="content">
@@ -22,7 +26,7 @@
                             <span>'.$mieiLavori[$i]["testo"].'</span>
                             <div class="ui two buttons" >
                                 <button class="ui button">Contatta</button>
-                                <a class="header" href="../../offerte/esplora/?id='.$mieiLavori[$i]["id"].'"><button class="ui button"  tabindex="1">Visualizza</button></a>
+                                <a class="header" onclick="showPopUp(\''.$mieiLavori[$i]["titolo"].'\', \''.$mieiLavori[$i]["tipo"].'\', \''.$mieiLavori[$i]["testo"].'\', \''.$nomeUtente.'\', \'./profilo/esplora/?usr='.$response["username"].'\', '. $disabled .')"><button class="ui button"  tabindex="1">Visualizza</button></a>
                             </div>
                         </div>
                     </div>

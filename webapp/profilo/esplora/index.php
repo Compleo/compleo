@@ -44,7 +44,9 @@
 
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../../assets/semantic/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="../../assets/bootstrap-modals.css">
         <link rel="stylesheet" type="text/css" href="../../assets/style.css?version=-1">
+
     </head>
     <body>
                <!-- MENU !-->
@@ -155,7 +157,7 @@
                         }
                     } else {
                         echo '
-                            <p class="lead">
+                            <p class="ui lead">
                                 Quest'."'".'account non ha ancora nessuna recensione
                             </p>
                         ';
@@ -211,11 +213,60 @@
             </div>
         </div>
 
+        <div class="modal" tabindex="-1" id="modal-lavori">
+            <div class="modal-dialog modal-dialog-centered" >
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="nome">...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="modal-close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <h2 id="nomeLavoratore">...</h2>
+                            <p id="tipo">...</p>
+                                    
+                        </div>
+                        <p id="testo">...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="ui positive right labeled icon button" id="btncontatta">
+                            Contatta
+                            <i class="checkmark icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
         <!-- JS !-->
         <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
         <script src="../../assets/semantic/semantic.min.js"></script>
+        <script sr="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        <script>
+            $( "#modal-close" ).click(function() {
+                $('#modal-lavori').modal('hide');
+            });
+
+            function showPopUp(nome, tipo, testo, nomeLavoratore, linkLavoratore, disable)
+            {
+                //showPopUp('lavoro', 'cameriere','dammi lavoro' ,'mattia', 'www.google.com', true)
+                document.getElementById('nome').innerHTML = nome;
+                document.getElementById('tipo').innerHTML = tipo;
+                document.getElementById('testo').innerHTML = testo;
+                document.getElementById('nomeLavoratore').innerHTML = nomeLavoratore;
+                //document.getElementById('link-profilo').setAttribute('href', linkLavoratore);
+                
+                if(disable)
+                {
+                    document.getElementById("btncontatta").classList.add('disabled');
+                }
+
+                $('#modal-lavori').modal('show');
+            }
+        </script>
     </body>
 </html>
