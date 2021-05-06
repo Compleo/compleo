@@ -83,12 +83,6 @@
                         Offerte
                     </a>
                     <div class="right menu">
-                        <div class="item">
-                            <div class="ui icon input">
-                                <input type="text" placeholder="Cerca...">
-                                <i class="search link icon"></i>
-                            </div>
-                        </div>
                         <?php
                             if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
                                 $usr = $_SESSION['datiUtente'];
@@ -125,7 +119,7 @@
                         Ogni piccolo lavoro è importante, inizia da qui!
                     </p>
                     <center>
-                        <h1 class="ui header">Alcuni consigli per incominciare</h1>
+                        <div class="ui dividing huge header">Alcuni consigli per incominciare</div>
                     </center>
                     <br>
                     <div class="ui centered cards"> 
@@ -184,9 +178,7 @@
                     </div>
                     <br>
                     <center>
-                        <h1 class="ui header">
-                            Ultime Aggiunte
-                        </h1>
+                        <div class="ui dividing huge header">Ultime Aggiunte</div>
                     </center>
                     <br>
                     <div class="ui cards row">

@@ -85,7 +85,7 @@
                 <div class="extra content">
                     <div class="ui two buttons" >
                         '.$bC.'
-                        <button class="ui button"  tabindex="1" onclick="showPopUp(\''.$titolo.'\', \''.$tipo.'\', \''.$testo.'\', \''.$nomeUtente.'\', \'./profilo/esplora/?usr='.$usrName.'\', '. $disabled .')">Visualizza</button>
+                        <button class="ui button"  tabindex="1" onclick="showPopUp(\''.$titolo.'\', \''.$tipo.'\', \''.$testo.'\', \''.$nomeUtente.'\', \'../profilo/esplora/?usr='.$usrName.'\', '. $disabled .')">Visualizza</button>
                     </div>
                 </div>
             </div>

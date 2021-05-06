@@ -27,12 +27,6 @@
                         Offerte
                     </a>
                     <div class="right menu">
-                        <div class="item">
-                            <div class="ui icon input">
-                                <input type="text" placeholder="Cerca...">
-                                <i class="search link icon"></i>
-                            </div>
-                        </div>
                         <?php
                             if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
                                 $usr = $_SESSION['datiUtente'];
