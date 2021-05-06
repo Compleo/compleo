@@ -2,6 +2,19 @@
 
 session_start();
 
+include("../../php/api/abstract/compleo-api-activity.php"); 
+include("../../php/api/abstract/compleo-api-user.php"); 
+
+if(isset($_GET["idRecensire"]) && isset($_GET["idRichiestaLavoro"])) {
+    $idRecensire = $_GET["idRecensire"];
+    $idRichiestaLavoro = $_GET["idRichiestaLavoro"];
+
+    //Prendo info utente
+    $utenteRecensito = getUserByID($idRecensire);
+} else {
+    header("location: ../../");
+}
+
 ?>
 
 <html lang="it">
@@ -26,12 +39,6 @@ session_start();
                         Offerte
                     </a>
                     <div class="right menu">
-                        <div class="item">
-                            <div class="ui icon input">
-                                <input type="text" placeholder="Cerca...">
-                                <i class="search link icon"></i>
-                            </div>
-                        </div>
                         <?php
                             if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
                                 $usr = $_SESSION['datiUtente'];

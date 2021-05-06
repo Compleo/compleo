@@ -19,7 +19,7 @@ error_reporting(E_ALL);
         <meta name='viewport' content='width=device-width, initial-scale=1' />
 
         <!-- CSS !-->
-        <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="../assets/style.css?version=-1">
     </head>
     <body>
@@ -183,6 +183,12 @@ error_reporting(E_ALL);
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
-        <script src="../assets/semantic/semantic.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>       
+        <script type="text/javascript" src="./components/js/components-lavori-addFascia.js"></script> 
+        <script type="text/javascript">
+            window.onload = function() {
+                $('.ui.dropdown').dropdown();
+            };
+        </script>
     </body>
 </html>

@@ -8,7 +8,7 @@ $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
 <center>
     <h2 class="ui header">Lavori</h1>
 </center>
-<h4 class="ui dividing header">Proponiti per un lavoro</h1> <br>
+<h4 class="ui dividing header">Proponiti per un lavoro</h4> <br>
     <form class="ui form" method="POST" action="../php/aggiungiLavoro-verifica.php">
         <div class="field">
             <label>Titolo e Tipo del Lavoro</label>
@@ -54,8 +54,58 @@ $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
                     </div>
                 </div>
             </div>
-            <label>Giorni e Ore</label>
-            <button class="ui button aggiungiFascia" type="button"><i class="calendar plus icon"></i></button>
+            <br>
+            <h4 class="ui dividing header">Giorni e Ore</h4>
+            <p class="lead">
+                Le fasce orarie indicano i giorni e gli orari di lavoro in cui ti rendi disponibile
+                </p>
+                <div class="fascie" name="fascie">
+                    <!-- Da copiare e incollare !-->
+                    <div class="fascia0">
+                        <br>
+                        <h4 class="ui dividing header">Fascia Oraria</h4> <br>
+                        <div class="field">
+                            <label>Ora di Inizio e di Fine</label>
+                            <div class="field">
+                                <div class="ui calendar calendario-inizio">
+                                    <div class="ui input left icon">
+                                        <i class="time icon"></i>
+                                        <input id="oInizio0" type="text" placeholder="Ora di Inizio" name="fascie[0]['oraInizio']">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui calendar calendario-fine">
+                                    <div class="ui input left icon">
+                                        <i class="time icon"></i>
+                                        <input id="oFine0" type="text" placeholder="Ora di Fine" name="fascie[0]['oraFine']">
+                                    </div>
+                                </div>
+                            </div>
+                            <label>Giorno della Settimana</label>
+                            <div class="field">
+                                <div class="ui selection dropdown select-giorno">
+                                    <input id="gSettimana0" type="hidden" name="fascie[0]['giorno']">
+                                    <i class="dropdown icon"></i>
+                                    <div class="default text">Giorno della Settimana</div>
+                                    <div class="menu">
+                                        <div class="item" data-value="Lunedì">Lunedì</div>
+                                        <div class="item" data-value="Martedì">Martedì</div>
+                                        <div class="item" data-value="Mercoledì">Mercoledì</div>
+                                        <div class="item" data-value="Giovedì">Giovedì</div>
+                                        <div class="item" data-value="Venerdì">Venerdì</div>
+                                        <div class="item" data-value="Sabato">Sabato</div>
+                                        <div class="item" data-value="Domenica">Domenica</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="ui dividing header"></div> <br>
+                <button class="ui button aggiungi-fascia" type="button"><i class="plus icon"></i></button>
+
             <!-- DA IMPLEMENTARE L'AGGIUNTA DELLA FASCIA ORARIA !-->
         </div>
         <button class="ui blue button" type="submit">Proponiti</button>
@@ -111,9 +161,3 @@ $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
             }
             ?>
         </div>
-
-        <script type="text/javascript">
-            window.onload = function() {
-                $('.ui.dropdown').dropdown();
-            };
-        </script>
