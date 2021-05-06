@@ -62,8 +62,8 @@ $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
         <?php
         if (isset($_SESSION['erroreAggiungiLavoro']) && $_SESSION['erroreAggiungiLavoro'] != "") {
             echo '
-                <div class="ui negative message">
-                    <i class="close icon"></i>
+                <div class="ui negative message" id="messaggio">
+                    <i class="close icon" id="close"></i>
                     <div class="header">
                         Errore
                     </div>
@@ -75,7 +75,7 @@ $mieiLavori = listLavoriPerIDLavoratore($usr["id"]);
         }
         ?>
     </form>
-    <h4 class="ui dividing header">I miei lavori</h1> <br>
+    <h4 class="ui dividing header">I miei lavori</h4> <br>
         <div class="ui items">
             <?php
             if (isset($mieiLavori)) {

@@ -155,18 +155,18 @@
         <div class="ui stackable container">
             <div class="ui message">
                 <div class="six wide right floated column">
-                    <h2>
-                    <?php
-                        if($attivitaSettata)
-                        {
-                            if(attivitaValida($attivitaSelezionata, $attivita))
+                    <h2 class="ui huge header">
+                        <?php
+                            if($attivitaSettata)
                             {
-                                echo $attivita[$attivitaSelezionata];       
+                                if(attivitaValida($attivitaSelezionata, $attivita))
+                                {
+                                    echo $attivita[$attivitaSelezionata];       
+                                }
                             }
-                        }
-                        else
-                            echo 'Tutti i lavori';
-                    ?>
+                            else
+                                echo 'Tutti i lavori';
+                        ?>
                     </h2>
                     
                     <select class="ui search dropdown" id="selezionaAttivita" onchange="selezionaAttivitaChange(value)">
@@ -270,6 +270,10 @@
                 $('#modal-lavori').modal('hide');
             });
 
+            $( "#close" ).click(function() {
+                $('#messaggio').hide();
+            });
+
             function showPopUp(nome, tipo, testo, nomeLavoratore, linkLavoratore, disable)
             {
                 //showPopUp('lavoro', 'cameriere','dammi lavoro' ,'mattia', 'www.google.com', true)
@@ -285,6 +289,11 @@
                 }
 
                 $('#modal-lavori').modal('show');
+            }
+
+            function selezionaAttivitaChange(value)
+            {
+                location.replace("index.php?attivita=" + value,)
             }
         </script>
         
