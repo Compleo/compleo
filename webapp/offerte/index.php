@@ -57,14 +57,14 @@
 
             $usr = $_SESSION['datiUtente'];
             if($usr["username"] == $usrName) {
-                $bC = '<button class="ui disabled button" style="margin-right: 10px;">Contatta</button>';
+                $bC = '<a class="ui header" href="./prenotazioni/nuova.php?idLav='.$idLav.'&idUtente='.$idUtente.'"><button class="ui disabled button" style="margin-right: 10px;">Contatta</button>';
                 $disabled = true;
             }
             else{
-                $bC = '<button class="ui button" style="margin-right: 10px;">Contatta</button>';    
+                $bC = '<a class="ui header" href="./prenotazioni/nuova.php?idLav='.$idLav.'&idUtente='.$idUtente.'"><button class="ui button" style="margin-right: 10px;">Contatta</button>';   
             }
         } else {
-            $bC = '<a href="./profilo"><button class="ui button" style="margin-right: 10px;">Contatta</button></a>';
+            $bC = '<a  class="ui header" href="../profilo"><button class="ui button" style="margin-right: 10px;">Contatta</button></a>';
         }
 
         //per il botton contatta useremo l'idUtente
@@ -72,15 +72,15 @@
         <div class="column col-md-4" style="padding-bottom:15px">
             <div class="ui fluid card">
                 <div class="content">
-                <div class="header">
-                    '.$titolo.'
-                </div>
-                <div class="meta">
-                    '.$tipo. ', <a class="header" href="./profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
-                </div>
-                <div class="description">
-                    '.$testo.'
-                </div>
+                    <div class="header">
+                        '.$titolo.'
+                    </div>
+                    <div class="meta">
+                        '.$tipo. ', <a class="header" href="../profilo/esplora/?usr='.$usrName.'"">' .$nomeUtente.'</a>
+                    </div>
+                    <div class="description">
+                        '.$testo.'
+                    </div>
                 </div>
                 <div class="extra content">
                     <div class="ui two buttons" >
@@ -107,6 +107,7 @@
         <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="../assets/style.css">
         <link rel="stylesheet" type="text/css" href="../assets/bootstrap-modals.css">
+        <link rel="stylesheet" type="text/css" href="../assets/bootstrap-grid.min.css">
     </head>
     <body>
         <!-- MENU !-->

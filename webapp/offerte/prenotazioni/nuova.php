@@ -1,0 +1,5 @@
+<?php
+    session_start();
+
+    //PAGINA CHE PERMETTERÀ DI CREARE UNA NUOVA PRENOTAZIONE
+?>
