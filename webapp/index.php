@@ -15,11 +15,11 @@
 
             $usr = $_SESSION['datiUtente'];
             if($usr["username"] == $usrName) {
-                $bC = '<a class="ui header" href="./offerte/prenotazioni/nuova.php?idLav='.$idLav.'&idUtente='.$idUtente.'"><button class="ui disabled button" style="margin-right: 10px;">Contatta</button>';
+                $bC = '<a class="ui disabled header" href="./offerte/prenotazioni/nuova.php?idLav='.$idLav.'&idUtente='.$idUtente.'"><button class="ui disabled button" style="margin-right: 10px;">Contatta</button></a>';
                 $disabled = true;
             }
             else{
-                $bC = '<a class="ui header" href="./offerte/prenotazioni/nuova.php?idLav='.$idLav.'&idUtente='.$idUtente.'"><button class="ui button" style="margin-right: 10px;">Contatta</button>';   
+                $bC = '<a class="ui header" href="./offerte/prenotazioni/nuova.php?idLav='.$idLav.'&idUtente='.$idUtente.'"><button class="ui button" style="margin-right: 10px;">Contatta</button></a>';   
             }
         } else {
             $bC = '<a  class="ui header" href="../profilo"><button class="ui button" style="margin-right: 10px;">Contatta</button></a>';
@@ -27,7 +27,7 @@
 
         //per il botton contatta useremo l'idUtente
         return '
-        <div class="column col-md-4" style="padding-bottom:15px">
+        <div class="column col-md-4" style="padding:15px">
             <div class="ui fluid card">
                 <div class="content">
                     <div class="header">
@@ -69,6 +69,10 @@
         <style>
             .card{
                 text-decoration: none;
+            }
+            a.disabled {
+                pointer-events: none;
+                cursor: default;
             }
         </style>
     </head>

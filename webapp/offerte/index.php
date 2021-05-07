@@ -57,11 +57,11 @@
 
             $usr = $_SESSION['datiUtente'];
             if($usr["username"] == $usrName) {
-                $bC = '<a class="ui header" href="./prenotazioni/nuova.php?idLav='.$idLav.'&idUtente='.$idUtente.'"><button class="ui disabled button" style="margin-right: 10px;">Contatta</button>';
+                $bC = '<a class="ui disabled header" href="./prenotazioni/nuova.php?idLav='.$idLav.'&idUtente='.$idUtente.'"><button class="ui disabled button" style="margin-right: 10px;">Contatta</button></a>';
                 $disabled = true;
             }
             else{
-                $bC = '<a class="ui header" href="./prenotazioni/nuova.php?idLav='.$idLav.'&idUtente='.$idUtente.'"><button class="ui button" style="margin-right: 10px;">Contatta</button>';   
+                $bC = '<a class="ui header" href="./prenotazioni/nuova.php?idLav='.$idLav.'&idUtente='.$idUtente.'"><button class="ui button" style="margin-right: 10px;">Contatta</button></a>';   
             }
         } else {
             $bC = '<a  class="ui header" href="../profilo"><button class="ui button" style="margin-right: 10px;">Contatta</button></a>';
@@ -108,6 +108,15 @@
         <link rel="stylesheet" type="text/css" href="../assets/style.css">
         <link rel="stylesheet" type="text/css" href="../assets/bootstrap-modals.css">
         <link rel="stylesheet" type="text/css" href="../assets/bootstrap-grid.min.css">
+        <style>
+            .card{
+                text-decoration: none;
+            }
+            a.disabled {
+                pointer-events: none;
+                cursor: default;
+            }
+        </style>
     </head>
     <body>
         <!-- MENU !-->
