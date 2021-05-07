@@ -1,9 +1,22 @@
 <?php
     session_start();
 
+    //Error reporting
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL | E_STRICT);
+
+    include_once("../../php/api/abstract/compelo-api-prenotazione.php");
+    include_once("../../php/api/abstract/compleo-api-activity.php");
+    include_once("../../php/api/abstract/compleo-api-user.php");
+
     if (!isset($_SESSION['login'])) {
         header("location: ../../");
     }
+
+    $usr = $_SESSION['datiUtente'];
+
+    $risultatoPrenotazioniMie = getPrenotazioniPerUtente($usr["id"]);
 
     //PAGINA CHE VISUALIZZA LE MIE PRENOTAZIONI
 ?>
@@ -17,6 +30,9 @@
         <meta name="description" content="Visualizza tutte le prenotazioni aperte dall'utente">  
         <meta name='viewport' content='width=device-width, initial-scale=1' />
 
+        <!-- JS !-->
+        <script src="https://kit.fontawesome.com/eb2ba5a08b.js" crossorigin="anonymous"></script>
+
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../../assets/semantic/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="../../assets/style.css">
@@ -27,8 +43,8 @@
         <!-- MENU !-->
             <div class="ui large top fixed stackable menu">
                 <div class="ui container">
-                    <a class="item" href="../"><img src="../assets/logo.png"></a>
-                    <a class="item" href="../">
+                    <a class="item" href="../../../"><img src="../../assets/logo.png"></a>
+                    <a class="item" href="../../">
                         Home
                     </a>
                     <a class="active item" href="./">
@@ -36,21 +52,18 @@
                     </a>
                     <div class="right menu">
                         <?php
-                            if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
-                                $usr = $_SESSION['datiUtente'];
                                 echo '
                                     <div class="ui simple dropdown item">
                                         <i class="user icon"></i>
                                         <i class="dropdown icon"></i>
                                         <div class="menu">
                                             <div class="header">'.$usr["nome"].' '.$usr["cognome"].'</div>
-                                            <a class="item" href="../profilo/"><i class="address card icon"></i>Profilo</a>
-                                            <a class="item" href="../chat"><i class="comment icon"></i>Chat</a>
-                                            <a class="item" href="../php/logout.php"><i class="sign out alternate icon"></i>Esci</a>
+                                            <a class="item" href="../../profilo/"><i class="address card icon"></i>Profilo</a>
+                                            <a class="item" href="../../chat"><i class="comment icon"></i>Chat</a>
+                                            <a class="item" href="../../php/logout.php"><i class="sign out alternate icon"></i>Esci</a>
                                         </div>
                                     </div>   
                                 ';
-                            }
                         ?>
                     </div>
                 </div>
@@ -58,7 +71,136 @@
         <div class="ui stackable container">
             <div class="ui message">
                 <div class="six wide right floated column">
-                    <h1>DA IMPLEMENTARE</h1>
+                    <h2 class="ui huge header">
+                        Le tue prenotazioni
+                    </h2>
+                    <?php
+                        if(!isset($risultatoPrenotazioniMie))
+                        {
+                            //Non ho fatto ancora nessuna recensione
+                            ?>
+                                <p class="lead">
+                                    Non hai ancora impegnato nessuna prenotazione. <br>
+                                    Questa pagina si sbloccherà non appena impegnerai la tua prima prenotazione.
+                                </p>
+                                <center>
+                                    <div class="ui dividing huge header">Alcuni consigli per incominciare</div>
+                                </center>
+                                <br>
+                                <div class="ui centered cards"> 
+                                    <a class="card" href="../../profilo/profilo-opzioni.php">
+                                        <div class="content">
+                                            <div class="header">Personalizza il tuo profilo</div>
+                                            <div class="description">
+                                                Personalizzare il tuo profilo renderà il tuo account più accattivante all'occhio per gli altri utenti.
+                                            </div>
+                                        </div>
+                                        <div class="extra content">
+                                            <span>
+                                                Personalizzati.
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <a class="card" href="../../profilo/">
+                                        <div class="content">
+                                            <div class="header">Proponiti per un lavoro</div>
+                                            <div class="description">
+                                                Crea un lavoro ed inizia a lavorare grazie a Compelo.
+                                            </div>
+                                        </div>
+                                        <div class="extra content">
+                                            <span>
+                                                Un piccolo click adesso, grandi lavori domani.
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <a class="card" href="../../offerte/">
+                                        <div class="content">
+                                            <div class="header">Cerca un lavoro</div>
+                                            <div class="description">
+                                                Cerchi un Idraulico? Un Muratore? Nessun problema, Compelo è qui per aiutarti.
+                                            </div>
+                                        </div>
+                                        <div class="extra content">
+                                            <span>
+                                                Cerca il lavoratore che fa per te adesso.
+                                            </span>
+                                        </div>
+                                    </a>     
+                                </div>
+                            <?php
+                        } else {
+                            //Ho creato delle prenotazioni
+                            ?>
+                                <p class="lead">
+                                    Visualizza tutte le prenotazioni che ti sei impegnato di portare avanti.
+                                </p>
+                            <?php
+                            if($usr["livello"] == "Completo") {
+                                ?>
+                                    <div class="ui two item menu">
+                                        <a class="item active" href="./">Create da Me</a>
+                                        <a class="item" href="#">Dirette a Me</a>
+                                    </div>
+                                <?php
+                            } else {
+                                ?>
+                                    <div class="ui two item menu">
+                                        <a class="item active" href="./">Create da Me</a>
+                                        <a class="item disabled" href="#">Dirette a Me</a>
+                                    </div>
+                                <?php
+                            }
+                            ?>
+                                <div class="ui items">
+                                    <?php
+                                        for($i = 0; $i < count($risultatoPrenotazioniMie); $i++) {
+                                            $lavoro = getLavoroPerID($risultatoPrenotazioniMie[$i]["idLavoro"]);
+                                            $utente = getUserByID($lavoro["idUtente"]);
+
+                                            $color = "green";
+
+                                            switch ($risultatoPrenotazioniMie[$i]["stato"]) {
+                                                case statusRichiesto:
+                                                    $color = "orange";
+                                                    break;
+                                                case statusAccettato:
+                                                    $color = "green";
+                                                    break;
+                                                case statusInProgresso:
+                                                    $color = "blue";
+                                                    break;
+                                                case statusDaPagare:
+                                                    $color = "red";
+                                                    break;
+                                                default:
+                                                    $color = "grey";
+                                                    break;
+                                                }
+
+                                            echo '
+                                            <div class="item">
+                                                <div class="content">
+                                                    <div class="header">'.$lavoro["titolo"].'</div>
+                                                    <div class="description">
+                                                        <p>'.$utente["nome"].' '.$utente["cognome"].'</p>
+                                                    </div>
+                                                    <div class="meta">
+                                                        <h4 class="ui '.$color.' header">'.$risultatoPrenotazioniMie[$i]["stato"].'</h4>
+                                                    </div>
+                                                    <div class="extra">
+                                                        <button class="ui button"><i class="far fa-comments"></i></button>
+                                                        Accedi alla chat
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            ';
+                                        }
+                                    ?>
+                                </div>
+                            <?php
+                        }
+                    ?>
                 </div>
             </div>
         </div>
