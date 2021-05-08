@@ -51,7 +51,7 @@
                 </div>
             </div>
         
-        <div class="ui stackable container">
+        <div class="ui stackable container" method="POST" action="../../php/add-recensione.php">
             <div class="ui message">
                 <div class="six wide right floated column">
                     <img class="usrImage" src="../assets/user.png">
