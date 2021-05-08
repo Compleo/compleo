@@ -185,7 +185,7 @@
                                     <?php
                                         for($i = 0; $i < count($richieste[1]); $i++) {
                                             $lavoro = getLavoroPerID($richieste[1][$i]["idLavoro"]);
-                                            $utente = getUserByID($lavoro["idUtente"]);
+                                            $utente = getUserByID($richieste[1][$i]["idRichiedente"]);
 
                                             $color = "green";
 
@@ -212,7 +212,7 @@
                                                 <div class="content">
                                                     <div class="header">'.$lavoro["titolo"].'</div>
                                                     <div class="description">
-                                                        <p>'.$utente["nome"].' '.$utente["cognome"].'</p>
+                                                        <a class="header" href="../../profilo/esplora?usr='.strtolower($utente["nome"].".".$utente["cognome"]).'"><p>'.$utente["nome"].' '.$utente["cognome"].'</p></a>
                                                     </div>
                                                     <div class="meta">
                                                         <h4 class="ui '.$color.' header">'.$richieste[1][$i]["stato"].'</h4>
