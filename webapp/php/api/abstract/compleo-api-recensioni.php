@@ -46,7 +46,15 @@
     }
 
     function addRecensione($recID, $redID, $voto, $titolo, $testo) {
-        //TODO: IMPLEMENTA
+        $data_array = array(
+            "recID"      => $recID,
+            "redID"      => $redID,
+            "testo"      => $testo,
+            "titolo"      => $titolo,
+            "voto"      => $voto,
+          );
+
+          callApiPUT(recensioneRoor, $data_array);
     }
 
     function getRecensioneByID($id) {

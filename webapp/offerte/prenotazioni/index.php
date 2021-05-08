@@ -47,7 +47,7 @@
                     <a class="item" href="../../">
                         Home
                     </a>
-                    <a class="active item" href="./">
+                    <a class="active item" href="../">
                         Offerte
                     </a>
                     <div class="right menu">
