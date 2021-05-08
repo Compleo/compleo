@@ -14,6 +14,8 @@
         header("location: ../../");
     }
 
+    $usr = $_SESSION['datiUtente'];
+
     //PAGINA CHE VISUALIZZA LE MIE PRENOTAZIONI
 ?>
 
@@ -54,7 +56,8 @@
                                         <i class="dropdown icon"></i>
                                         <div class="menu">
                                             <div class="header">'.$usr["nome"].' '.$usr["cognome"].'</div>
-                                            <a class="item" href="../../profilo/"><i class="address card icon"></i>Profilo</a>
+                                            <a class="item" href="../../profilo"><i class="address card icon"></i>Profilo</a>
+                                            <a class="active item" href="./"><i class="money bill alternate icon"></i>Prenotazioni</a>
                                             <a class="item" href="../../chat"><i class="comment icon"></i>Chat</a>
                                             <a class="item" href="../../php/logout.php"><i class="sign out alternate icon"></i>Esci</a>
                                         </div>
@@ -124,6 +127,18 @@
                                         </div>
                                     </a>     
                                 </div>
+                                <?php
+                                    if($usr["livello"] == "Completo") {
+                                        ?>
+                                            <div class="ui two item menu">
+                                                <a class="item" href="./">Create da Me</a>
+                                                <a class="item active" href="./dirette.php">Dirette a Me</a>
+                                            </div>
+                                        <?php
+                                    } else {
+                                        header("locatioin: ./");
+                                    }
+                                    ?>
                             <?php
                         } else {
                             //Ho creato delle prenotazioni
@@ -135,8 +150,8 @@
                             if($usr["livello"] == "Completo") {
                                 ?>
                                     <div class="ui two item menu">
-                                        <a class="item active" href="./">Create da Me</a>
-                                        <a class="item" href="./dirette.php">Dirette a Me</a>
+                                        <a class="item" href="./">Create da Me</a>
+                                        <a class="item active" href="./dirette.php">Dirette a Me</a>
                                     </div>
                                 <?php
                             } else {

@@ -58,7 +58,8 @@
                                         <i class="dropdown icon"></i>
                                         <div class="menu">
                                             <div class="header">'.$usr["nome"].' '.$usr["cognome"].'</div>
-                                            <a class="item" href="../../profilo/"><i class="address card icon"></i>Profilo</a>
+                                            <a class="item" href="../../profilo"><i class="address card icon"></i>Profilo</a>
+                                            <a class="active item" href="./"><i class="money bill alternate icon"></i>Prenotazioni</a>
                                             <a class="item" href="../../chat"><i class="comment icon"></i>Chat</a>
                                             <a class="item" href="../../php/logout.php"><i class="sign out alternate icon"></i>Esci</a>
                                         </div>
@@ -128,30 +129,48 @@
                                         </div>
                                     </a>     
                                 </div>
-                            <?php
+                                <?php
+                                    if($usr["livello"] == "Completo") {
+                                        ?>
+                                            <div class="ui two item menu">
+                                                <a class="item active" href="./">Create da Me</a>
+                                                <a class="item" href="./dirette.php">Dirette a Me</a>
+                                            </div>
+                                        <?php
+                                    } else {
+                                        ?>
+                                            <div class="ui two item menu">
+                                                <a class="item active" href="./">Create da Me</a>
+                                                <a class="item disabled" href="./dirette.php">Dirette a Me</a>
+                                            </div>
+                                        <?php
+                                    }
+                                    ?>
+                                <?php
                         } else {
                             //Ho creato delle prenotazioni
+                            
                             ?>
                                 <p class="lead">
                                     Visualizza tutte le prenotazioni che ti sei impegnato di portare avanti.
                                 </p>
-                            <?php
-                            if($usr["livello"] == "Completo") {
-                                ?>
-                                    <div class="ui two item menu">
-                                        <a class="item active" href="./">Create da Me</a>
-                                        <a class="item" href="#">Dirette a Me</a>
-                                    </div>
                                 <?php
-                            } else {
+                                    if($usr["livello"] == "Completo") {
+                                        ?>
+                                            <div class="ui two item menu">
+                                                <a class="item active" href="./">Create da Me</a>
+                                                <a class="item" href="./dirette.php">Dirette a Me</a>
+                                            </div>
+                                        <?php
+                                    } else {
+                                        ?>
+                                            <div class="ui two item menu">
+                                                <a class="item active" href="./">Create da Me</a>
+                                                <a class="item disabled" href="./dirette.php">Dirette a Me</a>
+                                            </div>
+                                        <?php
+                                    }
                                 ?>
-                                    <div class="ui two item menu">
-                                        <a class="item active" href="./">Create da Me</a>
-                                        <a class="item disabled" href="./dirette.php">Dirette a Me</a>
-                                    </div>
-                                <?php
-                            }
-                            ?>
                                 <div class="ui items">
                                     <?php
                                         for($i = 0; $i < count($risultatoPrenotazioniMie); $i++) {

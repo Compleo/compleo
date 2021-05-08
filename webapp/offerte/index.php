@@ -139,7 +139,8 @@
                                         <i class="dropdown icon"></i>
                                         <div class="menu">
                                             <div class="header">'.$usr["nome"].' '.$usr["cognome"].'</div>
-                                            <a class="item" href="../profilo/"><i class="address card icon"></i>Profilo</a>
+                                            <a class="item" href="../profilo"><i class="address card icon"></i>Profilo</a>
+                                            <a class="item" href="../offerte/prenotazioni"><i class="money bill alternate icon"></i>Prenotazioni</a>
                                             <a class="item" href="../chat"><i class="comment icon"></i>Chat</a>
                                             <a class="item" href="../php/logout.php"><i class="sign out alternate icon"></i>Esci</a>
                                         </div>
