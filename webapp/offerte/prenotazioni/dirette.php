@@ -14,10 +14,6 @@
         header("location: ../../");
     }
 
-    $usr = $_SESSION['datiUtente'];
-
-    $risultatoPrenotazioniMie = getPrenotazioniPerUtente($usr["id"]);
-
     //PAGINA CHE VISUALIZZA LE MIE PRENOTAZIONI
 ?>
 
@@ -140,63 +136,15 @@
                                 ?>
                                     <div class="ui two item menu">
                                         <a class="item active" href="./">Create da Me</a>
-                                        <a class="item" href="#">Dirette a Me</a>
+                                        <a class="item" href="./dirette.php">Dirette a Me</a>
                                     </div>
                                 <?php
                             } else {
-                                ?>
-                                    <div class="ui two item menu">
-                                        <a class="item active" href="./">Create da Me</a>
-                                        <a class="item disabled" href="./dirette.php">Dirette a Me</a>
-                                    </div>
-                                <?php
+                                header("locatioin: ./");
                             }
                             ?>
                                 <div class="ui items">
-                                    <?php
-                                        for($i = 0; $i < count($risultatoPrenotazioniMie); $i++) {
-                                            $lavoro = getLavoroPerID($risultatoPrenotazioniMie[$i]["idLavoro"]);
-                                            $utente = getUserByID($lavoro["idUtente"]);
-
-                                            $color = "green";
-
-                                            switch ($risultatoPrenotazioniMie[$i]["stato"]) {
-                                                case statusRichiesto:
-                                                    $color = "orange";
-                                                    break;
-                                                case statusAccettato:
-                                                    $color = "green";
-                                                    break;
-                                                case statusInProgresso:
-                                                    $color = "blue";
-                                                    break;
-                                                case statusDaPagare:
-                                                    $color = "red";
-                                                    break;
-                                                default:
-                                                    $color = "grey";
-                                                    break;
-                                                }
-
-                                            echo '
-                                            <div class="item">
-                                                <div class="content">
-                                                    <div class="header">'.$lavoro["titolo"].'</div>
-                                                    <div class="description">
-                                                        <p>'.$utente["nome"].' '.$utente["cognome"].'</p>
-                                                    </div>
-                                                    <div class="meta">
-                                                        <h4 class="ui '.$color.' header">'.$risultatoPrenotazioniMie[$i]["stato"].'</h4>
-                                                    </div>
-                                                    <div class="extra">
-                                                        <button class="ui button"><i class="far fa-comments"></i></button>
-                                                        Accedi alla chat
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            ';
-                                        }
-                                    ?>
+                                    
                                 </div>
                             <?php
                         }
@@ -217,3 +165,4 @@
         
     </body>
 </html>
+
