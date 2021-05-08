@@ -64,7 +64,23 @@ error_reporting(E_ALL);
         <div class="ui stackable container">
             <div class="ui message">
                 <div class="six wide right floated column">
-                    <img class="usrImage" src="../assets/user.png">
+                <?php 
+                    if($usr['sesso']=='Uomo')
+                    {
+                        echo '<img class="usrImage" src="../assets/user-uomo.png">';
+                    }
+                    elseif($usr['sesso'] == 'Donna')
+                    {
+                        echo '<img class="usrImage" src="../assets/user-donna.png">';
+                    }elseif($usr['sesso'] == 'Altro')
+                    {
+                        echo '<img class="usrImage" src="../assets/user.png">';
+                    }
+                    else
+                    {
+                        echo '<img class="usrImage" src="../assets/user.png">';
+                    }
+                ?>
                     <div class="userInfo">
                         <h1 class="ui huge header">
                             <?php
