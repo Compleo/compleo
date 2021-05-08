@@ -22,7 +22,7 @@
 
     $id = $_SESSION['datiUtente']['id'];
     $idLav = $_GET['il'];
-    $scelta = json_decode($_GET['j']);
+    $scelta = addslashes($_GET['j']);
 
     nuovaPrenotazione($id, $idLav, $scelta);
 
