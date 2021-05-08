@@ -15,6 +15,7 @@
 
     const prenotazioneRoot = root."prenotazione";
     const prenotazioneGetRoot = prenotazioneRoot."/get";
+    const prenotazioneGetAll = prenotazioneGetRoot."/all";
     const prenotazioneUpdateRoot = prenotazioneRoot."/update";
 
     const statusRichiesto = "Richiesta";
@@ -58,6 +59,17 @@
           );
 
           $api_call = callAPI('GET', prenotazioneGetRoot, $data_array);
+          $response = json_decode($api_call, true);
+          
+          return $response;
+    }
+    
+    function getPrenotazioniDaIDLavoro($idLav) {
+        $data_array = array(
+            "idLav"      => $idLav,
+          );
+
+          $api_call = callAPI('GET', prenotazioneGetAll, $data_array);
           $response = json_decode($api_call, true);
           
           return $response;

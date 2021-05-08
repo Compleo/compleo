@@ -17,6 +17,17 @@
     $usr = $_SESSION['datiUtente'];
 
     //PAGINA CHE VISUALIZZA LE MIE PRENOTAZIONI
+
+    $lavoriMiei = listLavoriPerIDLavoratore($usr["id"]);
+
+    $richieste = array();
+
+    for($i = 0; $i < count($lavoriMiei); $i++) {
+        //PRENDO TUTTE LE RICHIESTE COLLEGATE AL LAVORO IESIMO
+        $richiesteTMP = getPrenotazioniDaIDLavoro($lavoriMiei[$i]["id"]);
+
+        array_push($richieste, $richiesteTMP);
+    }
 ?>
 
 <html lang="it">
@@ -74,7 +85,7 @@
                         Le tue prenotazioni
                     </h2>
                     <?php
-                        if(!isset($risultatoPrenotazioniMie))
+                        if(!isset($richieste) && count($richieste) == 0)
                         {
                             //Non ho fatto ancora nessuna recensione
                             ?>
@@ -139,6 +150,9 @@
                                         header("locatioin: ./");
                                     }
                                     ?>
+                                <p class="lead">
+                                    Torna qui quando sarai stato contattato da un utente.
+                                </p>
                             <?php
                         } else {
                             //Ho creato delle prenotazioni
@@ -159,7 +173,50 @@
                             }
                             ?>
                                 <div class="ui items">
-                                    
+                                    <?php
+                                        for($i = 0; $i < count($richieste[1]); $i++) {
+                                            $lavoro = getLavoroPerID($richieste[1][$i]["idLavoro"]);
+                                            $utente = getUserByID($lavoro["idUtente"]);
+
+                                            $color = "green";
+
+                                            switch ($richieste[1][$i]["stato"]) {
+                                                case statusRichiesto:
+                                                    $color = "orange";
+                                                    break;
+                                                case statusAccettato:
+                                                    $color = "green";
+                                                    break;
+                                                case statusInProgresso:
+                                                    $color = "blue";
+                                                    break;
+                                                case statusDaPagare:
+                                                    $color = "red";
+                                                    break;
+                                                default:
+                                                    $color = "grey";
+                                                    break;
+                                                }
+
+                                            echo '
+                                            <div class="item">
+                                                <div class="content">
+                                                    <div class="header">'.$lavoro["titolo"].'</div>
+                                                    <div class="description">
+                                                        <p>'.$utente["nome"].' '.$utente["cognome"].'</p>
+                                                    </div>
+                                                    <div class="meta">
+                                                        <h4 class="ui '.$color.' header">'.$richieste[1][$i]["stato"].'</h4>
+                                                    </div>
+                                                    <div class="extra">
+                                                        <button class="ui button"><i class="far fa-comments"></i></button>
+                                                        Accedi alla chat
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            ';
+                                        }
+                                    ?>
                                 </div>
                             <?php
                         }

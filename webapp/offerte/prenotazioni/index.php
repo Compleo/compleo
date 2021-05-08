@@ -1,6 +1,6 @@
 <?php
     session_start();
-    
+
     include_once("../../php/api/abstract/compelo-api-prenotazione.php");
     include_once("../../php/api/abstract/compleo-api-activity.php");
     include_once("../../php/api/abstract/compleo-api-user.php");
@@ -141,6 +141,9 @@
                                         <?php
                                     }
                                     ?>
+                                <p class="lead">
+                                    Torna qui quando avrai creato una prenotazione.
+                                </p>
                                 <?php
                         } else {
                             //Ho creato delle prenotazioni
