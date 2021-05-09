@@ -27,7 +27,7 @@
         header("location: ../../");
     }
 
-    function nuovaCard($disponibilitaAt, $idLav) {
+    function nuovaCard($disponibilitaAt, $idLav, $idUtente) {
         $giorno = $disponibilitaAt["'giorno'"];
         $oraInizio = $disponibilitaAt["'oraInizio'"];
         $oraFine = $disponibilitaAt["'oraFine'"];
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="extra content">
-                    <a class="ui header" href="../../php/add-prenotazione.php?j='.$json.'&il='.$idLav.'"><button class="ui button" style="margin: 10px;">Seleziona</button></a>
+                    <a class="ui header" href="../../php/add-prenotazione.php?j='.$json.'&il='.$idLav.'&iu='.$idUtente.'"><button class="ui button" style="margin: 10px;">Seleziona</button></a>
                 </div>
             </div>
             
@@ -141,7 +141,7 @@
                             $assoc = json_decode($lavoro["disponibilita"], true);
 
                             for($i = 0; $i < count($assoc); $i++) {
-                                echo nuovaCard($assoc[$i], $idLav);
+                                echo nuovaCard($assoc[$i], $idLav, $idUtente);
                             }
                         ?>
                     </div>

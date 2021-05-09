@@ -15,10 +15,6 @@
 //TODO: localhost DIVENTA L'IP DI COMPLEO
 var exampleSocket = new WebSocket("ws://localhost:3020");
 
-exampleSocket.onmessage = function (event) {
-    //Messaggio ricevuto
-}
-
 window.onbeforeunload = function(){
     //Chiusura connessione
     if(exampleSocket.OPEN == 1) {
@@ -32,10 +28,19 @@ function RegMe(usrID) {
     exampleSocket.send("REGME " + usrID);
 }
 
-function NuovoMessaggio() {
+function EliminaMessaggio(idMessaggio) {
+    exampleSocket.send("REMMESSAGE " + idMessaggio);
+}
+
+function NuovoMessaggio(idRichiedente, idDestinatario, tipo, contenuto) {
     //TODO: IMPLEMENTA
 }
 
 function GetMessaggi(chatID) {
-    //TODO: IMPLEMENTA
+    exampleSocket.send("GETMESSAGES " + chatID);
+
+    exampleSocket.onmessage = function (event) {
+        //Messaggio ricevuto
+        return JSON.parse(event.data);
+    }    
 }
