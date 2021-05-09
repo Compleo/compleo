@@ -31,3 +31,11 @@ window.onbeforeunload = function(){
 function RegMe(usrID) {
     exampleSocket.send("REGME " + usrID);
 }
+
+function NuovoMessaggio() {
+    //TODO: IMPLEMENTA
+}
+
+function GetMessaggi(chatID) {
+    //TODO: IMPLEMENTA
+}

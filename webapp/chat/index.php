@@ -4,6 +4,8 @@
     if(isset($_GET['idChat'])) {
         $idChat = $_GET['idChat'];
     }
+
+    include_once("../php/api/abstract/compleo-api-chat.php");
 ?>
 
 <html lang="it">
@@ -47,6 +49,8 @@
                                         </div>
                                     </div>   
                                 ';
+
+                                $chat = GetChatsUtenteRichiedente($usr["id"]);
                             } else {
                                 header("location: ../");
                             }
