@@ -69,5 +69,6 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
         <script src="../assets/semantic/semantic.min.js"></script>
+        <script src="./js/client.js"></script>
     </body>
 </html>
