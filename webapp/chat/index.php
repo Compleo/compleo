@@ -70,5 +70,12 @@
             crossorigin="anonymous"></script>
         <script src="../assets/semantic/semantic.min.js"></script>
         <script src="./js/client.js"></script>
+        <script>
+            exampleSocket.onopen = function (event) {
+                console.log("Connessione stabilita con il server realtime");
+
+                RegMe(<?php echo $usr["id"]; ?>);
+            }
+        </script>
     </body>
 </html>

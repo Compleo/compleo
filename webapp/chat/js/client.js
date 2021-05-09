@@ -13,13 +13,7 @@
 */
 
 //TODO: localhost DIVENTA L'IP DI COMPLEO
-var exampleSocket = new WebSocket("wss://localhost:3020");
-
-exampleSocket.onopen = function (event) {
-    console.log("Connessione stabilita con il server realtime");
-
-    //Allo stabilimento della connessione aspetto che il client invii un messaggio
-}
+var exampleSocket = new WebSocket("ws://localhost:3020");
 
 exampleSocket.onmessage = function (event) {
     //Messaggio ricevuto
@@ -28,6 +22,12 @@ exampleSocket.onmessage = function (event) {
 window.onbeforeunload = function(){
     //Chiusura connessione
     if(exampleSocket.OPEN == 1) {
+        exampleSocket.send("REME");
+
         exampleSocket.close();
     }
+}
+
+function RegMe(usrID) {
+    exampleSocket.send("REGME " + usrID);
 }
