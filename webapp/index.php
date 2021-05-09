@@ -65,7 +65,7 @@
         <link rel="stylesheet" type="text/css" href="./assets/semantic/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="./assets/style.css?version=1000">
         <link rel="stylesheet" type="text/css" href="./assets/bootstrap-modals.css">
-        <link rel="stylesheet" type="text/css" href="../assets/bootstrap-grid.min.css">
+        <link rel="stylesheet" type="text/css" href="./assets/bootstrap-grid.min.css">
         <style>
             .card{
                 text-decoration: none;

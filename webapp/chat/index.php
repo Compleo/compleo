@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    if(isset($_GET['idChat'])) {
+        $idChat = $_GET['idChat'];
+    }
 ?>
 
 <html lang="it">
@@ -36,7 +40,7 @@
                                         <i class="dropdown icon"></i>
                                         <div class="menu">
                                             <div class="header">'.$usr["nome"].' '.$usr["cognome"].'</div>
-                                            <a class="item" href="./"><i class="address card icon"></i>Profilo</a>
+                                            <a class="item" href="../profilo"><i class="address card icon"></i>Profilo</a>
                                             <a class="item" href="../offerte/prenotazioni"><i class="money bill alternate icon"></i>Prenotazioni</a>
                                             <a class="active item" href="./"><i class="comment icon"></i>Chat</a>
                                             <a class="item" href="../php/logout.php"><i class="sign out alternate icon"></i>Esci</a>
@@ -44,11 +48,7 @@
                                     </div>   
                                 ';
                             } else {
-                                echo '
-                                    <a class="item" href="../profilo/login.php">
-                                        Login | Registrati
-                                    </a>   
-                                ';
+                                header("location: ../");
                             }
                         ?>
                     </div>
