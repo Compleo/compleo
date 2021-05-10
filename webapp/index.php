@@ -69,6 +69,7 @@
         <link href="../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
   <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
         <link href="../assets/css/style.css" rel="stylesheet">
+        
         <style>
             .card{
                 text-decoration: none;

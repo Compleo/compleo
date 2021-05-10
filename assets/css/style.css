@@ -8,6 +8,8 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+/*my style*/
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
@@ -1824,4 +1826,18 @@ section {
     text-align: center;
     padding: 2px 0;
   }
+}
+.mobile-nav-overly{
+  position:absolute;
+  top: 0px;
+  right:0px;
+}
+
+@media(max-width:540px){
+  .nav-menu{
+    display:none;
+  }
+}
+body{
+  overflow-x: hidden;
 }
