@@ -20,20 +20,15 @@
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="../assets/loginStyle.css">
+        <link rel="stylesheet" type="text/css" href="./../assets/bootstrap-modals.css">
+        <link rel="stylesheet" type="text/css" href="./../assets/bootstrap-grid.min.css">
+        <link href="../../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+        <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="../../assets/css/style.css" rel="stylesheet">
     </head>
     <body>
         <!-- MENU !-->
-            <div class="ui large top fixed stackable menu">
-                <div class="ui container">
-                    <a class="item" href="../../"><img src="../assets/logo.png"></a>
-                    <a class="item" href="../">
-                        Home
-                    </a>
-                    <a class="item" href="../offerte/">
-                        Offerte
-                    </a>
-                </div>
-            </div>
+            <?php include_once('navbar.php'); ?>
 
             <div class="ui middle aligned grid child">
                 <div class="column">
@@ -131,6 +126,7 @@
                 </div>
             </div>
 
+            <?php include_once('footer.php'); ?>
 
         <!-- JS !-->
         <script

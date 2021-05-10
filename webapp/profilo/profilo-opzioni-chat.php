@@ -14,43 +14,15 @@
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="../assets/style.css?version=-1">
+        <link rel="stylesheet" type="text/css" href="./../assets/bootstrap-modals.css">
+        <link rel="stylesheet" type="text/css" href="./../assets/bootstrap-grid.min.css">
+        <link href="../../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+        <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="../../assets/css/style.css" rel="stylesheet">
     </head>
     <body>
                <!-- MENU !-->
-               <div class="ui large top fixed stackable menu">
-                <div class="ui container">
-                    <a class="item" href="../.."><img src="../assets/logo.png"></a>
-                    <a class="item" href="../">
-                        Home
-                    </a>
-                    <a class="item" href="../offerte/">
-                        Offerte
-                    </a>
-                    <div class="right menu">
-                        <?php
-                            if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
-                                $usr = $_SESSION['datiUtente'];
-                                echo '
-                                <div class="ui simple dropdown item">
-                                    <i class="user icon"></i>
-                                    <i class="dropdown icon"></i>
-                                    <div class="menu">
-                                        <div class="header">'.$usr["nome"].' '.$usr["cognome"].'</div>
-                                        <a class="active item" href="./"><i class="address card icon"></i>Profilo</a>
-                                        <a class="item" href="../offerte/prenotazioni"><i class="money bill alternate icon"></i>Prenotazioni</a>
-                                        <a class="item" href="../chat"><i class="comment icon"></i>Chat</a>
-                                        <a class="item" href="../php/logout.php"><i class="sign out alternate icon"></i>Esci</a>
-                                    </div>
-                                </div>      
-                                ';
-                            } else {
-                                header("location: ./login.php");
-                            }
-                        ?>
-
-                    </div>
-                </div>
-            </div>
+               <?php include_once('navbar.php'); ?>
         
         <div class="ui stackable container">
             <div class="ui message">
@@ -127,6 +99,7 @@
             </div>
         </div>
 
+        <?php include_once('footer.php'); ?>
         <!-- JS !-->
         <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
