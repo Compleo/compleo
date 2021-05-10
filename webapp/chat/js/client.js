@@ -15,6 +15,10 @@
 //TODO: localhost DIVENTA L'IP DI COMPLEO
 var exampleSocket = new WebSocket("ws://localhost:3020");
 
+exampleSocket.onmessage = function (event) {
+    //Messaggio ricevuto
+}    
+
 window.onbeforeunload = function(){
     //Chiusura connessione
     if(exampleSocket.OPEN == 1) {
@@ -38,9 +42,4 @@ function NuovoMessaggio(idRichiedente, idDestinatario, tipo, contenuto) {
 
 function GetMessaggi(chatID) {
     exampleSocket.send("GETMESSAGES " + chatID);
-
-    exampleSocket.onmessage = function (event) {
-        //Messaggio ricevuto
-        return JSON.parse(event.data);
-    }    
 }
