@@ -183,13 +183,13 @@
                             ?>
                                 <div class="ui items">
                                     <?php
-                                        for($i = 0; $i < count($richieste[1]); $i++) {
-                                            $lavoro = getLavoroPerID($richieste[1][$i]["idLavoro"]);
-                                            $utente = getUserByID($richieste[1][$i]["idRichiedente"]);
+                                        for($i = 0; $i < count($richieste[0]); $i++) {
+                                            $lavoro = getLavoroPerID($richieste[0][$i]["idLavoro"]);
+                                            $utente = getUserByID($richieste[0][$i]["idRichiedente"]);
 
                                             $color = "green";
 
-                                            switch ($richieste[1][$i]["stato"]) {
+                                            switch ($richieste[0][$i]["stato"]) {
                                                 case statusRichiesto:
                                                     $color = "orange";
                                                     break;
@@ -215,7 +215,7 @@
                                                         <a class="header" href="../../profilo/esplora?usr='.strtolower($utente["nome"].".".$utente["cognome"]).'"><p>'.$utente["nome"].' '.$utente["cognome"].'</p></a>
                                                     </div>
                                                     <div class="meta">
-                                                        <h4 class="ui '.$color.' header">'.$richieste[1][$i]["stato"].'</h4>
+                                                        <h4 class="ui '.$color.' header">'.$richieste[0][$i]["stato"].'</h4>
                                                     </div>
                                                     <div class="extra">
                                                         <button class="ui button"><i class="far fa-comments"></i></button>
