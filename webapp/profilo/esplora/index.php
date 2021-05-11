@@ -44,9 +44,12 @@
 
         <!-- CSS !-->
         <link rel="stylesheet" type="text/css" href="../../assets/semantic/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="../../assets/style.css">
         <link rel="stylesheet" type="text/css" href="../../assets/bootstrap-modals.css">
-        <link rel="stylesheet" type="text/css" href="../../assets/style.css?version=-1">
-
+        <link rel="stylesheet" type="text/css" href="../../assets/bootstrap-grid.min.css">
+        <link href="../../../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+        <link href="../../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="../../assets/css/style.css" rel="stylesheet">
     </head>
     <body>
                <!-- MENU !-->
@@ -69,9 +72,10 @@
                                     <i class="dropdown icon"></i>
                                     <div class="menu">
                                         <div class="header">'.$usr["nome"].' '.$usr["cognome"].'</div>
-                                        <a class="item" href="../"><i class="address card icon"></i>Profilo</a>
-                                        <a class="item" href="../../chat"><i class="comment icon"></i>Chat</a>
-                                        <a class="item" href="../../php/logout.php"><i class="sign out alternate icon"></i>Esci</a>
+                                        <a class="item active" href="../"><i class="address card icon"></i>Profilo</a>
+                                        <a class="item" href="./../../offerte/prenotazioni"><i class="money bill alternate icon"></i>Prenotazioni</a>
+                                        <a class="item" href="./../../chat"><i class="comment icon"></i>Chat</a>
+                                        <a class="item" href="./../../php/logout.php"><i class="sign out alternate icon"></i>Esci</a>
                                     </div>
                                 </div>     
                                 ';
@@ -90,7 +94,23 @@
         <div class="ui stackable container">
             <div class="ui message">
                 <div class="six wide right floated column">
-                    <img class="usrImage" src="../../assets/user.png">
+                    <?php 
+                        if($response['sesso']=='Uomo')
+                        {
+                            echo '<img class="usrImage" src="../../assets/user-uomo.png">';
+                        }
+                        elseif($response['sesso'] == 'Donna')
+                        {
+                            echo '<img class="usrImage" src="../../assets/user-donna.png">';
+                        }elseif($response['sesso'] == 'Altro')
+                        {
+                            echo '<img class="usrImage" src="../../assets/user.png">';
+                        }
+                        else
+                        {
+                            echo '<img class="usrImage" src="../../assets/user.png">';
+                        }
+                    ?>
                     <div class="userInfo">
                         <h1 class="ui huge header">
                             <?php

@@ -42,11 +42,7 @@
                                     </div>   
                                 ';
                             } else {
-                                echo '
-                                    <a class="item" href="./../profilo/login.php">
-                                        Login | Registrati
-                                    </a>   
-                                ';
+                                header("location: ../");
                             }
                         ?>
                     </div>

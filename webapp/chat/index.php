@@ -28,7 +28,7 @@
     </head>
     <body>
         <!-- MENU !-->
-            <?php include_once('navbar.php'); ?>
+        <?php include_once('navbar.php'); ?>
         <div class="ui stackable container">
             <div class="ui message">
                 <div class="six wide right floated column">
