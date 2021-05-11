@@ -14,6 +14,8 @@
 
 //TODO: localhost DIVENTA L'IP DI COMPLEO
 var exampleSocket = new WebSocket("ws://localhost:3020");
+let idMio = -1;
+let chatCorrente = -1;
 
 exampleSocket.onmessage = function (event) {
     //Messaggio ricevuto
@@ -30,16 +32,20 @@ window.onbeforeunload = function(){
 
 function RegMe(usrID) {
     exampleSocket.send("REGME " + usrID);
+
+    idMio = usrID;
 }
 
-function NuovoMessaggio(idRichiedente, idDestinatario, tipo, contenuto) {
-    //TODO: IMPLEMENTA
+function NuovoMessaggio(contenuto) {
+    exampleSocket.send("ADDMESSAGE " + contenuto);
 }
 
 function ChangeCurrentChat(idChat) {
     exampleSocket.send("CHANGECHAT " + idChat);
 
     GetMessaggi(idChat);
+
+    chatCorrente = idChat;
 }
 
 function GetMessaggi(chatID) {
@@ -61,5 +67,13 @@ $( "#msgBtn" ).click(function() {
 
     $('#msg').val("");
 
-    //TODO: NUOVO MESSAGGIO
+    if(messaggio != "" && chatCorrente != -1) {
+        NuovoMessaggio(messaggio);
+    }
 });
+
+var intervalId = setInterval(function() {
+    if(chatCorrente != -1) {
+        GetMessaggi(chatCorrente);
+    }
+  }, 5000);
