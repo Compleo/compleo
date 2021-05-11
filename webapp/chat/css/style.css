@@ -4,5 +4,25 @@
 
 .chat {
     height:50em;
-    width: 100%;
+    position: relative; 
+}
+
+.ch {
+    position: absolute; 
+    bottom: 0; 
+    width: 100%; 
+}
+
+.snd {
+    border-radius: 30%;
+}
+
+.txt {
+    width: 25em;
+}
+
+@media only screen and (max-width: 768px) {
+    .txt {
+        width: 5%;
+    }
 }

@@ -110,6 +110,16 @@
                             <div class="ui segment eleven wide column row">
                                 <!-- CHAT !-->
                                 <div class="chat">
+                                    <div class="ms">
+                                        <!-- MESSAGGI !-->
+                                    </div>
+                                    <div class="ui center aligned grid ch">
+                                        <!-- BOTTOM !-->
+                                        <div class="ui input focus inp">
+                                            <input class="txt" id="msg" type="text" placeholder="Messaggio...">
+                                            <button class="ui btn"><i class="fas fa-paper-plane fa-lg"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

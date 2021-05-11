@@ -32,10 +32,6 @@ function RegMe(usrID) {
     exampleSocket.send("REGME " + usrID);
 }
 
-function EliminaMessaggio(idMessaggio) {
-    exampleSocket.send("REMMESSAGE " + idMessaggio);
-}
-
 function NuovoMessaggio(idRichiedente, idDestinatario, tipo, contenuto) {
     //TODO: IMPLEMENTA
 }
