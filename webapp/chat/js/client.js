@@ -13,7 +13,7 @@
 */
 
 //TODO: localhost DIVENTA L'IP DI COMPLEO
-var exampleSocket = new WebSocket("ws://localhost:3020");
+var exampleSocket = new WebSocket("wss://compleo-ja.it:3020");
 let idMio = -1;
 let chatCorrente = -1;
 let msg = 0;
