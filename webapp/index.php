@@ -97,7 +97,7 @@
                         <div class="ui dividing huge header">Alcuni consigli per incominciare</div>
                     </center>
                     <br>
-                    <div class="ui centered cards"> 
+                    <div class="ui cards"> 
                         <a class="card" href="./profilo/registrati.php">
                             <div class="content">
                                 <div class="header">Crea il tuo primo account</div>
@@ -149,7 +149,7 @@
                                     Cerca il lavoratore che fa per te adesso.
                                 </span>
                             </div>
-                        </a>     
+                        </a>
                     </div>
                     <br>
                     <center>
