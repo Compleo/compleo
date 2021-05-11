@@ -26,8 +26,7 @@
                     </a>
                     <div class="right menu">
                         <?php
-                            if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
-                                $usr = $_SESSION['datiUtente'];
+
                                 echo '
                                     <div class="ui simple dropdown item">
                                         <i class="user icon"></i>
@@ -41,9 +40,6 @@
                                         </div>
                                     </div>   
                                 ';
-                            } else {
-                                header("location: ../");
-                            }
                         ?>
                     </div>
                 </div>

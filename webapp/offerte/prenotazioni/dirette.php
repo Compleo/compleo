@@ -1,11 +1,6 @@
 <?php
     session_start();
 
-    //Error reporting
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL | E_STRICT);
-
     include_once("../../php/api/abstract/compelo-api-prenotazione.php");
     include_once("../../php/api/abstract/compleo-api-activity.php");
     include_once("../../php/api/abstract/compleo-api-user.php");

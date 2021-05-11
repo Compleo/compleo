@@ -40,6 +40,21 @@ function NuovoMessaggio(idRichiedente, idDestinatario, tipo, contenuto) {
     //TODO: IMPLEMENTA
 }
 
+function ChangeCurrentChat(idChat) {
+    exampleSocket.send("CHANGECHAT " + idChat);
+
+    GetMessaggi(idChat);
+}
+
 function GetMessaggi(chatID) {
     exampleSocket.send("GETMESSAGES " + chatID);
 }
+
+$( ".chChat" ).click(function() {
+    mi = $(this).attr("id");
+    $("#nomeUtente").text($(this).text());
+
+    ChangeCurrentChat(mi);
+
+    console.log("Cambio current chat con id " + mi);
+});
