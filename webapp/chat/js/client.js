@@ -54,3 +54,12 @@ $( ".chChat" ).click(function() {
 
     console.log("Cambio current chat con id " + mi);
 });
+
+$( "#msgBtn" ).click(function() {
+    //Invia il messaggio
+    var messaggio = $('#msg').val();
+
+    $('#msg').val("");
+
+    //TODO: NUOVO MESSAGGIO
+});

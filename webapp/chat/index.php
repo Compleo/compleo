@@ -117,7 +117,7 @@
                                         <!-- BOTTOM !-->
                                         <div class="ui input focus inp">
                                             <input class="txt" id="msg" type="text" placeholder="Messaggio...">
-                                            <button class="ui btn"><i class="fas fa-paper-plane fa-lg"></i></button>
+                                            <button class="ui btn" id="msgBtn"><i class="fas fa-paper-plane fa-lg"></i></button>
                                         </div>
                                     </div>
                                 </div>
