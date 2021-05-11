@@ -96,7 +96,7 @@
                                 <a class="active item" href="./profilo-opzioni-chat.php">Chat</a>
                                 <a class="item" href="./profilo-opzioni-contatta.php">Contatta l'assistenza</a>
                             </div>
-                            <h1>DA IMPLEMENTARE</h1>
+                            <h1 class="ui header">Niente da vedere, per ora 😉</h1>
                         </div>
                     </div>
                 </div>

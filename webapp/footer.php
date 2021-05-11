@@ -18,7 +18,7 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Link diretti</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="./">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="../">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="../#chisiamo">Chi siamo</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="../#team">Team</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="../#">Termini d'utilizzo</a></li>
@@ -45,13 +45,6 @@
     <div class="container py-4">
       <div class="copyright">
         Copyright &copy; 2021 <strong><span>Compleo</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
   </footer><!-- End Footer -->

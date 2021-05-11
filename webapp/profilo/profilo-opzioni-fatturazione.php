@@ -92,7 +92,7 @@
                     </div>
                     <div class="twelve wide stretched column">
                         <div class="ui segment">
-                            <h1>DA IMPLEMENTARE</h1>     
+                            <h1>😴😴😴😴😴😴😴😴😴</h1>     
                         </div>
                     </div>
                 </div>
