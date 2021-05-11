@@ -20,7 +20,9 @@
     include_once("../php/api/abstract/compleo-api-chat.php");
     include_once("../php/api/abstract/compleo-api-user.php");
 
-    $chats = GetChatsUtenteDestinatario($usr["id"]);
+    $chatsA = GetChatsUtenteDestinatario($usr["id"]);
+    $chatsB = GetChatsUtenteRichiedente($usr["id"]);
+
 ?>
 
 <html lang="it">
@@ -39,6 +41,7 @@
         <link rel="stylesheet" type="text/css" href="../assets/semantic/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="../assets/style.css">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/chat.css">
         <link rel="stylesheet" type="text/css" href="./../assets/bootstrap-modals.css">
         <link rel="stylesheet" type="text/css" href="./../assets/bootstrap-grid.min.css">
         <link href="../../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -69,8 +72,48 @@
                                     <!-- LISTA DELLE CHAT !-->
                                     <div class="ui dividing header"></div>
                                     <?php 
-                                        for($i = 0; $i < count($chats); $i++) {
-                                            $s = getUserByID($chats[$i]["idUtenteRichiedente"]);
+                                        if(isset($chatsA)) {
+                                            for($i = 0; $i < count($chatsA); $i++) {
+                                                $s = getUserByID($chatsA[$i]["idUtenteRichiedente"]);
+                                                $img;
+    
+                                                if($s['sesso']=='Uomo')
+                                                {
+                                                    $img = '<img class="usrImage" src="../assets/user-uomo.png">';
+                                                }
+                                                elseif($s['sesso'] == 'Donna')
+                                                {
+                                                    $img = '<img class="usrImage" src="../assets/user-donna.png">';
+                                                }
+                                                else
+                                                {
+                                                    $img = '<img class="usrImage" src="../assets/user.png">';
+                                                }
+    
+                                                echo '
+                                                <div class="ui item">
+                                                    <div class="ui tiny image">
+                                                        '.$img.'
+                                                    </div>
+                                                    <div class="ui content">
+                                                        <a class="header chChat" id="'.$chatsA[$i]["id"].'">'.$s["nome"].' '.$s["cognome"].'</a>
+                                                        <div class="meta">
+                                                            Utente di livello <b>'.$s["livello"].'</b>
+                                                        </div>
+                                                        <div class="extra">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="ui dividing header"></div>
+                                                ';
+                                            }
+                                        }
+                                        
+                                    ?>
+                                    <?php 
+                                    if(isset($chatsB)) {
+                                        for($i = 0; $i < count($chatsB); $i++) {
+                                            $s = getUserByID($chatsB[$i]["idUtenteDestinatario"]);
                                             $img;
 
                                             if($s['sesso']=='Uomo')
@@ -92,18 +135,18 @@
                                                     '.$img.'
                                                 </div>
                                                 <div class="ui content">
-                                                    <a class="header chChat" id="'.$chats[$i]["id"].'">'.$s["nome"].' '.$s["cognome"].'</a>
+                                                    <a class="header chChat" id="'.$chatsB[$i]["id"].'">'.$s["nome"].' '.$s["cognome"].'</a>
                                                     <div class="meta">
                                                         Utente di livello <b>'.$s["livello"].'</b>
                                                     </div>
                                                     <div class="extra">
-                                                        Ciao Ciao Ciao Ciao
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="ui dividing header"></div>
                                             ';
                                         }
+                                    }   
                                     ?>
                                 </div>
                             </div>
@@ -112,6 +155,7 @@
                                 <div class="chat">
                                     <div class="ms">
                                         <!-- MESSAGGI !-->
+                                        <div id="messaggio0"></div>
                                     </div>
                                     <div class="ui center aligned grid ch">
                                         <!-- BOTTOM !-->

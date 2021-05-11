@@ -189,7 +189,7 @@
                                                         <h4 class="ui '.$color.' header">'.$richieste[0][$i]["stato"].'</h4>
                                                     </div>
                                                     <div class="extra">
-                                                        <button class="ui button"><i class="far fa-comments"></i></button>
+                                                        <a href="../../chat/"><button class="ui button"><i class="far fa-comments"></i></button></a>
                                                         Accedi alla chat
                                                     </div>
                                                 </div>

@@ -4,13 +4,16 @@
 
 .chat {
     height:50em;
+    width: 100%;
     position: relative; 
+    overflow-y: scroll;
 }
 
 .ch {
-    position: absolute; 
+    position: sticky; 
     bottom: 0; 
     width: 100%; 
+    background-color: white;
 }
 
 .snd {
